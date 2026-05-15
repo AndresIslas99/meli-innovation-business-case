@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid meet" font-family="Inter, -apple-system, sans-serif">
+  <!-- Defs -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F7F7FB"/>
+    </linearGradient>
+    <linearGradient id="meliYellow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE600"/>
+      <stop offset="1" stop-color="#FCD400"/>
+    </linearGradient>
+    <linearGradient id="meliBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2D3277"/>
+      <stop offset="1" stop-color="#1F2562"/>
+    </linearGradient>
+    <linearGradient id="dataLake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3483FA"/>
+      <stop offset="1" stop-color="#2A6CC8"/>
+    </linearGradient>
+    <linearGradient id="success" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#00A650"/>
+      <stop offset="1" stop-color="#007F3E"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2D3277"/>
+    </marker>
+    <marker id="arrow-yellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FCD400"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#2D3277" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="720" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="600" y="48" text-anchor="middle" font-size="26" font-weight="700" fill="#2D3277" letter-spacing="-0.5">
+    IA aplicada al piso · arquitectura propuesta para CEDIS MELI MX
+  </text>
+  <text x="600" y="74" text-anchor="middle" font-size="14" fill="#5A5A6A" font-style="italic">
+    Visión de corto plazo (año 1-2) — meta: autonomía operativa con &lt;10% downtime
+  </text>
+  <rect x="500" y="84" width="200" height="3" fill="url(#meliYellow)" rx="1.5"/>
+
+  <!-- Block 1: Sensores en piso -->
+  <g transform="translate(40, 140)">
+    <rect width="220" height="160" rx="14" fill="url(#meliBlue)" filter="url(#shadow)"/>
+    <text x="110" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#FFE600">①</text>
+    <text x="110" y="68" text-anchor="middle" font-size="16" font-weight="600" fill="#FFFFFF">Sensores</text>
+    <text x="110" y="88" text-anchor="middle" font-size="16" font-weight="600" fill="#FFFFFF">en piso</text>
+    <text x="110" y="118" text-anchor="middle" font-size="11" fill="#FFFFFFCC">IoT · vibración · temperatura</text>
+    <text x="110" y="134" text-anchor="middle" font-size="11" fill="#FFFFFFCC">vision · OPC UA · IO-Link</text>
+    <text x="110" y="150" text-anchor="middle" font-size="10" fill="#FFE60099">eventos &amp; señales en tiempo real</text>
+  </g>
+
+  <!-- Block 2: IA + Data Lake -->
+  <g transform="translate(330, 140)">
+    <rect width="280" height="160" rx="14" fill="url(#dataLake)" filter="url(#shadow)"/>
+    <text x="140" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#FFE600">②</text>
+    <text x="140" y="68" text-anchor="middle" font-size="16" font-weight="600" fill="#FFFFFF">IA + Data Lake</text>
+    <text x="140" y="100" text-anchor="middle" font-size="11.5" fill="#FFFFFFE0">manuales técnicos · ground truth</text>
+    <text x="140" y="116" text-anchor="middle" font-size="11.5" fill="#FFFFFFE0">histórico de fallas · SOPs</text>
+    <text x="140" y="132" text-anchor="middle" font-size="11.5" fill="#FFFFFFE0">+ modelos predictivos (RUL)</text>
+    <text x="140" y="150" text-anchor="middle" font-size="10" fill="#FFE60099">aprende, no solo registra</text>
+  </g>
+
+  <!-- Block 3: WMS unificado -->
+  <g transform="translate(680, 140)">
+    <rect width="220" height="160" rx="14" fill="url(#meliBlue)" filter="url(#shadow)"/>
+    <text x="110" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#FFE600">③</text>
+    <text x="110" y="68" text-anchor="middle" font-size="16" font-weight="600" fill="#FFFFFF">WMS unificado</text>
+    <text x="110" y="100" text-anchor="middle" font-size="11.5" fill="#FFFFFFE0">ISA-95 + OPC UA</text>
+    <text x="110" y="116" text-anchor="middle" font-size="11.5" fill="#FFFFFFE0">multi-vendor agnóstico</text>
+    <text x="110" y="132" text-anchor="middle" font-size="11.5" fill="#FFFFFFE0">orquesta robots, packing, sort</text>
+    <text x="110" y="150" text-anchor="middle" font-size="10" fill="#FFE60099">no vendor lock-in</text>
+  </g>
+
+  <!-- Block 4: Dashboards accionables -->
+  <g transform="translate(970, 140)">
+    <rect width="190" height="160" rx="14" fill="url(#success)" filter="url(#shadow)"/>
+    <text x="95" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#FFE600">④</text>
+    <text x="95" y="68" text-anchor="middle" font-size="16" font-weight="600" fill="#FFFFFF">Dashboards</text>
+    <text x="95" y="88" text-anchor="middle" font-size="16" font-weight="600" fill="#FFFFFF">accionables</text>
+    <text x="95" y="116" text-anchor="middle" font-size="11.5" fill="#FFFFFFE0">recomienda la</text>
+    <text x="95" y="132" text-anchor="middle" font-size="11.5" fill="#FFFFFFE0">siguiente decisión</text>
+    <text x="95" y="150" text-anchor="middle" font-size="10" fill="#FFE60099">no solo muestra estado</text>
+  </g>
+
+  <!-- Arrows -->
+  <line x1="265" y1="220" x2="325" y2="220" stroke="#2D3277" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="615" y1="220" x2="675" y2="220" stroke="#2D3277" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="905" y1="220" x2="965" y2="220" stroke="#2D3277" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Feedback loop -->
+  <path d="M 1065 305 Q 1065 410 950 410 L 250 410 Q 150 410 150 305" fill="none" stroke="#FCD400" stroke-width="3" stroke-dasharray="6 5" marker-end="url(#arrow-yellow)"/>
+  <rect x="510" y="395" width="180" height="32" rx="6" fill="#FFFFFF" stroke="#FCD400" stroke-width="2"/>
+  <text x="600" y="416" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2D3277">↩ Feedback loop · operador</text>
+
+  <!-- Bottom row: Outputs (3 boxes) -->
+  <g transform="translate(40, 470)">
+    <rect width="350" height="100" rx="10" fill="#FFFFFF" stroke="#D8D8E3" stroke-width="1.5"/>
+    <rect x="0" y="0" width="6" height="100" fill="#FFE600" rx="3"/>
+    <text x="22" y="32" font-size="13" font-weight="700" fill="#2D3277">Operador en campo</text>
+    <text x="22" y="55" font-size="11.5" fill="#1A1A2E">Recibe sugerencias accionables con contexto</text>
+    <text x="22" y="73" font-size="11.5" fill="#1A1A2E">completo · toma la decisión final</text>
+    <text x="22" y="91" font-size="10" font-style="italic" fill="#5A5A6A">(IA potencia el humano, no lo reemplaza)</text>
+  </g>
+
+  <g transform="translate(425, 470)">
+    <rect width="350" height="100" rx="10" fill="#FFFFFF" stroke="#D8D8E3" stroke-width="1.5"/>
+    <rect x="0" y="0" width="6" height="100" fill="#FFE600" rx="3"/>
+    <text x="22" y="32" font-size="13" font-weight="700" fill="#2D3277">Reducción tiempo diagnóstico</text>
+    <text x="22" y="55" font-size="11.5" fill="#1A1A2E">Ya validado en proyecto análogo</text>
+    <text x="22" y="73" font-size="11.5" fill="#1A1A2E">(asistencia remota encriptada Limser):</text>
+    <text x="22" y="91" font-size="11" font-weight="700" fill="#00A650">respuesta &lt;3 hrs (vs &gt;24 hrs antes)</text>
+  </g>
+
+  <g transform="translate(810, 470)">
+    <rect width="350" height="100" rx="10" fill="#FFFFFF" stroke="#D8D8E3" stroke-width="1.5"/>
+    <rect x="0" y="0" width="6" height="100" fill="#FFE600" rx="3"/>
+    <text x="22" y="32" font-size="13" font-weight="700" fill="#2D3277">KPI objetivo a 2 años</text>
+    <text x="22" y="65" font-size="22" font-weight="800" fill="#00A650">&lt; 10% downtime</text>
+    <text x="22" y="91" font-size="11" fill="#5A5A6A" font-style="italic">autonomía operativa de procesos críticos</text>
+  </g>
+
+  <!-- Bottom annotation -->
+  <text x="600" y="630" text-anchor="middle" font-size="12.5" fill="#5A5A6A">
+    Patrón replicable de proyecto Limser (IA + manuales en data lake → sugerencias al técnico) escalado a fleet CEDIS.
+  </text>
+  <text x="600" y="652" text-anchor="middle" font-size="11" fill="#8A8AA0" font-style="italic">
+    Arquitectura agnóstica: ISA-95 + OPC UA → MELI puede cambiar de vendor de robot sin reescribir el WMS.
+  </text>
+
+  <!-- Footer mark -->
+  <text x="1160" y="700" text-anchor="end" font-size="9" fill="#8A8AA0" font-family="JetBrains Mono, monospace">
+    Andrés Islas · Q3 motivacional · 2026
+  </text>
+</svg>
