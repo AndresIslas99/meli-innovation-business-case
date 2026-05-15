@@ -284,7 +284,14 @@ def render_chart(ranked, weights_norm):
         "yaxis": {"autorange": "reversed"},
         "height": 360,
     }
-    config = {"displayModeBar": False, "responsive": True}
+    config = {
+        "displayModeBar": True,
+        "modeBarButtonsToRemove": ["select2d", "lasso2d", "toggleSpikelines", "hoverClosestCartesian", "hoverCompareCartesian", "sendDataToCloud"],
+        "displaylogo": False,
+        "doubleClick": "reset",
+        "responsive": True,
+        "toImageButtonOptions": {"format": "png", "filename": "meli-ahp-scorecard"},
+    }
     Plotly.react("ahp-chart", _js([bar]), _js(layout), _js(config))
 
 

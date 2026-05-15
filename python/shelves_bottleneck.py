@@ -147,7 +147,14 @@ def render(*_args):
         "legend": {"orientation": "h", "y": -0.15, "x": 0.5, "xanchor": "center"},
         "height": 380,
     }
-    config = {"displayModeBar": False, "responsive": True}
+    config = {
+        "displayModeBar": True,
+        "modeBarButtonsToRemove": ["select2d", "lasso2d", "toggleSpikelines", "hoverClosestCartesian", "hoverCompareCartesian", "sendDataToCloud"],
+        "displaylogo": False,
+        "doubleClick": "reset",
+        "responsive": True,
+        "toImageButtonOptions": {"format": "png", "filename": "meli-bottleneck-stp"},
+    }
     Plotly.react("c2-chart", _js([bars, target_line]), _js(layout), _js(config))
 
 

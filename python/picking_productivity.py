@@ -123,7 +123,14 @@ def render(*_args):
         "showlegend": False,
         "height": 320,
     }
-    config = {"displayModeBar": False, "responsive": True}
+    config = {
+        "displayModeBar": True,
+        "modeBarButtonsToRemove": ["select2d", "lasso2d", "toggleSpikelines", "hoverClosestCartesian", "hoverCompareCartesian", "sendDataToCloud"],
+        "displaylogo": False,
+        "doubleClick": "reset",
+        "responsive": True,
+        "toImageButtonOptions": {"format": "png", "filename": "meli-picking-productivity"},
+    }
     Plotly.react("c3-chart", _js([tornado]), _js(layout), _js(config))
 
 

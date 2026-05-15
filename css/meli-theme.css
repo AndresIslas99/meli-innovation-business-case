@@ -455,3 +455,15 @@ button {
   content: '⏳';
   margin-left: 0.4em;
 }
+
+/* Hide the loading indicator once Plotly has rendered into the chart container.
+   Uses :has() selector — Plotly inserts a .plot-container or .js-plotly-plot child
+   when it renders. Once present, all widget__loading siblings/descendants get hidden. */
+.widget__chart:has(.plot-container),
+.widget__chart:has(.js-plotly-plot) {
+  /* container itself is fine; we target the loading inside it */
+}
+.widget__chart:has(.plot-container) .widget__loading,
+.widget__chart:has(.js-plotly-plot) .widget__loading {
+  display: none !important;
+}

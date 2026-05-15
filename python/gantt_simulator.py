@@ -206,7 +206,14 @@ def render(*_args):
         "showlegend": False,
         "height": 480,
     }
-    config = {"displayModeBar": False, "responsive": True}
+    config = {
+        "displayModeBar": True,
+        "modeBarButtonsToRemove": ["select2d", "lasso2d", "toggleSpikelines", "hoverClosestCartesian", "hoverCompareCartesian", "sendDataToCloud"],
+        "displaylogo": False,
+        "doubleClick": "reset",
+        "responsive": True,
+        "toImageButtonOptions": {"format": "png", "filename": "meli-gantt-roadmap"},
+    }
 
     Plotly.react("c5-chart", _js(bars + [marker_contract]), _js(layout), _js(config))
 
