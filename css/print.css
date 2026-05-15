@@ -1,0 +1,90 @@
+/* =====================================================================
+   PRINT FALLBACK · cuando el evaluador imprime a PDF desde Chrome
+   ===================================================================== */
+
+@media print {
+  /* Show all slides */
+  .slide {
+    display: block !important;
+    page-break-after: always;
+    break-after: page;
+    min-height: auto;
+    padding: 1cm 1.2cm;
+    max-width: 100%;
+  }
+  .slide:last-child { page-break-after: auto; }
+
+  /* Hide chrome */
+  .deck-header,
+  .deck-footer,
+  .toc-overlay,
+  .widget__controls,
+  .widget__hint,
+  .deck-header__btn,
+  .deck-header__nav,
+  .deck-header__toc-btn {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF;
+    color: #1A1A2E;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  h1 { font-size: 22pt; }
+  h2 { font-size: 16pt; }
+  h3 { font-size: 12pt; }
+  h4 { font-size: 11pt; }
+
+  a {
+    color: var(--meli-blue);
+    text-decoration: underline;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: var(--color-text-muted);
+    word-break: break-all;
+  }
+
+  .card, .widget, .callout {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Show widget output but not the controls */
+  .widget {
+    background: #F7F7FB;
+    border: 1px solid #D8D8E3;
+  }
+  .widget__output {
+    background: #FFFFFF;
+  }
+  .widget__chart {
+    min-height: 200px;
+  }
+
+  /* Print marker for widgets */
+  .widget::before {
+    content: "⚙ Widget interactivo — escenario representativo mostrado abajo";
+    display: block;
+    font-size: 8pt;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-bottom: 0.4em;
+  }
+
+  /* Disable animations */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Page numbers (browser dependent) */
+  @page {
+    margin: 1.2cm 1.5cm;
+    size: A4;
+  }
+}

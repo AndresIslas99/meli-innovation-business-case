@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bonus · Roadmap 18 meses MELI MX Innovación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/meli-theme.css">
+  <style>
+    .app-shell { max-width: 1100px; margin: 0 auto; padding: 2.5rem var(--gutter); }
+    .breadcrumb { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.2rem; }
+    .phase {
+      display: grid; grid-template-columns: 120px 1fr; gap: 2rem;
+      padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);
+    }
+    .phase__period { font-family: var(--font-mono); font-weight: 700; color: var(--meli-blue); font-size: 1rem; }
+    .phase__title { font-size: 1.2rem; color: var(--meli-blue); margin-bottom: 0.6rem; }
+    .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    @media (max-width: 700px) { .phase { grid-template-columns: 1fr; gap: 0.6rem; } }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+  <p class="breadcrumb"><a href="../index.html">← Volver al deck</a> · Appendix · Bonus</p>
+  <span class="brand-tag brand-tag--yellow" style="margin-bottom:0.6rem;display:inline-block;">Lectura opcional · fuera del scope del brief</span>
+  <h1>Roadmap 18 meses · MELI MX Innovación &amp; Robótica</h1>
+  <p class="text-muted">Cómo abordaría una agenda de innovación para los CEDIS MX en los próximos 18 meses, asumiendo que tengo el rol con ownership real y reporto a Brasil regional. <em>No es parte del brief; lo dejo aquí por si abre conversación durante la entrevista.</em></p>
+
+  <div class="callout">
+    <strong>Principios rectores</strong>: <em>1)</em> gates por business case (Real Options); <em>2)</em> iniciativas paralelas pero gateadas, no big-bang; <em>3)</em> aprovechar la asimetría: el case operativo más cercano a MELI MX (Locus+GEODIS Cuautitlán) está literalmente al lado de los FCs principales — pipeline de aprendizaje gratis si lo aprovechamos.
+  </div>
+
+  <!-- Mes 0-3 -->
+  <div class="phase">
+    <div>
+      <div class="phase__period">Mes 0–3</div>
+      <span class="brand-tag">Diagnóstico</span>
+    </div>
+    <div>
+      <h3 class="phase__title">Assessment exhaustivo de los 3 CEDIS principales</h3>
+      <p>Mapear bottleneck operativo, mix SKU, throughput intradiario, footprint disponible y baseline financiero (cost-per-unit fulfilled) en Tepotzotlán, Apodaca y Tlajomulco. Visita técnica + entrevistas con líderes operativos + extracción de datos del último trimestre cerrado.</p>
+      <h4>Entregables</h4>
+      <ul>
+        <li>Bottleneck map por sitio (siguiendo TOC + Little's Law).</li>
+        <li>Score de fit para 3 categorías tecnológicas (empaquetado · STP/AMR · sorter).</li>
+        <li>Lista priorizada de 4–6 iniciativas candidatas con business case high-level.</li>
+        <li>Mapa de talento universitario por sitio (continuar la investigación iniciada en este case).</li>
+      </ul>
+      <h4>Gate al final</h4>
+      <p class="text-sm">Comité de innovación (yo + líder Brasil + ops MX) prioriza 2–3 iniciativas para fase de POC. Resto entra al backlog gateado.</p>
+    </div>
+  </div>
+
+  <!-- Mes 3-6 -->
+  <div class="phase">
+    <div>
+      <div class="phase__period">Mes 3–6</div>
+      <span class="brand-tag">Pilotos rápidos</span>
+    </div>
+    <div>
+      <h3 class="phase__title">1–2 pilotos de bajo CAPEX / alto ROI</h3>
+      <p>Las dos candidatas más obvias (basado en lo que reveló este Work Sample):</p>
+      <ul>
+        <li><strong>Auto-box packaging</strong> en el FC con mayor mix dimensional. Vendors short-list: Packsize X-Series (ventaja MX directa) y Sealed Air AutoBag (ventaja por 2 plantas MX). POC contained de 6 sem por máquina. <em>Payback benchmark: 1–2 años</em>.</li>
+        <li><strong>Algoritmo de slotting</strong> en el FC más maduro en data: rebalancear ubicaciones por velocity de SKU. <strong>Cero CAPEX, alto ROI</strong>. Eleva PPF (caso 3) +30–50%, baja travel time, sube items/hr/estación. POC interno con equipo de datos.</li>
+      </ul>
+      <h4>Gate al final</h4>
+      <p class="text-sm">Métricas POC vs targets → decisión rollout. <strong>Real Options aplicado</strong>: si POC malo, no se compromete CAPEX a escala.</p>
+    </div>
+  </div>
+
+  <!-- Mes 6-12 -->
+  <div class="phase">
+    <div>
+      <div class="phase__period">Mes 6–12</div>
+      <span class="brand-tag">Rollout + 2 nuevas iniciativas</span>
+    </div>
+    <div>
+      <h3 class="phase__title">Escalado del piloto exitoso + apertura de frente STP/AMR</h3>
+      <p>En paralelo:</p>
+      <ul>
+        <li><strong>Rollout del piloto auto-box</strong> a los otros 2 CEDIS principales (si POC validó payback &lt;18mo).</li>
+        <li><strong>Implementación del algoritmo de slotting</strong> en los 3 CEDIS (CAPEX cero, gain ya validado).</li>
+        <li><strong>POC Shelves-to-Person / AMR</strong> en un sub-área del FC más maduro. Vendors short-list a investigar: Locus Robotics (probado en Cuautitlán Izcalli vía GEODIS — caso operativo a 20 km), Geek+ (referencia interna Cajamar Brasil), Quicktron (probable proveedor Cajamar). Importante: aprovechar la visita técnica al sitio GEODIS Cuautitlán como benchmark interno.</li>
+        <li><strong>Sorter upgrade</strong> en el FC con bottleneck post-pick (si el assessment lo confirma). Vendors: BEUMER, Vanderlande (via Toyota TAL), Dematic.</li>
+      </ul>
+      <h4>Métricas objetivo (cumulativas)</h4>
+      <div class="metric-grid">
+        <div class="kpi"><span class="kpi__value">12–18%</span><span class="kpi__label">↓ cost-per-unit fulfilled</span></div>
+        <div class="kpi"><span class="kpi__value">35–50%</span><span class="kpi__label">↑ picks/hr/estación (FC mejorado)</span></div>
+        <div class="kpi"><span class="kpi__value">+2 pp</span><span class="kpi__label">↑ uptime fleet promedio</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mes 12-18 -->
+  <div class="phase">
+    <div>
+      <div class="phase__period">Mes 12–18</div>
+      <span class="brand-tag">Arquitectura unificada + pipeline talento</span>
+    </div>
+    <div>
+      <h3 class="phase__title">Plataforma unificada WMS ↔ robotics + onboarding universitario</h3>
+      <ul>
+        <li><strong>Arquitectura unificada</strong> bajo ISA-95 + OPC UA: capa de comunicación común que abstrae proveedor del robot y permite intercambio futuro. Esto evita vendor lock-in y baja el costo de añadir el siguiente robot.</li>
+        <li><strong>Predictive maintenance fleet-wide</strong>: sensores + agente IA que escala alertas a técnico con contexto (RUL — Remaining Useful Life del componente). Reduce downtime no planificado, sube OEE.</li>
+        <li><strong>Programa formal con 3–4 universidades MX</strong>: prácticas profesionales + co-op + sponsored capstone projects. Universidades target por cercanía a CEDIS:
+          <ul class="text-sm">
+            <li><strong>Tepotzotlán/Cuautitlán</strong>: UPIITA-IPN, ESIME Azcapotzalco, Tec Edo. Mex./CCM, UNAM-FI.</li>
+            <li><strong>Apodaca/Monterrey</strong>: Tec MTY (Robotics &amp; Digital Systems), UANL-FIME, UDEM.</li>
+            <li><strong>Tlajomulco/GDL</strong>: Tec GDL, ITESO, Univ. Panamericana GDL.</li>
+          </ul>
+        </li>
+        <li><strong>Laboratorio conjunto sponsored</strong> con 1–2 universidades en logística automatizada (caso AGV/AMR + OPC UA) → fuente de talento adelantada + tesis aplicadas que MELI capitaliza.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="mt-3">Métricas agregadas al cierre del año 1.5</h2>
+  <div class="metric-grid">
+    <div class="card">
+      <h5>Cost-per-unit fulfilled</h5>
+      <div class="kpi"><span class="kpi__value">↓ 12–18%</span><span class="kpi__label">agregado vs baseline</span></div>
+      <p class="text-xs text-muted mt-1">Driver primario: auto-box reduce material + slotting reduce travel + STP/AMR reduce labor por unit.</p>
+    </div>
+    <div class="card">
+      <h5>Picks/hr/estación</h5>
+      <div class="kpi"><span class="kpi__value">↑ 35–50%</span><span class="kpi__label">FCs con piloto rollout</span></div>
+      <p class="text-xs text-muted mt-1">Driver: slotting (~30–40% del gain) + STP/AMR (~20–30% adicional cuando aplica).</p>
+    </div>
+    <div class="card">
+      <h5>Uptime fleet</h5>
+      <div class="kpi"><span class="kpi__value">92% → 97%+</span><span class="kpi__label">target steady state</span></div>
+      <p class="text-xs text-muted mt-1">Driver: predictive maintenance + refacciones cercanas + skill mix interno.</p>
+    </div>
+    <div class="card">
+      <h5>Payback agregado</h5>
+      <div class="kpi"><span class="kpi__value">18–24 meses</span><span class="kpi__label">iniciativas 1+2 combinadas</span></div>
+      <p class="text-xs text-muted mt-1">Coherente con benchmarks industria (Mordor, Modula): AMR &lt;24mo, packaging 1–2 años.</p>
+    </div>
+  </div>
+
+  <div class="callout callout--yellow mt-3">
+    <strong>Por qué este roadmap es diferente de "comprar lo que tiene Amazon"</strong>:
+    <em>1)</em> está gateado por business case en cada fase (Real Options) ·
+    <em>2)</em> aprovecha activos asimétricos disponibles (operación viva de Locus en Cuautitlán, plantas Sealed Air MX, pipeline universitario MX) ·
+    <em>3)</em> mantiene flexibilidad de vendor con arquitectura ISA-95 + OPC UA ·
+    <em>4)</em> incluye explícitamente la pieza de talento — sin operadores y técnicos cerca, la tecnología más cara se cae sola.
+  </div>
+
+  <p class="text-muted mt-3"><a href="../index.html">← Volver al deck principal</a></p>
+</div>
+</body>
+</html>

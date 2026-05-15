@@ -1,0 +1,122 @@
+{
+  "research_date": "2026-05-14",
+  "agent": "main_session_websearch",
+  "items": [
+    {
+      "category": "meli_cedis_announcement",
+      "title": "MELI expansion Cuautitlán + Tepotzotlán 2023",
+      "value_or_summary": "Mercado Libre rentó 3.2 millones de pies² en los submercados de Cuautitlán y Tepotzotlán durante 2023, acelerando su expansión en el mercado inmobiliario industrial de la Ciudad de México.",
+      "geography": "Mexico",
+      "year_or_date": "2023-2024",
+      "source_link": "https://www.datoz.com/2024/11/28/mercado-libre-el-gran-inquilino-de-espacios-industriales-en-cdmx/",
+      "source_title": "Mercado Libre, el gran inquilino de espacios industriales en CDMX (Datoz)",
+      "confidence": "verified_secondary"
+    },
+    {
+      "category": "meli_cedis_announcement",
+      "title": "MELI red CDMX consolidada",
+      "value_or_summary": "MELI ocupa 7.8 millones de pies² distribuidos en 5 submercados industriales de CDMX, incluyendo Tepotzotlán.",
+      "geography": "Mexico (CDMX)",
+      "year_or_date": "2024",
+      "source_link": "https://www.datoz.com/2024/11/28/mercado-libre-el-gran-inquilino-de-espacios-industriales-en-cdmx/",
+      "source_title": "Mercado Libre, el gran inquilino de espacios industriales en CDMX (Datoz)",
+      "confidence": "verified_secondary"
+    },
+    {
+      "category": "meli_cedis_announcement",
+      "title": "Nuevo FC Hidalgo 100,000 m²",
+      "value_or_summary": "Nuevo fulfillment center de 100,000 m² en Hidalgo procesará hasta 400,000 envíos/día.",
+      "geography": "Mexico (Hidalgo)",
+      "year_or_date": "2024-2025",
+      "source_link": "https://www.bloomberg.com/news/articles/2024-03-15/mercadolibre-meli-plans-more-mexico-warehouse-space-in-2024-investment",
+      "source_title": "MercadoLibre (MELI) Plans More Mexico Warehouse Space in 2024 Investment (Bloomberg)",
+      "confidence": "verified_secondary"
+    },
+    {
+      "category": "meli_kpi_publico",
+      "title": "Red logística MELI 2024 — KPIs",
+      "value_or_summary": "En 2024 MELI agregó 22 nuevos sitios logísticos; 95.1% de los envíos originaron de sus propias instalaciones; 71.8% entregados en <48 horas.",
+      "geography": "Latam",
+      "year_or_date": "2024",
+      "source_link": "https://matrixbcg.com/blogs/growth-strategy/mercadolibre",
+      "source_title": "MercadoLibre Growth Strategy and Future Prospects (Matrix BCG)",
+      "confidence": "industry_estimate"
+    },
+    {
+      "category": "meli_robotics_existing",
+      "title": "MELI Cajamar Brasil — operación Shelves-to-Person",
+      "value_or_summary": "CEDIS Cajamar (SP, Brasil) opera 334 robots Shelves-to-Person procesando ~20,000 items/día, moviendo 2,500 estanterías/día. Robots: 1m diámetro, 145 kg, 2 m/s, capacidad de carga 600 kg. Ganancia de 10-15% capacidad de almacenamiento por m². Reducción 20% en tiempo de procesamiento de orden. Expansión planeada: +234 robots adicionales (total ~568) para procesar hasta 80,000 órdenes/día. CEDIS total: ~500,000 paquetes/día.",
+      "geography": "Brazil (Cajamar, SP)",
+      "year_or_date": "2024-2025",
+      "source_link": "https://www.tecnologistica.com.br/es/especiais/tecnologia/18431/mercado-libre-implementa-sistema-inedito-de-robots-en-operacion-logistica-en-brasil/",
+      "source_title": "Mercado Libre implementa sistema inédito de robots en operación logística en Brasil (Tecnologística)",
+      "confidence": "verified_secondary"
+    },
+    {
+      "category": "meli_robotics_existing",
+      "title": "MELI Cajamar — proveedor probable",
+      "value_or_summary": "Una fuente reporta despliegue de robots Quicktron (China) en operaciones MELI para automatizar picking. Sin confirmación oficial de marca por MELI.",
+      "geography": "Brazil",
+      "year_or_date": "2024",
+      "source_link": "https://www.tecnologistica.com.br/es/especiais/tecnologia/18431/mercado-libre-implementa-sistema-inedito-de-robots-en-operacion-logistica-en-brasil/",
+      "source_title": "Tecnologística — coverage MELI robotics Brasil",
+      "confidence": "industry_estimate"
+    },
+    {
+      "category": "meli_robotics_partnership",
+      "title": "MELI + Agility Robotics — Digit humanoide",
+      "value_or_summary": "Diciembre 2025: MELI anunció acuerdo comercial con Agility Robotics para desplegar el humanoide Digit en su fulfillment center de San Antonio, Texas. Planes para evaluar despliegues adicionales en la red MELI de LATAM.",
+      "geography": "USA (Texas) → LATAM planned",
+      "year_or_date": "2025-12-10",
+      "source_link": "https://www.agilityrobotics.com/content/mercado-libre-and-agility-robotics-announce-commercial-agreement",
+      "source_title": "Mercado Libre and Agility Robotics Announce Commercial Agreement (Agility Robotics)",
+      "confidence": "verified_primary"
+    },
+    {
+      "category": "market_size_mexico",
+      "title": "Mercado e-commerce México 2024 — tamaño",
+      "value_or_summary": "MX$789.7 mil millones (~USD$39 mil millones) en 2024, +20% vs 2023 (MX$658B). CAGR 6 años = 33.8%. 67.2 millones de compradores digitales. 84% de internautas consumen vía canales digitales. 16.6 mil millones de visitas a sitios e-commerce; 70% desde móvil.",
+      "geography": "Mexico",
+      "year_or_date": "2024",
+      "source_link": "https://t21.us/e-commerce-in-mexico-to-grow-20-in-2024-generating-nearly-790-billion-pesos-in-sales-amvo/",
+      "source_title": "E-commerce in Mexico to grow 20% in 2024 — AMVO (T21)",
+      "confidence": "verified_secondary"
+    },
+    {
+      "category": "market_size_mexico",
+      "title": "México #1 mercado e-commerce de mayor crecimiento mundial 2024",
+      "value_or_summary": "México se convirtió en 2024 en el mercado de retail online de mayor crecimiento del mundo según AMVO.",
+      "geography": "Mexico",
+      "year_or_date": "2024",
+      "source_link": "https://mexicobusiness.news/ecommerce/news/mexico-joins-top-10-fastest-growing-e-commerce-markets",
+      "source_title": "Mexico Joins Top 10 Fastest-Growing E-Commerce Markets (Mexico Business News)",
+      "confidence": "verified_secondary"
+    },
+    {
+      "category": "competitor_context",
+      "title": "Locus Robotics + GEODIS — primer despliegue LATAM",
+      "value_or_summary": "GEODIS desplegó Locus Robotics Origin AMRs en su sitio de Cuautitlán Izcalli, Edo. Mex. — primer despliegue de Locus en LATAM. Estructura mezzanine de 3 niveles, plataforma LocusOne. Cliente final: marca apparel global. *Mismo submercado industrial que los FCs principales de MELI MX*.",
+      "geography": "Mexico (Cuautitlán Izcalli, Edo. Mex.)",
+      "year_or_date": "2024-03",
+      "source_link": "https://geodis.com/us-en/locus-robotics-and-geodis-bring-next-generation-warehouse-amr-automation-mexico",
+      "source_title": "Locus Robotics and GEODIS Bring Next-Generation Warehouse AMR Automation to Mexico (GEODIS)",
+      "confidence": "verified_primary"
+    },
+    {
+      "category": "nearshoring_context",
+      "title": "Nearshoring México 2024-2025",
+      "value_or_summary": "México atrajo USD $20 mil millones en inversión de nearshoring 2024-2025, generando hubs automatizados en Monterrey y la región del Bajío para sincronizar manufactura con demanda EE.UU.",
+      "geography": "Mexico (Monterrey + Bajío)",
+      "year_or_date": "2024-2025",
+      "source_link": "https://www.mordorintelligence.com/industry-reports/warehouse-automation-market",
+      "source_title": "Warehouse Automation Market — Industry Size & Growth 2025-2031 (Mordor Intelligence)",
+      "confidence": "industry_estimate"
+    }
+  ],
+  "research_gaps": [
+    "MELI MX no ha publicado oficialmente despliegues de robots STP en sus CEDIS de México — el case de Cajamar Brasil es el más cercano pero geográficamente está en Brasil.",
+    "Ubicaciones específicas (direcciones, m², capacidad) de los CEDIS MELI en Apodaca NL y Tlajomulco/Zapopan Jalisco — datos públicos limitados, predominan datos sobre red Estado de México.",
+    "Cifras específicas de inversión disclosed para CEDIS individuales — Bloomberg menciona 'more warehouse space in 2024' pero los montos por sitio no son públicos.",
+    "Detalles 10-K NASDAQ:MELI: no se accedió directamente al filing — confidence se mantiene en 'verified_secondary' para datos derivados de coverage de prensa."
+  ]
+}

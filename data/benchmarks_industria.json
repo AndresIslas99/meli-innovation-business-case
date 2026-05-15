@@ -1,0 +1,153 @@
+{
+  "research_date": "2026-05-14",
+  "agent": "main_session_websearch",
+  "benchmarks": [
+    {
+      "topic": "Picks/hr — manual baseline (papel/carrito)",
+      "value_or_range": "60-100",
+      "unit": "picks/hr/operador",
+      "geography": "global",
+      "year": "2024-2025",
+      "source_link": "https://www.primerobotics.com/essential-calculations-for-warehouse-operations/",
+      "source_title": "Essential Calculations for Warehouse Operations (Prime Robotics)",
+      "confidence": "verified_secondary"
+    },
+    {
+      "topic": "Picks/hr — manual + RF (e-commerce)",
+      "value_or_range": "80-120",
+      "unit": "picks/hr/operador",
+      "geography": "global",
+      "year": "2024-2025",
+      "source_link": "https://getproductiv.com/blog/9-ways-to-improve-your-warehouse-pick-rate",
+      "source_title": "How to Improve Warehouse Pick Rate (Productiv)",
+      "confidence": "verified_secondary"
+    },
+    {
+      "topic": "Picks/hr — directed picking con AMR (asistido)",
+      "value_or_range": "100-180",
+      "unit": "picks/hr/operador",
+      "geography": "global",
+      "year": "2024-2025",
+      "source_link": "https://hy-tek.com/resources/understanding-and-tracking-kpis-for-warehouse-pickers/",
+      "source_title": "KPIs for Warehouse Pickers (Hy-Tek)",
+      "confidence": "verified_secondary"
+    },
+    {
+      "topic": "Picks/hr — Goods-to-Person / Shelves-to-Person estación",
+      "value_or_range": "300-350+",
+      "unit": "picks/hr/estación",
+      "geography": "global",
+      "year": "2024-2025",
+      "source_link": "https://atomoving.com/blog/order-picker/engineering-strategies-to-boost-warehouse-picking-speed-and-efficiency-16012026-upgrade/",
+      "source_title": "Engineering Strategies to Boost Warehouse Picking Speed",
+      "confidence": "verified_secondary",
+      "note": "Accuracy ~99.99% con scan o weight check"
+    },
+    {
+      "topic": "Picks/hr — sistemas avanzados grid-based 2026",
+      "value_or_range": "100+ picks/hr por robot",
+      "unit": "picks/hr/robot",
+      "geography": "global",
+      "year": "2026",
+      "source_link": "https://roboticsandautomationnews.com/2026/03/17/brightpick-launches-highest-throughput-robotic-fulfillment-system-ever-developed/99808/",
+      "source_title": "Brightpick launches Gridpicker (Robotics and Automation News)",
+      "confidence": "industry_estimate"
+    },
+    {
+      "topic": "Payback — AMR fulfillment",
+      "value_or_range": "<24 meses; ROI >250%",
+      "unit": "meses",
+      "geography": "global",
+      "year": "2024-2025",
+      "source_link": "https://www.mordorintelligence.com/industry-reports/warehouse-automation-market",
+      "source_title": "Warehouse Automation Market — Industry Size & Growth 2025-2031 (Mordor)",
+      "confidence": "industry_estimate"
+    },
+    {
+      "topic": "Payback — AS/RS / sistemas storage automation",
+      "value_or_range": "6-18 meses (vertical lift modules típico)",
+      "unit": "meses",
+      "geography": "global",
+      "year": "2024-2025",
+      "source_link": "https://modula.us/blog/roi-automated-storage-and-retrieval-systems/",
+      "source_title": "The Quick ROI of Automated Storage and Retrieval Systems (Modula)",
+      "confidence": "industry_estimate"
+    },
+    {
+      "topic": "Payback — picking automation alta ROI",
+      "value_or_range": "2-3 años (típico)",
+      "unit": "años",
+      "geography": "global",
+      "year": "2024-2025",
+      "source_link": "https://modula.us/blog/automated-warehouse-systems-improve-space-labor-roi/",
+      "source_title": "A Complete Guide to Warehouse Automation ROI (Modula)",
+      "confidence": "industry_estimate"
+    },
+    {
+      "topic": "Payback — máquinas de empaquetado",
+      "value_or_range": "1-2 años",
+      "unit": "años",
+      "geography": "global",
+      "year": "2024-2025",
+      "source_link": "https://modula.us/blog/automated-warehouse-systems-improve-space-labor-roi/",
+      "source_title": "A Complete Guide to Warehouse Automation ROI (Modula)",
+      "confidence": "industry_estimate"
+    },
+    {
+      "topic": "AutoStore — densidad de almacenamiento",
+      "value_or_range": "4× vs rack tradicional",
+      "unit": "multiplicador m²",
+      "geography": "global",
+      "year": "2024-2025",
+      "source_link": "https://www.autostoresystem.com/",
+      "source_title": "AutoStore official site",
+      "confidence": "verified_primary"
+    },
+    {
+      "topic": "Sealed Air AutoBag 850HB — throughput",
+      "value_or_range": "700 órdenes/hr/máquina",
+      "unit": "órdenes/hr",
+      "geography": "global",
+      "year": "2025",
+      "source_link": "https://www.prnewswire.com/news-releases/sealed-air-launches-autobag-brand-850hb-hybrid-bagging-machine-for-paper-and-poly-mailers-302556908.html",
+      "source_title": "Sealed Air launches AutoBag 850HB (PR Newswire)",
+      "confidence": "verified_primary"
+    },
+    {
+      "topic": "MELI Cajamar — productividad robot STP",
+      "value_or_range": "20,000 items/día con 334 robots = ~60 items/día/robot (modo de carga + transporte de estantería, no pick directo)",
+      "unit": "items/día por robot",
+      "geography": "Brazil",
+      "year": "2024",
+      "source_link": "https://www.tecnologistica.com.br/es/especiais/tecnologia/18431/mercado-libre-implementa-sistema-inedito-de-robots-en-operacion-logistica-en-brasil/",
+      "source_title": "MELI Cajamar — Tecnologística",
+      "confidence": "verified_secondary",
+      "note": "Métrica directa — el item ratio por robot mide solo el subset que pasa por STP, el FC procesa ~500K paquetes/día total. Confirma que STP es subset estratégico, no la totalidad del flujo."
+    },
+    {
+      "topic": "Mercado parcel sortation global proyectado",
+      "value_or_range": "USD $5.68B para 2032",
+      "unit": "USD mercado",
+      "geography": "global",
+      "year": "2024",
+      "source_link": "https://www.globenewswire.com/news-release/2024/10/15/2963272/0/en/Automated-Sortation-System-Market-to-Hit-USD-5-68-Billion-by-2032-Fueling-Growth-through-Innovative-Technologies-and-Applications-S-S-Insider.html",
+      "source_title": "Automated Sortation System Market to Hit USD 5.68B by 2032 (S&S Insider via Globe Newswire)",
+      "confidence": "industry_estimate"
+    }
+  ],
+  "key_reports": [
+    {"name": "MHI Annual Industry Report", "publisher": "Material Handling Institute (USA)", "use": "anchor de adopción tecnología y benchmarks"},
+    {"name": "Gartner Magic Quadrant for WMS", "publisher": "Gartner", "use": "ranking de WMS para integración OPC UA / robotics"},
+    {"name": "ARC Advisory — AGV/AMR Market", "publisher": "ARC Advisory Group", "use": "rankings y forecasts de adopción AMR"},
+    {"name": "LogisticsIQ — Warehouse Automation Market", "publisher": "LogisticsIQ", "use": "tamaño de mercado segmentado"},
+    {"name": "Interact Analysis — Mobile Robotics Tracker", "publisher": "Interact Analysis", "use": "tracking trimestral de instalaciones AMR"},
+    {"name": "AMVO Online Sales Study 2025", "publisher": "Asociación Mexicana de Venta Online", "use": "tamaño mercado e-commerce MX"},
+    {"name": "INEGI — Encuesta Nacional de Ocupación y Empleo (ENOE)", "publisher": "INEGI", "use": "salario warehouse operator MX"},
+    {"name": "Mordor Intelligence — Warehouse Automation Market", "publisher": "Mordor Intelligence", "use": "forecasts y nearshoring data MX"}
+  ],
+  "research_gaps": [
+    "CAPEX específico USD/m² para STP vs AS/RS vs sorter — los valores son altamente variables (SKU mix, layout, integración) y se publican poco. Supuesto transparente: STP ~$500-1,500 USD/m² instalado; sorter cross-belt ~$2,000-5,000 USD/linear meter; AS/RS shuttle ~$3,000-8,000 USD/m².",
+    "Salario warehouse operator MX 2024-2026 por ciudad — no buscado en este batch. Supuesto transparente: $7,500-12,000 MXN/mes (CDMX y MTY más altos que GDL) base con prestaciones, ~$50-75 MXN/hr cargado.",
+    "OEE benchmarks específicos para fulfillment robótico — la literatura habla de OEE en manufactura (mean ~60%, world-class >85%); para logística la métrica más usada es uptime + picks/hr/estación. Supuesto: target uptime fleet >95% en steady state, world-class >98%."
+  ]
+}

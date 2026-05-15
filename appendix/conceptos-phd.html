@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conceptos referenciables · Business Case MELI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/meli-theme.css">
+  <style>
+    .app-shell { max-width: 980px; margin: 0 auto; padding: 2.5rem var(--gutter); }
+    .breadcrumb { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.2rem; }
+    .concept { padding: 1.2rem 0; border-bottom: 1px solid var(--color-border); }
+    .concept__name { font-size: 1.15rem; color: var(--meli-blue); margin: 0 0 0.3rem 0; }
+    .concept__where { font-size: 0.82rem; color: var(--meli-yellow-dark); font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+  <p class="breadcrumb"><a href="../index.html">← Volver al deck</a> · Appendix · Conceptos</p>
+  <h1>Conceptos referenciables · marco PhD para profundizar</h1>
+  <p class="text-muted">Cada concepto aparece en algún punto del deck. Aquí van con la fuente bibliográfica canónica y la conexión con el caso donde se usa.</p>
+
+  <div class="concept">
+    <h3 class="concept__name">Theory of Constraints (TOC)</h3>
+    <p class="concept__where">Usado en: Caso 2 (bottleneck Put Away)</p>
+    <p>Eliyahu Goldratt — <em>The Goal</em> (1984) + <em>It's Not Luck</em> (1994). Cinco pasos: <em>identify · exploit · subordinate · elevate · repeat</em>. Aplicado: en caso 2 el bottleneck es Put Away, la palanca correcta es elevar su utilización antes que tocar el sorter.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">Little's Law (L = λW)</h3>
+    <p class="concept__where">Usado en: Caso 2 (WIP buffer pick → sort)</p>
+    <p>John Little (1961). En estado estable, el inventario promedio (L) es el producto de la tasa de llegada (λ) y el tiempo promedio en sistema (W). Aplicado: para 1.6M items/mes con SLA 3.5 hr → WIP esperado ≈ 7,973 items con factor de seguridad 0.9. Dimensiona el buffer entre estaciones.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">OEE — Overall Equipment Effectiveness</h3>
+    <p class="concept__where">Usado en: Caso 2 (eficiencia 90% deconstructed) + Roadmap 18m</p>
+    <p>Seiichi Nakajima (1988). OEE = Availability × Performance × Quality. World-class &gt;85%. La "eficiencia 90%" del enunciado caso 2 está cerca del world-class. Para subir de 90% a 94% el gain está en Availability (mantenibilidad predictiva) más que Performance o Quality.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">Analytic Hierarchy Process (AHP) y TOPSIS</h3>
+    <p class="concept__where">Usado en: Caso 1 (selección de proveedor empaquetado)</p>
+    <p>Thomas Saaty (1980) — <em>The Analytic Hierarchy Process</em>; Hwang &amp; Yoon (1981) — <em>TOPSIS</em>. Frameworks para decisión multi-criterio. AHP con consistency ratio para detectar pesos incoherentes. Aplicado: el widget de caso 1 normaliza pesos automáticamente y muestra ranking en vivo.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">Critical Path Method (CPM) + PERT</h3>
+    <p class="concept__where">Usado en: Caso 5 (Gantt feasibility-a-licitación)</p>
+    <p>Kelley &amp; Walker (1959) — CPM; US Navy (1958) — PERT. PERT añade el modelo triangular (optimist · realist · pessimist) sobre cada actividad. Aplicado: el simulador del caso 5 aplica ±20% triangular sobre cada fase y reporta p50 / p90 del go-live.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">Real Options Analysis</h3>
+    <p class="concept__where">Usado en: Caso 5 (gates por business case) + Roadmap 18m</p>
+    <p>Trigeorgis (1996) — <em>Real Options</em>. Capital deferred con opciones de abandonar / expandir / esperar. Aplicado: el gate de aprobación senior (caso 5 fase 7) es una <em>opción de abandono</em> — si el POC falla, no se compromete CAPEX de fabricación. Equivalente a una put option sobre el CAPEX.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">Total Cost of Ownership (TCO 5y)</h3>
+    <p class="concept__where">Usado en: Caso 1 (criterio económico) + Roadmap 18m</p>
+    <p>Más allá del CAPEX visible: integración (20–40% del CAPEX), consumibles, energía, mano de obra residual, refacciones, capacitación, oportunidad/retraso. Industria de packaging automation reportan que 60–70% del TCO 5y son OPEX, no CAPEX inicial.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">Class-based slotting + cube velocity</h3>
+    <p class="concept__where">Usado en: Caso 3 (PPF palanca) + Caso 4 (mix SKU)</p>
+    <p>Bartholdi &amp; Hackman — <em>Warehouse &amp; Distribution Science</em> (libro online de Georgia Tech). Slotting clasifica SKUs en zones por velocity (A=alto pick, C=bajo); cube velocity prioriza por unidad de volumen-pick-rate. Aplicado: subir PPF de 1.8 a 2.5 sin CAPEX requiere reslotear por velocity.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">Queueing theory M/M/1 → M/M/c</h3>
+    <p class="concept__where">Usado en: Caso 2 (cola pick → sort) y Caso 3 (cola robots)</p>
+    <p>Erlang (1909). M/M/1 = single server, M/M/c = c servers. Para el sorter (single line, varios totes input) se aproxima a M/M/1; para robots STP (n robots compitiendo por estaciones) se aproxima a M/M/c. La utilización ρ debe ser &lt; 1 (idealmente &lt; 0.85) para evitar explosión de cola.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">ABC + XYZ analysis (Pareto + variability)</h3>
+    <p class="concept__where">Usado en: Caso 4 (mix SKU)</p>
+    <p>Pareto (1896) — 80/20. ABC clasifica por valor/volumen (A=top 20% → 80% volumen); XYZ clasifica por variabilidad de demanda (X=estable, Z=errática). La intersección 9 cuadrantes (AX, AY, ...) guía slotting + buffer.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">ISA-95 / IEC 62264 + OPC UA</h3>
+    <p class="concept__where">Usado en: Caso 1 (criterio integración) + Roadmap 18m</p>
+    <p>ISA-95 estandariza la integración entre enterprise (ERP) y control (PLC/robots). OPC UA es el transporte de facto para esa integración. Aplicado: arquitectura unificada WMS ↔ robotics evita vendor lock-in y deja sustituir el robot sin re-arquitectura del WMS.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">Reliability-Centered Maintenance (RCM)</h3>
+    <p class="concept__where">Usado en: Caso 1 (criterio riesgo) + Roadmap 18m</p>
+    <p>SAE JA1011 / JA1012. Marco para decidir <em>qué</em> mantener, <em>cómo</em> y <em>cuándo</em>, basado en función + modo de falla + consecuencia. Aplicado: define qué partes críticas requieren stock local &gt;24mo (criterio de selección vendor) y dónde tiene sentido predictive maintenance.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">MTBF / MTTR + downtime cost</h3>
+    <p class="concept__where">Usado en: Caso 1 (criterio riesgo)</p>
+    <p>Mean Time Between Failures + Mean Time To Repair → uptime = MTBF / (MTBF + MTTR). Downtime cost = horas_downtime × cost-per-hour-lost-throughput. Para un FC tier-1, downtime cost típicamente excede el costo de stock local de refacciones.</p>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept__name">Monte Carlo del business case</h3>
+    <p class="concept__where">Usado en: Caso 5 (Gantt p50/p90)</p>
+    <p>En lugar del Excel "punto medio", muestrear distribuciones de entrada (volumen, costo, duración) y observar la distribución del NPV/IRR/payback. El p90 es lo que se compromete al CEO; el p50 es la expectativa interna.</p>
+  </div>
+
+  <h2 class="mt-3">Reportes industria a citar</h2>
+  <ul>
+    <li><strong>MHI Annual Industry Report</strong> — Material Handling Institute (USA). Anchor de adopción.</li>
+    <li><strong>Gartner Magic Quadrant for Warehouse Management Systems</strong> — anual.</li>
+    <li><strong>ARC Advisory — AGV/AMR Market</strong> — rankings y forecasts.</li>
+    <li><strong>Interact Analysis — Mobile Robotics Tracker</strong> — tracking trimestral.</li>
+    <li><strong>Mordor Intelligence — Warehouse Automation Market 2025-2031</strong>.</li>
+    <li><strong>AMVO — Estudio Online Sales 2025</strong>. Para el contexto MX.</li>
+  </ul>
+
+  <p class="text-muted mt-3"><a href="../index.html">← Volver al deck principal</a></p>
+</div>
+</body>
+</html>

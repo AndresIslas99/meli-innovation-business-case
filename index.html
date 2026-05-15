@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Business Case · Innovación y Robótica · Mercado Libre México · Andrés Islas Bravo">
+  <meta name="author" content="Andrés Islas Bravo">
+  <title>Business Case · Innovación &amp; Robótica · MELI MX</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/meli-theme.css">
+  <link rel="stylesheet" href="css/deck.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+
+  <!-- PyScript -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+
+  <!-- Plotly for interactive charts -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23FFE600'/%3E%3Ctext x='16' y='22' font-family='Inter,sans-serif' font-size='18' font-weight='800' text-anchor='middle' fill='%232D3277'%3EM%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="deck-header" role="banner">
+  <div class="deck-header__brand">
+    <div style="width:28px;height:28px;background:var(--meli-yellow);border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:var(--meli-blue-dark);">M</div>
+    <div>
+      <p class="deck-header__title">Business Case · Innovación &amp; Robótica</p>
+      <p class="deck-header__author">Andrés Islas Bravo · Mercado Envíos MX</p>
+    </div>
+  </div>
+  <div class="deck-header__nav">
+    <button class="deck-header__toc-btn" data-deck-toc>Índice (T)</button>
+    <button class="deck-header__btn" data-deck-prev title="Anterior (←)" aria-label="Anterior">‹</button>
+    <span class="deck-header__counter">1 / 9</span>
+    <button class="deck-header__btn" data-deck-next title="Siguiente (→)" aria-label="Siguiente">›</button>
+    <button class="deck-header__btn" data-deck-print title="Imprimir / Guardar PDF (P)" aria-label="Imprimir" style="background:var(--meli-blue-dark);">⎙</button>
+  </div>
+</header>
+
+<!-- ============ TOC OVERLAY ============ -->
+<div class="toc-overlay" aria-hidden="true">
+  <button class="toc-overlay__close" aria-label="Cerrar">×</button>
+  <div class="toc-overlay__panel">
+    <h2 style="margin-top:0;">Índice del deck</h2>
+    <p class="text-muted text-sm">Atajos: <code>←</code> <code>→</code> navegar · <code>T</code> índice · <code>P</code> imprimir/PDF · <code>H</code> inicio</p>
+    <div class="toc">
+      <a class="toc__item" data-goto="0"><span class="toc__num">00</span><div class="toc__text"><div class="toc__title">Portada</div><div class="toc__sub">Andrés Islas · enfoque del business case</div></div></a>
+      <a class="toc__item" data-goto="1"><span class="toc__num">01</span><div class="toc__text"><div class="toc__title">Marco del director</div><div class="toc__sub">5 lentes para decidir cuándo automatizar</div></div></a>
+      <a class="toc__item" data-goto="2"><span class="toc__num">02</span><div class="toc__text"><div class="toc__title">Caso 1 · Empaquetado</div><div class="toc__sub">Plan + AHP scorecard interactivo</div></div></a>
+      <a class="toc__item" data-goto="3"><span class="toc__num">03</span><div class="toc__text"><div class="toc__title">Caso 2 · Shelves-to-Person</div><div class="toc__sub">Bottleneck + simulador de capacidad</div></div></a>
+      <a class="toc__item" data-goto="4"><span class="toc__num">04</span><div class="toc__text"><div class="toc__title">Caso 3 · Picking robótico</div><div class="toc__sub">Productividad + simulador de sensibilidad</div></div></a>
+      <a class="toc__item" data-goto="5"><span class="toc__num">05</span><div class="toc__text"><div class="toc__title">Caso 4 · Plan data-driven</div><div class="toc__sub">Arquitectura + SQL + presentación</div></div></a>
+      <a class="toc__item" data-goto="6"><span class="toc__num">06</span><div class="toc__text"><div class="toc__title">Caso 5 · Roadmap Gantt</div><div class="toc__sub">CPM + Monte Carlo de go-live</div></div></a>
+      <a class="toc__item" data-goto="7"><span class="toc__num">07</span><div class="toc__text"><div class="toc__title">Motivacionales</div><div class="toc__sub">Resumen · PDF formal en exports/</div></div></a>
+      <a class="toc__item" data-goto="8"><span class="toc__num">99</span><div class="toc__text"><div class="toc__title">Cierre &amp; Appendix</div><div class="toc__sub">Roadmap 18m + proveedores + conceptos</div></div></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MAIN ============ -->
+<main class="deck-main">
+
+<!-- ============================ SLIDE 00 · COVER ============================ -->
+<section id="slide-cover" class="slide is-active">
+  <div class="cover">
+    <div class="cover__brand-strip">
+      <span class="cover__yellow-dot"></span>
+      <span class="cover__brand-text">Mercado Envíos MX · Innovación y Robótica</span>
+    </div>
+    <p class="cover__eyebrow">Work Sample · Andrés Islas Bravo · mayo 2026</p>
+    <h1 class="cover__title">Subir la vara: <span class="cover__title-accent">criterio</span> antes que tecnología.</h1>
+    <p class="cover__sub">
+      Cinco casos · cinco lentes de director · widgets Python en vivo para que ustedes manipulen los supuestos
+      y vean por qué llegamos a cada decisión. Construido en HTML interactivo en lugar de PPT.
+    </p>
+    <div class="flex flex--wrap" style="gap:0.6rem;margin-bottom:2rem;">
+      <span class="brand-tag">Theory of Constraints</span>
+      <span class="brand-tag--yellow brand-tag">AHP / TOPSIS</span>
+      <span class="brand-tag">Little's Law</span>
+      <span class="brand-tag--ghost brand-tag">Real Options</span>
+      <span class="brand-tag">CPM + Monte Carlo</span>
+      <span class="brand-tag--yellow brand-tag">OPC UA / ISA-95</span>
+    </div>
+    <div class="cover__author">
+      <span class="cover__author-name">Andrés Islas Bravo</span>
+      <span class="cover__author-meta">andresislas2107@gmail.com · México · Track dual: depth algorítmica + people management industrial</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SLIDE 01 · MARCO DIRECTOR ============================ -->
+<section id="slide-marco" class="slide">
+  <div class="slide__header">
+    <div class="slide__eyebrow">
+      <span class="slide__number">01</span>
+      <span class="slide__kicker">Marco analítico</span>
+    </div>
+    <h2 class="slide__title">Antes de cada caso: 5 lentes que aplico para decidir si <em>amerita</em> robot.</h2>
+    <p class="slide__subtitle">Si la pregunta es «¿automatizar X?», la respuesta correcta a veces es «no todavía, aquí están las condiciones». Saber cuándo NO automatizar pesa tanto como saber cuándo sí.</p>
+  </div>
+
+  <div class="grid grid--3">
+    <div class="card">
+      <h4>① Operativa</h4>
+      <p class="text-sm">¿Es bottleneck real o ruido? ¿El proceso es estable o estacional? ¿Cuál es el upside operativo (picks/hr, throughput por bahía, OEE, lead time, error rate)?</p>
+      <p class="text-xs text-muted">Diagnóstico: <strong>Theory of Constraints</strong> (Goldratt). Focalizar la palanca con mayor leverage marginal.</p>
+    </div>
+    <div class="card">
+      <h4>② Técnica</h4>
+      <p class="text-sm">Fit del SKU mix, integración con WMS/MES, redundancia, mantenibilidad. ¿La tecnología es madura o nos vendemos al hype?</p>
+      <p class="text-xs text-muted">Arquitectura: <strong>ISA-95</strong> + <strong>OPC UA</strong> + IO-Link como invariantes de integración.</p>
+    </div>
+    <div class="card">
+      <h4>③ Financiera</h4>
+      <p class="text-sm">CAPEX + OPEX + costo de oportunidad + costo de retraso. NPV / IRR / payback. ¿El ROI está atado a supuestos explícitos y defensibles?</p>
+      <p class="text-xs text-muted">Modelo: <strong>Real Options</strong> + Monte Carlo del business case (no punto medio del Excel).</p>
+    </div>
+    <div class="card">
+      <h4>④ Talento</h4>
+      <p class="text-sm">¿Existe pipeline local de operadores y técnicos? ¿Hay universidades cercanas formando mecatrónicos / técnicos en automatización? ¿Cuánta capacitación interna?</p>
+      <p class="text-xs text-muted">MX: UPIITA-IPN, ESIME, UNAM-FI, Tec MTY/GDL, UANL-FIME, ITESO, UDEM, Univ. Panamericana.</p>
+    </div>
+    <div class="card">
+      <h4>⑤ Riesgo</h4>
+      <p class="text-sm">Single-source de partes, obsolescencia, vendor lock-in, refacciones >24mo en stock local, MTTR contractual, deuda técnica.</p>
+      <p class="text-xs text-muted">Marcos: <strong>RCM</strong> (SAE JA1011) + escalado por bahía con gates por POC.</p>
+    </div>
+    <div class="card card--accent">
+      <h4>Lo que la práctica enseña</h4>
+      <p class="text-sm">Cada caso siguiente revisita estos cinco lentes. La lección recurrente que he visto en piso es que el «mejor producto» pierde si no tiene soporte, refacciones y talento operable cerca del sitio. Por eso aquí los cinco lentes se aplican juntos, no por separado.</p>
+    </div>
+  </div>
+
+  <div class="callout callout--yellow mt-3">
+    <strong>Cómo leer este deck:</strong> cada caso lleva un widget Python embebido (PyScript) — mueve sliders, cambia pesos, ve cómo las decisiones cambian.
+    El PDF de respaldo en <code>exports/business_case_andres_islas.pdf</code> captura un escenario representativo si los widgets no cargan.
+  </div>
+</section>
+
+<!-- ============================ SLIDE 02 · CASO 1 EMPAQUETADO ============================ -->
+<section id="slide-caso1" class="slide">
+  <div class="slide__header">
+    <div class="slide__eyebrow">
+      <span class="slide__number">02</span>
+      <span class="slide__kicker">Caso 1 · Tecnología de empaquetado</span>
+    </div>
+    <h2 class="slide__title">Cómo entraría a evaluar empaquetado para un FC de Mercado Envíos.</h2>
+    <p class="slide__subtitle">Cuatro sub-preguntas (a–d) → framework de 6 fases + scorecard AHP que pueden manipular.</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn is-active" data-tab-group="caso1" data-tab-target="approach">a) Primer acercamiento</button>
+    <button class="tab-btn" data-tab-group="caso1" data-tab-target="plan">b) Plan de trabajo</button>
+    <button class="tab-btn" data-tab-group="caso1" data-tab-target="filter">c) Preguntas de filtrado</button>
+    <button class="tab-btn" data-tab-group="caso1" data-tab-target="internal">d) Info interna</button>
+  </div>
+
+  <div class="tab-content is-active" data-tab-group="caso1" data-tab-name="approach">
+    <h3>El primer paso es definir el <em>intent</em>, no el producto.</h3>
+    <p>Antes de mirar máquinas pregunto:</p>
+    <ul>
+      <li><strong>¿Qué KPI estamos atacando?</strong> Costo material por pack, throughput por estación, % daños, footprint, mix de SKU soportado, tiempo de ramp-up. Cada uno favorece una familia distinta de soluciones.</li>
+      <li><strong>¿Cuál es el baseline?</strong> Cost-per-pack actual, packs/hr/estación, % de daños, % de over-pack (caja desproporcionada al producto — costo logístico y ambiental).</li>
+      <li><strong>¿Qué SKU mix tenemos?</strong> Distribución dim-weight, fragilidad, mix de cajas vs bolsas. <em>Si el 80% del volumen vive en 3 tamaños, una auto-box es overkill; si vive en 30 tamaños, manual no escala.</em></li>
+      <li><strong>¿Cuál es el plazo del business case?</strong> Aprobación por proyecto único vs roadmap multi-sitio cambia la profundidad del análisis.</li>
+    </ul>
+    <div class="callout">
+      <strong>Anti-pattern frecuente:</strong> elegir "la solución que vimos en Amazon" sin que el SKU mix lo justifique. La auto-box tiene sentido cuando el mix tiene <strong>variedad dimensional alta</strong> y costo de transporte sensible al volumen (DIM weight).
+    </div>
+  </div>
+
+  <div class="tab-content" data-tab-group="caso1" data-tab-name="plan">
+    <h3>Plan de trabajo en 6 fases gateadas.</h3>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Fase</th><th>Duración</th><th>Salida / gate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Discovery: intent + baseline + SKU mix</td><td>2 sem</td><td>Charter firmado + targets cuantitativos</td></tr>
+        <tr><td>2</td><td>Long-list de proveedores + RFI</td><td>4 sem</td><td>8–12 candidatos con datasheet</td></tr>
+        <tr><td>3</td><td>Visitas técnicas + due diligence (incl. soporte MX)</td><td>4 sem</td><td>Short-list 3–4 con scoring AHP</td></tr>
+        <tr><td>4</td><td>POC / piloto controlado (1–2 vendors)</td><td>6 sem</td><td>Métricas piloto vs targets</td></tr>
+        <tr><td>5</td><td>Business case + ROI defendido (Real Options)</td><td>3 sem</td><td>Deck CEO/CFO + NPV/IRR/Payback</td></tr>
+        <tr><td>6</td><td>Decisión + roadmap de rollout</td><td>2 sem</td><td>Go / No-go con gates por bahía</td></tr>
+      </tbody>
+    </table>
+    <p class="text-sm text-muted">Total feasibility: ~21 semanas (~5 meses) antes de licitación/contrato. Coherente con caso 5.</p>
+  </div>
+
+  <div class="tab-content" data-tab-group="caso1" data-tab-name="filter">
+    <h3>Preguntas que filtran de long-list a short-list.</h3>
+    <div class="grid grid--2">
+      <div class="card card--soft">
+        <h4>① Fit operativo</h4>
+        <ul class="text-sm">
+          <li>Rango de tamaños/materiales soportados vs <em>nuestro</em> mix.</li>
+          <li>Throughput máx vs requerimiento (incluye peaks de Buen Fin / Black Friday).</li>
+          <li>Integraciones nativas: WMS, MES, OPC UA, IO-Link, ANSI/RIA R15.08 para tareas colaborativas.</li>
+          <li>Tiempo de cambio entre formatos (changeover) — clave para mix dinámico.</li>
+        </ul>
+      </div>
+      <div class="card card--soft">
+        <h4>② Soporte local MX</h4>
+        <ul class="text-sm">
+          <li>Distancia a service center MX. ¿Oficina propia o vía partner?</li>
+          <li>SLA contractual: respuesta inicial + MTTR + escalado.</li>
+          <li>Refacciones críticas: ¿stock local &gt;24 meses? ¿quién lo carga?</li>
+          <li>Casos LATAM/MX verificables (no solo "global presence").</li>
+        </ul>
+      </div>
+      <div class="card card--soft">
+        <h4>③ Talento (mantenibilidad)</h4>
+        <ul class="text-sm">
+          <li>¿Universidades cercanas formando mecatrónicos / técnicos? (pipeline operadores y FSE).</li>
+          <li>¿Programa de certificación de operador/técnico del vendor?</li>
+          <li>¿La curva de aprendizaje es compatible con la rotación típica de un FC MX?</li>
+        </ul>
+      </div>
+      <div class="card card--soft">
+        <h4>④ Económica</h4>
+        <ul class="text-sm">
+          <li>CAPEX + costo de instalación + integración (ojo: integración suele ser 20–40% del CAPEX).</li>
+          <li>OPEX: consumibles, energía, mano de obra residual, mantenimiento.</li>
+          <li>TCO 5 años con sensibilidad de volumen (qué pasa si Buen Fin no llega).</li>
+          <li>Payback declarado vs payback realista (benchmark 1–2 años para packaging).</li>
+        </ul>
+      </div>
+      <div class="card card--soft">
+        <h4>⑤ Riesgo</h4>
+        <ul class="text-sm">
+          <li>Vendor lock-in (consumibles propietarios, formato fijo).</li>
+          <li>Single-source de partes críticas.</li>
+          <li>Obsolescencia: ¿cuántas versiones atrás de hardware soporta el vendor?</li>
+          <li>Estabilidad corporativa (ej. Honeywell vendió Intelligrated 2025 — transición).</li>
+        </ul>
+      </div>
+      <div class="card card--soft">
+        <h4>⑥ Sustentabilidad</h4>
+        <ul class="text-sm">
+          <li>% material vs caja fija (auto-box reduce 20–30% material).</li>
+          <li>Reciclabilidad / mono-material.</li>
+          <li>Energía / pack (kWh por orden empacada).</li>
+          <li>Hueco logístico: cajas right-sized reducen costo de transporte por DIM weight.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" data-tab-group="caso1" data-tab-name="internal">
+    <h3>Información interna que necesito antes de tocar a un vendor.</h3>
+    <table>
+      <thead><tr><th>Dato</th><th>Dueño</th><th>Para qué</th></tr></thead>
+      <tbody>
+        <tr><td>SKU master con dim-weight y categoría</td><td>Catálogo / Producto</td><td>Calcular rango requerido de tamaño y mix de cajas vs bolsas</td></tr>
+        <tr><td>Curvas semanales + intradiarias de demanda por FC</td><td>Operaciones</td><td>Dimensionar throughput de la máquina y peaks</td></tr>
+        <tr><td>% daños en tránsito por categoría</td><td>Calidad / Customer Care</td><td>Justificar void-fill / foam-in-place vs solo caja</td></tr>
+        <tr><td>Costo actual por orden empacada (material + labor)</td><td>Finanzas</td><td>Baseline para ROI</td></tr>
+        <tr><td>Espacio disponible en el FC (m² + altura)</td><td>Real Estate / Operaciones</td><td>Filtrar fit físico</td></tr>
+        <tr><td>Integraciones existentes WMS/MES y APIs disponibles</td><td>IT</td><td>Filtrar fit de integración</td></tr>
+        <tr><td>Presupuesto del proyecto + ventana de aprobación CAPEX</td><td>Finanzas / Comité</td><td>Filtrar candidatos por rango y diseñar gates</td></tr>
+        <tr><td>Capacidad interna de mantenimiento + skill mix</td><td>RH / Operaciones</td><td>Decidir cuánto soporte 3P necesitamos contractualmente</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- =================== WIDGET AHP =================== -->
+  <div class="widget" id="widget-caso1">
+    <div class="widget__header">
+      <h3 class="widget__title">⚙ Scorecard AHP · pesa los criterios, mira el ranking de soluciones</h3>
+      <span class="widget__hint">Muevan los pesos. La suma se normaliza automáticamente.</span>
+    </div>
+
+    <div class="widget__controls">
+      <div class="widget__control">
+        <label>① Fit operativo <span class="value-display" id="ahp-w1-val">25%</span></label>
+        <input type="range" id="ahp-w1" min="0" max="100" value="25" step="1">
+      </div>
+      <div class="widget__control">
+        <label>② Soporte local MX <span class="value-display" id="ahp-w2-val">20%</span></label>
+        <input type="range" id="ahp-w2" min="0" max="100" value="20" step="1">
+      </div>
+      <div class="widget__control">
+        <label>③ Talento (mant.) <span class="value-display" id="ahp-w3-val">10%</span></label>
+        <input type="range" id="ahp-w3" min="0" max="100" value="10" step="1">
+      </div>
+      <div class="widget__control">
+        <label>④ Económica <span class="value-display" id="ahp-w4-val">25%</span></label>
+        <input type="range" id="ahp-w4" min="0" max="100" value="25" step="1">
+      </div>
+      <div class="widget__control">
+        <label>⑤ Riesgo <span class="value-display" id="ahp-w5-val">15%</span></label>
+        <input type="range" id="ahp-w5" min="0" max="100" value="15" step="1">
+      </div>
+      <div class="widget__control">
+        <label>⑥ Sustentabilidad <span class="value-display" id="ahp-w6-val">5%</span></label>
+        <input type="range" id="ahp-w6" min="0" max="100" value="5" step="1">
+      </div>
+    </div>
+
+    <div id="ahp-chart" class="widget__chart"><div class="widget__loading">Cargando entorno Python interactivo...</div></div>
+
+    <div id="ahp-ranking" style="margin-top:1rem;"></div>
+  </div>
+
+  <div class="sources">
+    <p class="sources__title">Fuentes / Proveedores investigados</p>
+    <ul>
+      <li>Packsize (sitio MX activo + case study Autopartes Tracto): <a href="https://www.packsize.mx/" target="_blank">packsize.mx</a></li>
+      <li>Sparck (CMC Pakto / CartonWrap) — adquirido por Packsize abril–mayo 2025: <a href="https://www.packsize.com/press-release/packsize-to-acquire-sparck-technologies" target="_blank">press release</a></li>
+      <li>Sealed Air — plantas Toluca + Monterrey, AutoBag 850HB lanzada 2025: <a href="https://t21.com.mx/automatizacion-punto-clave-en-la-operatividad-de-sealed-air/" target="_blank">T21 MX</a></li>
+      <li>Quadient CVP Impack / Everest: <a href="https://www.quadient.com/" target="_blank">quadient.com</a></li>
+      <li>Dataset completo + scoring detallado: <a href="appendix/proveedores-empaquetado.html" target="_blank">appendix/proveedores-empaquetado.html</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ SLIDE 03 · CASO 2 STP ============================ -->
+<section id="slide-caso2" class="slide">
+  <div class="slide__header">
+    <div class="slide__eyebrow">
+      <span class="slide__number">03</span>
+      <span class="slide__kicker">Caso 2 · Shelves-to-Person</span>
+    </div>
+    <h2 class="slide__title">Bottleneck severo en Put Away. 1.6M items/mes <em>no</em> se alcanza sin tocar palancas.</h2>
+    <p class="slide__subtitle">Aplicando Theory of Constraints: focalizamos en el cuello, no en lo que tiene cabeza. La utilización del 10% en Put Away es la pista crítica.</p>
+  </div>
+
+  <div class="grid grid--3">
+    <div class="card">
+      <h5>Put Away · efectiva</h5>
+      <div class="kpi"><span class="kpi__value">165 K</span><span class="kpi__label">items/mes</span></div>
+      <p class="text-xs text-muted mt-1">200 × 20 × 16 × 6 × 4.3 = 1.65M bruta × <strong>10% utilización = 165 K</strong></p>
+    </div>
+    <div class="card">
+      <h5>Picking · efectiva</h5>
+      <div class="kpi"><span class="kpi__value">1.54 M</span><span class="kpi__label">items/mes</span></div>
+      <p class="text-xs text-muted mt-1">1.5×60 × 30 × 21 × 7 × 4.3 = 1.71M bruta × <strong>90% eficiencia = 1.54M</strong></p>
+    </div>
+    <div class="card">
+      <h5>Sorter · capacidad</h5>
+      <div class="kpi"><span class="kpi__value">1.82 M</span><span class="kpi__label">items/mes</span></div>
+      <p class="text-xs text-muted mt-1">6 × 8 × 60 × 21 × 7 × 4.3 = 1.82M (sin factor de eficiencia declarado)</p>
+    </div>
+  </div>
+
+  <div class="callout callout--danger mt-2">
+    <strong>Bottleneck = Put Away</strong>. Está casi 10× por debajo del siguiente eslabón. Con utilización 10% el target de 1.6M es inalcanzable —
+    no por capacidad nominal (la bruta es 1.65M) sino por la baja utilización. La pregunta no es «¿agregar puestos?» sino <em>«¿por qué la utilización es 10%?»</em>.
+  </div>
+
+  <h3 class="mt-3">Palancas sin agregar puestos (en orden de ROI marginal):</h3>
+  <div class="grid grid--2">
+    <div class="card">
+      <h4>① Put Away — subir utilización <span class="brand-tag brand-tag--yellow">palanca master</span></h4>
+      <p class="text-sm">Pasar utilización <strong>10% → 97%</strong> alcanza el 1.6M directo (ver simulador).
+      Root cause probable: inducciones lentas, wave-planning malo, bursts de inbound sin smoothing, o personal asignado pero ausente.</p>
+      <p class="text-sm"><strong>Acción</strong>: auditoría operativa Put Away 2 semanas + wave-planning rediseñado + buffer de inducción dinámico.</p>
+    </div>
+    <div class="card">
+      <h4>② Picking — eficiencia 90% → 94%</h4>
+      <p class="text-sm">Solo 4 pp de eficiencia para cerrar el gap residual de Picking (1.54M → 1.60M). Vía: micropausas optimizadas, batch picking, slotting por velocity de SKU.</p>
+      <p class="text-sm"><strong>Conexión con caso 3</strong>: mejorar PPF (units/rack) tiene exactamente el mismo efecto sin tocar puestos.</p>
+    </div>
+    <div class="card">
+      <h4>③ Slotting — subir PPF (caso 3 palanca)</h4>
+      <p class="text-sm">PPF 1.8 → 2.5 (Class-based slotting + cube velocity) eleva items/hr por estación 39% sin CAPEX nuevo. Datos + algoritmo.</p>
+    </div>
+    <div class="card">
+      <h4>④ Mantenimiento predictivo</h4>
+      <p class="text-sm">El factor "eficiencia 90%" Picking incluye downtime no planificado. Mantenibilidad predictiva (sensores + agente IA al técnico) sube uptime y empuja eficiencia a 94%+.</p>
+    </div>
+    <div class="card">
+      <h4>⑤ NO tocar el sorter</h4>
+      <p class="text-sm">El sorter está fuera del bottleneck (1.82M > 1.60M). Optimizar lo que no es cuello es anti-pattern — quema CAPEX sin mover el throughput agregado.</p>
+    </div>
+    <div class="card card--blue">
+      <h4>Little's Law · cola pick→sort</h4>
+      <p class="text-sm">A 1.6M items/mes (~2,532 items/hr efectivo) con SLA 3.5 hr:</p>
+      <div class="kpi"><span class="kpi__value" style="color:var(--meli-yellow);">≈ 7,973</span><span class="kpi__label" style="color:#FFFFFFAA;">items en WIP pick→sort</span></div>
+      <p class="text-xs mt-1" style="color:#FFFFFFCC;">L = λ × W × factor_seguridad. Define el tamaño del buffer y la velocidad de respuesta del sorter.</p>
+    </div>
+  </div>
+
+  <!-- =================== WIDGET BOTTLENECK =================== -->
+  <div class="widget" id="widget-caso2">
+    <div class="widget__header">
+      <h3 class="widget__title">⚙ Simulador de capacidad · muevan utilización, eficiencia y horas</h3>
+      <span class="widget__hint">El gauge a la derecha marca dónde está el bottleneck en cada combinación.</span>
+    </div>
+    <div class="widget__controls">
+      <div class="widget__control">
+        <label>Utilización Put Away <span class="value-display" id="c2-util-val">10%</span></label>
+        <input type="range" id="c2-util" min="5" max="100" value="10" step="1">
+      </div>
+      <div class="widget__control">
+        <label>Eficiencia Picking <span class="value-display" id="c2-eff-val">90%</span></label>
+        <input type="range" id="c2-eff" min="50" max="100" value="90" step="1">
+      </div>
+      <div class="widget__control">
+        <label>Horas/día Picking <span class="value-display" id="c2-hr-val">21</span></label>
+        <input type="range" id="c2-hr" min="8" max="24" value="21" step="1">
+      </div>
+      <div class="widget__control">
+        <label>Días/sem Picking <span class="value-display" id="c2-dias-val">7</span></label>
+        <input type="range" id="c2-dias" min="5" max="7" value="7" step="1">
+      </div>
+      <div class="widget__control">
+        <label>Target items/mes <span class="value-display" id="c2-target-val">1,600,000</span></label>
+        <input type="range" id="c2-target" min="500000" max="3000000" value="1600000" step="50000">
+      </div>
+    </div>
+
+    <div class="widget__output">
+      <div class="kpi"><span class="kpi__value" id="c2-out-pa" style="font-size:1.4rem;">—</span><span class="kpi__label">Put Away efect.</span></div>
+      <div class="kpi"><span class="kpi__value" id="c2-out-pk" style="font-size:1.4rem;">—</span><span class="kpi__label">Picking efect.</span></div>
+      <div class="kpi"><span class="kpi__value" id="c2-out-so" style="font-size:1.4rem;">—</span><span class="kpi__label">Sorter cap.</span></div>
+      <div class="kpi"><span class="kpi__value" id="c2-out-bn" style="font-size:1.4rem;color:var(--color-danger);">—</span><span class="kpi__label">Bottleneck</span></div>
+      <div class="kpi"><span class="kpi__value" id="c2-out-status" style="font-size:1.4rem;">—</span><span class="kpi__label">¿Alcanza?</span></div>
+    </div>
+
+    <div id="c2-chart" class="widget__chart"><div class="widget__loading">Cargando Python...</div></div>
+  </div>
+
+  <div class="sources">
+    <p class="sources__title">Verificación matemática</p>
+    <ul>
+      <li>Cálculos cruzados en <code>analysis/math_casos.py</code> — el widget reproduce exactamente esos números.</li>
+      <li>Goldratt — <em>The Goal</em> (Theory of Constraints).</li>
+      <li>Little's Law (L = λW) — queueing theory aplicada al buffer pick→sort.</li>
+      <li>Footprint: Picking 28.3 m²/puesto · Put Away 22.5 m²/puesto (densidad razonable vs benchmarks STP industria 25–50 m²/estación).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ SLIDE 04 · CASO 3 PICKING ============================ -->
+<section id="slide-caso3" class="slide">
+  <div class="slide__header">
+    <div class="slide__eyebrow">
+      <span class="slide__number">04</span>
+      <span class="slide__kicker">Caso 3 · Picking robótico</span>
+    </div>
+    <h2 class="slide__title">301 items/hr/estación. PPF (units/rack) es la palanca con mayor leverage.</h2>
+    <p class="slide__subtitle">El enunciado fija la secuencialidad: R2R inicia después de la confirmación. T_rack = OWP + OWS + R2R = 21.5 s.</p>
+  </div>
+
+  <div class="grid grid--3">
+    <div class="card card--accent">
+      <h5>T_rack</h5>
+      <div class="kpi"><span class="kpi__value">21.5 s</span><span class="kpi__label">OWP + OWS + R2R</span></div>
+      <p class="text-xs mt-1">7 + 6 + 8.5 = 21.5 s — secuencial porque R2R inicia tras confirmación del operador.</p>
+    </div>
+    <div class="card card--accent">
+      <h5>Racks / hr</h5>
+      <div class="kpi"><span class="kpi__value">167.4</span><span class="kpi__label">3600 / 21.5</span></div>
+      <p class="text-xs mt-1">Si la cola de robots no se vacía: este es el techo absoluto de presentaciones.</p>
+    </div>
+    <div class="card card--accent">
+      <h5>Items / hr · estación</h5>
+      <div class="kpi"><span class="kpi__value">301.4</span><span class="kpi__label">167.4 × 1.8 PPF</span></div>
+      <p class="text-xs mt-1">Productividad promedio por estación inducida.</p>
+    </div>
+  </div>
+
+  <div class="callout callout--yellow mt-2">
+    <strong>Por qué PPF es la palanca correcta</strong>: subir PPF 1.8 → 2.5 da +39% items/hr <em>sin tocar el ciclo del robot ni el operador</em>.
+    Solo requiere mejor slotting (Class-based + cube velocity). Es la palanca con mejor ROI marginal porque no necesita CAPEX nuevo.
+  </div>
+
+  <!-- =================== WIDGET PRODUCTIVIDAD =================== -->
+  <div class="widget" id="widget-caso3">
+    <div class="widget__header">
+      <h3 class="widget__title">⚙ Simulador de productividad · sensibilidad por palanca</h3>
+      <span class="widget__hint">El delta % se calcula contra el baseline (301.4 items/hr).</span>
+    </div>
+    <div class="widget__controls">
+      <div class="widget__control">
+        <label>OWP — Operator Walk &amp; Pick (s) <span class="value-display" id="c3-owp-val">7</span></label>
+        <input type="range" id="c3-owp" min="3" max="15" value="7" step="0.5">
+      </div>
+      <div class="widget__control">
+        <label>OWS — Operator Walk &amp; Stow (s) <span class="value-display" id="c3-ows-val">6</span></label>
+        <input type="range" id="c3-ows" min="3" max="12" value="6" step="0.5">
+      </div>
+      <div class="widget__control">
+        <label>R2R — Robot to Robot (s) <span class="value-display" id="c3-r2r-val">8.5</span></label>
+        <input type="range" id="c3-r2r" min="4" max="15" value="8.5" step="0.5">
+      </div>
+      <div class="widget__control">
+        <label>PPF — units/rack <span class="value-display" id="c3-ppf-val">1.8</span></label>
+        <input type="range" id="c3-ppf" min="1.0" max="4.0" value="1.8" step="0.1">
+      </div>
+    </div>
+
+    <div class="widget__output">
+      <div class="kpi"><span class="kpi__value" id="c3-out-track" style="font-size:1.4rem;">—</span><span class="kpi__label">T_rack (s)</span></div>
+      <div class="kpi"><span class="kpi__value" id="c3-out-racks" style="font-size:1.4rem;">—</span><span class="kpi__label">Racks/hr</span></div>
+      <div class="kpi"><span class="kpi__value" id="c3-out-items" style="font-size:1.4rem;color:var(--meli-blue);">—</span><span class="kpi__label">Items/hr</span></div>
+      <div class="kpi"><span class="kpi__value" id="c3-out-delta" style="font-size:1.4rem;color:var(--color-success);">—</span><span class="kpi__label">Δ vs baseline</span></div>
+    </div>
+
+    <div id="c3-chart" class="widget__chart"><div class="widget__loading">Cargando Python...</div></div>
+  </div>
+
+  <div class="sources">
+    <p class="sources__title">Conexión con casos 2 y 4</p>
+    <ul>
+      <li><strong>Caso 2 ↔ caso 3</strong>: subir PPF en caso 3 es la mejor forma de cerrar el gap residual de picking en caso 2 (sin agregar puestos, sin tocar el robot).</li>
+      <li><strong>Caso 4 ↔ caso 3</strong>: el mix SKU + curva de velocity (caso 4) es el INPUT para optimizar slotting y subir PPF (caso 3).</li>
+      <li>Benchmarks industria Goods-to-Person: 300–350+ picks/hr/estación con 99.99% accuracy (rate consistente con nuestro cálculo).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ SLIDE 05 · CASO 4 DATA ============================ -->
+<section id="slide-caso4" class="slide">
+  <div class="slide__header">
+    <div class="slide__eyebrow">
+      <span class="slide__number">05</span>
+      <span class="slide__kicker">Caso 4 · Plan data-driven</span>
+    </div>
+    <h2 class="slide__title">Cómo extraería y presentaría los datos para defender el plan de expansión.</h2>
+    <p class="slide__subtitle">Arquitectura asumida → SQL skeletons → dashboard con 4 vistas → insight slide para el líder.</p>
+  </div>
+
+  <h3>a) Cómo lo haría: arquitectura asumida</h3>
+  <div class="card card--soft">
+    <p class="text-sm mb-1"><strong>Stack asumido</strong> (declarado como supuesto en <code>supuestos.html</code>):</p>
+    <pre style="font-size:0.78rem;">  WMS (custom MELI / SAP EWM derivado)
+        ↓  Kafka events
+  Data Lake (S3 / GCS + Glue / Athena)
+        ↓  ETL incremental
+  Data Warehouse (Redshift / Snowflake / BigQuery)
+        ↓  semantic layer
+  BI (Looker / Tableau / Metabase) + Streamlit ad-hoc</pre>
+    <p class="text-sm">Acceso: ticket al equipo Data Platform · role-based access SSO · scope definido (mes cerrado anterior, todos los FC MX).</p>
+  </div>
+
+  <h3 class="mt-3">Tres queries que definen el plan</h3>
+  <div class="grid grid--2">
+    <div class="card card--soft">
+      <h5>① Curvas semanales entrada/salida por FC</h5>
+<pre style="font-size:0.72rem;">SELECT fc_id, DATE_TRUNC('week', event_ts) AS week,
+       event_type, -- inbound | outbound
+       SUM(items) AS items, SUM(volume_m3) AS vol,
+       SUM(weight_kg) AS weight
+FROM operational_events
+WHERE event_ts >= DATE_TRUNC('month',
+                  CURRENT_DATE - INTERVAL '1 month')
+  AND event_ts <  DATE_TRUNC('month', CURRENT_DATE)
+GROUP BY 1, 2, 3;</pre>
+    </div>
+    <div class="card card--soft">
+      <h5>② Curva intradiaria (peaks)</h5>
+<pre style="font-size:0.72rem;">SELECT fc_id,
+       EXTRACT(dow FROM event_ts)  AS day_of_week,
+       EXTRACT(hour FROM event_ts) AS hour,
+       AVG(items_per_hour) AS avg_thr,
+       PERCENTILE_CONT(0.95) WITHIN GROUP
+         (ORDER BY items_per_hour) AS p95_thr
+FROM hourly_throughput
+WHERE month = LAST_MONTH
+GROUP BY 1, 2, 3;</pre>
+    </div>
+    <div class="card card--soft">
+      <h5>③ Mix SKU (volumen, peso, categoría)</h5>
+<pre style="font-size:0.72rem;">SELECT fc_id, sm.category,
+       WIDTH_BUCKET(sm.dim_weight_kg, 0, 50, 10) AS dim_bucket,
+       COUNT(DISTINCT sm.sku_id) AS sku_count,
+       SUM(of.items) AS items_processed,
+       SUM(of.items * sm.weight_kg) AS total_weight
+FROM order_fulfillment of
+JOIN sku_master sm USING (sku_id)
+WHERE of.fc_id IS NOT NULL
+GROUP BY 1, 2, 3;</pre>
+    </div>
+    <div class="card">
+      <h5>Validaciones</h5>
+      <ul class="text-sm">
+        <li>Cross-check con KPIs ya reportados (sanity).</li>
+        <li>Excluir 2 sem de sale spike (Buen Fin / Hot Sale).</li>
+        <li>Solo ciclos completos.</li>
+        <li>PII: agregar a nivel SKU-category, no usuario.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="mt-3">b) Cómo lo presentaría al líder</h3>
+  <div class="card card--blue">
+    <h4 style="color:var(--meli-yellow);">Dashboard de 4 vistas (Streamlit o Looker)</h4>
+    <ol class="text-sm" style="margin-bottom:0;">
+      <li><strong>Resumen ejecutivo</strong>: tabla por FC con throughput total, hr peak, top-3 categorías, <em>score de fit</em> para la tech vs criterios multi-lente.</li>
+      <li><strong>Flujo semanal</strong> por FC: stacked area inbound vs outbound + anomalía detection.</li>
+      <li><strong>Heatmap peaks intradiarios</strong>: hr × día × FC para staffing.</li>
+      <li><strong>Mix SKU</strong>: pareto por categoría · dim-weight boxplot · ABC analysis (top 20% SKUs = X% volumen).</li>
+    </ol>
+  </div>
+
+  <div class="callout callout--yellow mt-2">
+    <strong>Insight slide para el líder</strong>: «FC-X muestra utilización 60% pero throughput plano vs FC-Y. Hipótesis: bottleneck en sortation post-pick.
+    Recomendación: profundizar antes de expandir Y a más FCs.»<br>
+    <em>Recomendación accionable</em> &gt; <em>dashboard pasivo</em>.
+  </div>
+</section>
+
+<!-- ============================ SLIDE 06 · CASO 5 GANTT ============================ -->
+<section id="slide-caso5" class="slide">
+  <div class="slide__header">
+    <div class="slide__eyebrow">
+      <span class="slide__number">06</span>
+      <span class="slide__kicker">Caso 5 · Roadmap feasibility-a-licitación</span>
+    </div>
+    <h2 class="slide__title">~28 semanas a contrato firmado · ~46 semanas a steady state.</h2>
+    <p class="slide__subtitle">CPM + Real Options · gates por business case · Monte Carlo de duraciones.</p>
+  </div>
+
+  <div class="card card--soft">
+    <table>
+      <thead><tr><th>#</th><th>Fase</th><th>Duración</th><th>Paralelo con</th><th>Gate / output</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Definición problema + alineación stakeholders</td><td>2 sem</td><td>—</td><td>Charter firmado</td></tr>
+        <tr><td>2</td><td>Análisis baseline + KPIs target</td><td>3 sem</td><td>parcial con (3)</td><td>Baseline doc + targets</td></tr>
+        <tr><td>3</td><td>Long-list proveedores + RFI</td><td>4 sem</td><td>parcial con (2)</td><td>Long-list 8–12</td></tr>
+        <tr><td>4</td><td>Visitas técnicas + due diligence (incl. soporte MX)</td><td>4 sem</td><td>—</td><td>Short-list 3–4</td></tr>
+        <tr><td>5</td><td>POC / piloto con 1–2 proveedores</td><td>6 sem</td><td>—</td><td>Métricas piloto</td></tr>
+        <tr><td>6</td><td>Business case + ROI defendido</td><td>3 sem</td><td>últimas 2 sem con (5)</td><td>Deck CEO/CFO · NPV/IRR</td></tr>
+        <tr><td>7</td><td>Aprobación stakeholders senior</td><td>2 sem</td><td>—</td><td><strong>Go / No-Go</strong></td></tr>
+        <tr><td>8</td><td>Especificación técnica + RFP</td><td>3 sem</td><td>—</td><td>RFP doc</td></tr>
+        <tr><td>9</td><td>Licitación + selección</td><td>4 sem</td><td>—</td><td>Vendor seleccionado</td></tr>
+        <tr><td>10</td><td>Negociación contrato</td><td>3 sem</td><td>—</td><td>Contrato firmado</td></tr>
+        <tr style="background:var(--meli-yellow-soft);"><td>—</td><td><strong>Fabricación (dado: 3 meses)</strong></td><td>12 sem</td><td>—</td><td>Sistema fabricado</td></tr>
+        <tr><td>11</td><td>Preparación de sitio</td><td>4 sem</td><td>con fabricación</td><td>Sitio listo</td></tr>
+        <tr><td>12</td><td>Instalación + commissioning</td><td>4 sem</td><td>—</td><td>Sistema en piso</td></tr>
+        <tr><td>13</td><td>Ramp-up + validación KPIs</td><td>6 sem</td><td>—</td><td>Steady state</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid grid--2 mt-3">
+    <div class="card card--blue">
+      <h4 style="color:var(--meli-yellow);">Pre-fabricación (≈ 28 sem)</h4>
+      <p>Discovery → Aprobación + Contrato. La <strong>Fase 7 es el gate Real Options</strong>: si POC no llega, no se compromete CAPEX de fabricación.</p>
+    </div>
+    <div class="card card--blue">
+      <h4 style="color:var(--meli-yellow);">A steady state (≈ 46 sem)</h4>
+      <p>Incluye fabricación + sitio + instalación + ramp-up. ~11 meses total. La sobreposición sitio↔fabricación ahorra 4 semanas.</p>
+    </div>
+  </div>
+
+  <!-- =================== WIDGET GANTT =================== -->
+  <div class="widget" id="widget-caso5">
+    <div class="widget__header">
+      <h3 class="widget__title">⚙ Gantt simulator · ajusten duraciones, vean el go-live y el critical path</h3>
+      <span class="widget__hint">El Monte Carlo agrega ±20% de incertidumbre triangular sobre cada fase.</span>
+    </div>
+    <div class="widget__controls">
+      <div class="widget__control">
+        <label>Multiplicador discovery (1–4) <span class="value-display" id="c5-mult-discovery-val">1.0×</span></label>
+        <input type="range" id="c5-mult-discovery" min="0.5" max="2.0" value="1.0" step="0.1">
+      </div>
+      <div class="widget__control">
+        <label>Multiplicador POC (5) <span class="value-display" id="c5-mult-poc-val">1.0×</span></label>
+        <input type="range" id="c5-mult-poc" min="0.5" max="2.0" value="1.0" step="0.1">
+      </div>
+      <div class="widget__control">
+        <label>Multiplicador licitación (8–10) <span class="value-display" id="c5-mult-lic-val">1.0×</span></label>
+        <input type="range" id="c5-mult-lic" min="0.5" max="2.0" value="1.0" step="0.1">
+      </div>
+      <div class="widget__control">
+        <label>Fabricación (semanas) <span class="value-display" id="c5-fab-val">12</span></label>
+        <input type="range" id="c5-fab" min="6" max="24" value="12" step="1">
+      </div>
+      <div class="widget__control">
+        <label>Ramp-up (semanas) <span class="value-display" id="c5-ramp-val">6</span></label>
+        <input type="range" id="c5-ramp" min="2" max="16" value="6" step="1">
+      </div>
+    </div>
+
+    <div class="widget__output">
+      <div class="kpi"><span class="kpi__value" id="c5-out-pre" style="font-size:1.4rem;">—</span><span class="kpi__label">Sem a contrato</span></div>
+      <div class="kpi"><span class="kpi__value" id="c5-out-go" style="font-size:1.4rem;">—</span><span class="kpi__label">Sem a steady state</span></div>
+      <div class="kpi"><span class="kpi__value" id="c5-out-mc-p50" style="font-size:1.4rem;">—</span><span class="kpi__label">Monte Carlo p50</span></div>
+      <div class="kpi"><span class="kpi__value" id="c5-out-mc-p90" style="font-size:1.4rem;color:var(--color-warning);">—</span><span class="kpi__label">Monte Carlo p90</span></div>
+    </div>
+
+    <div id="c5-chart" class="widget__chart"><div class="widget__loading">Cargando Python...</div></div>
+  </div>
+
+  <div class="sources">
+    <p class="sources__title">Conceptos referenciables</p>
+    <ul>
+      <li>CPM (Kelley &amp; Walker 1959) + PERT (US Navy 1958).</li>
+      <li>Real Options (Trigeorgis): gates por business case evitan comprometer CAPEX si POC malo.</li>
+      <li>Risk-adjusted timeline (Monte Carlo de duraciones): el p90 dice "no prometan al CEO antes de X".</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ SLIDE 07 · MOTIVACIONALES (BRIEF) ============================ -->
+<section id="slide-motivacionales" class="slide">
+  <div class="slide__header">
+    <div class="slide__eyebrow">
+      <span class="slide__number">07</span>
+      <span class="slide__kicker">Preguntas adicionales · resumen</span>
+    </div>
+    <h2 class="slide__title">Motivacionales — 3 bullets cada una. Detalle completo en PDF formal.</h2>
+    <p class="slide__subtitle">El PDF está en <code>exports/motivacionales_andres_islas.pdf</code> (también adjunto al email).</p>
+  </div>
+
+  <div class="grid grid--2">
+    <div class="card">
+      <h4>1. ¿Qué te interesa del puesto?</h4>
+      <ul class="text-sm">
+        <li>Crear e innovar es lo que me mueve. En Limser construí un sistema de asistencia remota encriptado que redujo viáticos y bajó el tiempo de respuesta a &lt;3 hrs — sigo recibiendo mensajes de colaboradores agradeciendo que les facilitó la vida.</li>
+        <li>En MELI quiero ir a plantas <em>autónomas</em>, gemelos digitales para iteración en software, arquitecturas a prueba de balas donde las celdas vecinas redistribuyen carga si un robot falla.</li>
+        <li>El reto de escala 10–100× lo que he tocado, el cross-equipo con Brasil regional, y aterrizar la receta de innovación en MX cuando aún se está escribiendo.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>2. Fortaleza · debilidad</h4>
+      <ul class="text-sm">
+        <li><strong>Fortaleza</strong>: tomar problemas concretos y entregar la solución completa — desde la arquitectura hasta el código que la sostiene. Transfer cars de 90 T SIL-2 a Fortune 500 con un equipo de 6 ing., y en paralelo el stack de control + fusión sensorial de un AGV agrícola escrito de cero en 6 semanas.</li>
+        <li><strong>Debilidad</strong>: el ego. Hubo una etapa donde quise <em>más</em> antes de tiempo y terminé en quiebra; me costó relaciones personales. Leer <em>Ego Is the Enemy</em> (Ryan Holiday) + trabajar con matrices de riesgo explícitas cambió cómo decido.</li>
+        <li>Sigue siendo algo que reviso. Por eso tampoco me pongo títulos a mí mismo — prefiero que el resultado hable.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>3. Tres años</h4>
+      <ul class="text-sm">
+        <li>No me interesa la siguiente etiqueta del organigrama, sino el alcance del impacto — quiero influir en <em>qué creamos y utilizamos</em> en MELI, no solo en cómo operamos.</li>
+        <li>Referencia: <em>The Wave</em> (cofundador DeepSeek) — 3 olas: LLMs, robots VLA generalistas, y computación cuántica como consecuencia natural del volumen de datos. Quiero aportar a la tercera en MELI.</li>
+        <li>Objetivo concreto a 3 años: homologar arquitectura robótica entre CEDIS principales y secundarios, con simulación cuántica para diseño de warehouse y distribución de activos.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>4. A challenge I overcame <span class="brand-tag brand-tag--ghost" style="font-size:0.65rem;">EN per brief</span></h4>
+      <ul class="text-sm">
+        <li><strong>Limser × Harsco</strong> (plant directors reporting into Brazil — same setup as MELI). When I joined, the AGV project was failing and the customer lead, Miguel, was openly upset.</li>
+        <li>I proposed standing up an automation department from scratch with me accountable; rebuilt the methodology around foundry realities (induction furnace safety, AGV failure consequences) and added a load-cell-to-WMS integration that gave Ternium audit-grade metal-quality data.</li>
+        <li>Outcome: the Harsco plant — which was internally debated for closure — used our delivery to renew a 10-year operating extension with Ternium. Last visit ended with handshakes and conversations about future projects. Limser still works with Harsco today.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout--yellow mt-3">
+    <strong>El PDF formal</strong> tiene cada respuesta a 2 párrafos con storytelling completo + métricas verificables. Está pensado para lectura aparte del deck.
+  </div>
+</section>
+
+<!-- ============================ SLIDE 99 · CIERRE ============================ -->
+<section id="slide-cierre" class="slide">
+  <div class="slide__header">
+    <div class="slide__eyebrow">
+      <span class="slide__number">99</span>
+      <span class="slide__kicker">Cierre · siguiente nivel</span>
+    </div>
+    <h2 class="slide__title">Lo que decidí dejar en appendix — para profundizar si quieren.</h2>
+  </div>
+
+  <div class="grid grid--2">
+    <a class="card" href="appendix/roadmap-18-meses.html" target="_blank" style="text-decoration:none;color:inherit;">
+      <h4>⭐ Bonus · Roadmap 18 meses MELI MX Innovación</h4>
+      <p class="text-sm">Lectura opcional: cómo abordaría una agenda de innovación de 18 meses para los CEDIS MX. Iniciativas, gates, métricas objetivo. <em>Marcado como opcional porque no es parte del brief.</em></p>
+    </a>
+    <a class="card" href="appendix/proveedores-empaquetado.html" target="_blank" style="text-decoration:none;color:inherit;">
+      <h4>Proveedores empaquetado MX</h4>
+      <p class="text-sm">Packsize, Sparck (post-adquisición), Sealed Air (2 plantas MX), Quadient, Smurfit Kappa. Fuentes verificables + gaps declarados.</p>
+    </a>
+    <a class="card" href="appendix/proveedores-stp-amr.html" target="_blank" style="text-decoration:none;color:inherit;">
+      <h4>Proveedores STP / AMR MX</h4>
+      <p class="text-sm">Geek+, Locus Robotics (GEODIS Cuautitlán — primer LATAM), Quicktron (probable proveedor Cajamar), Exotec, AutoStore.</p>
+    </a>
+    <a class="card" href="appendix/universidades-mx.html" target="_blank" style="text-decoration:none;color:inherit;">
+      <h4>Universidades MX → CEDIS</h4>
+      <p class="text-sm">Mapa pipeline de talento por ubicación CEDIS: Tepotzotlán, Apodaca, Tlajomulco. UPIITA, ESIME, Tec, UANL-FIME, UNAM, ITESO.</p>
+    </a>
+    <a class="card" href="appendix/conceptos-phd.html" target="_blank" style="text-decoration:none;color:inherit;">
+      <h4>Conceptos profundizables</h4>
+      <p class="text-sm">Goldratt TOC, Little's Law, OEE, AHP/TOPSIS, CPM/PERT, Real Options, RCM, ISA-95, OPC UA. Con referencias bibliográficas.</p>
+    </a>
+    <a class="card" href="appendix/supuestos.html" target="_blank" style="text-decoration:none;color:inherit;">
+      <h4>Supuestos transparentes</h4>
+      <p class="text-sm">Todo dato no verificable, declarado. Stack MELI asumido, salario MX, CAPEX rangos, SLA estándar. Mueve un supuesto y el deck reacciona.</p>
+    </a>
+  </div>
+
+  <div class="card card--blue mt-3">
+    <h3 style="color:var(--meli-yellow);">Cierre</h3>
+    <ul style="color:#FFFFFFDD;">
+      <li>Antes de elegir el robot, pregunté si debía ser un robot. Cuando sí, las cinco lentes (operativa · técnica · financiera · talento · riesgo) se aplicaron juntas, no por separado.</li>
+      <li>El gap de escala (fleet a tamaño MELI) lo declaro directamente y enseño la adyacencia para cubrirlo, no lo escondo.</li>
+      <li>El deliverable es deck y herramienta a la vez — si tiene sentido, en la entrevista podemos abrir el simulador y discutir escenarios juntos en vivo.</li>
+      <li>Gracias por el espacio para presentar el case. Quedo atento a sus comentarios.</li>
+    </ul>
+    <p style="margin-bottom:0;color:#FFFFFFAA;font-size:0.88rem;">Andrés Islas Bravo · andresislas2107@gmail.com</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="deck-footer">
+  <div>
+    <strong>Andrés Islas Bravo</strong> · Work Sample · Mercado Envíos MX · mayo 2026
+  </div>
+  <div class="deck-footer__nav">
+    <button class="btn-ghost" data-deck-prev>← Anterior</button>
+    <button class="btn-primary" data-deck-next>Siguiente →</button>
+  </div>
+</footer>
+
+<!-- ============ DECK SCRIPT ============ -->
+<script src="js/deck.js"></script>
+
+<!-- ============ PYSCRIPT WIDGETS ============ -->
+<py-config type="json">
+{
+  "packages": []
+}
+</py-config>
+<script type="py" src="python/packaging_scorecard.py"></script>
+<script type="py" src="python/shelves_bottleneck.py"></script>
+<script type="py" src="python/picking_productivity.py"></script>
+<script type="py" src="python/gantt_simulator.py"></script>
+
+</body>
+</html>

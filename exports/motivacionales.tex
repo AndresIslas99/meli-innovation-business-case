@@ -1,0 +1,120 @@
+% Motivacionales · Work Sample · Especialista Innovación y Robótica MELI MX
+% Inter + JetBrains Mono · paleta institucional MELI (amarillo + azul)
+% Compile: xelatex motivacionales.tex
+
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[top=0.7in, bottom=0.7in, left=0.85in, right=0.85in]{geometry}
+\usepackage{fontspec}
+\usepackage[spanish,es-tabla,es-noindentfirst,es-nolists]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{csquotes}
+
+% --- fonts ---
+\setmainfont{Inter}[
+  Path        = /usr/share/fonts/opentype/inter/,
+  UprightFont = Inter-Regular.otf,
+  ItalicFont  = Inter-Italic.otf,
+  BoldFont    = Inter-Bold.otf,
+  BoldItalicFont = Inter-BoldItalic.otf,
+  Ligatures   = TeX,
+]
+\newfontfamily\headingfont{Inter}[
+  Path        = /usr/share/fonts/opentype/inter/,
+  UprightFont = Inter-SemiBold.otf,
+  BoldFont    = Inter-Bold.otf,
+  Ligatures   = TeX,
+]
+\newfontfamily\monofont{JetBrains Mono}[
+  Path        = /usr/share/fonts/truetype/jetbrains-mono/,
+  UprightFont = JetBrainsMono-Regular.ttf,
+  BoldFont    = JetBrainsMono-Bold.ttf,
+  Scale       = 0.85,
+]
+
+% --- MELI palette ---
+\definecolor{meliblue}{HTML}{2D3277}
+\definecolor{meliyellow}{HTML}{FFE600}
+\definecolor{meliyellowdark}{HTML}{FCD400}
+\definecolor{ink}{HTML}{1A1A2E}
+\definecolor{muted}{HTML}{5A5A5A}
+
+% --- spacing ---
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\linespread{1.25}
+\color{ink}
+
+% --- section style ---
+\titleformat{\section}{\headingfont\large\bfseries\color{meliblue}}{}{0pt}{}[\vspace{-6pt}\rule{\linewidth}{1.5pt}\vspace{2pt}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+\titleformat{\subsection}{\headingfont\normalsize\bfseries\color{meliblue}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{8pt}{2pt}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=meliblue,
+  urlcolor=meliblue,
+}
+
+\setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt}
+
+\begin{document}
+
+% --- HEADER ---
+{\headingfont\Large\bfseries\color{meliblue} Preguntas motivacionales}\hfill
+{\small\color{muted} Work Sample · Mayo 2026}
+
+\vspace{0.2em}
+
+{\small\color{muted} Andrés Islas Bravo \;·\; \href{mailto:andresislas2107@gmail.com}{andresislas2107@gmail.com} \;·\; \monofont Especialista Innovación \& Robótica · Mercado Envíos MX}
+
+\vspace{0.4em}
+{\color{meliyellowdark}\rule{\linewidth}{2.5pt}}
+\vspace{0.6em}
+
+% --- 1 ---
+\section*{1. ¿Qué te interesa del puesto?}
+
+Lo que me mueve cada día es crear e innovar. En cada rol técnico que he tomado he buscado que mi tiempo en esa empresa fuera un antes y un después. Un ejemplo concreto: en Limser construí un sistema de asistencia remota encriptado para mantenimiento de software de equipos de alto valor; los ingenieros dejaron de viajar a sitio, la empresa redujo viáticos, y el tiempo de respuesta bajó a menos de tres horas. Sigo recibiendo mensajes de colaboradores que agradecen que ese sistema les facilitó la vida y el balance con su familia. Otro caso es la última startup, donde escribí desde cero la pila de algoritmos para que AGVs navegaran en invernaderos --- un escenario donde la mayoría de los AGVs comerciales fallan ---; esos robots están hoy en producción, ayudando a la seguridad alimentaria, que es uno de los retos humanos más grandes. También aporto cuando no hay dinero de por medio: contribuciones a \monofont{nav2} de ROS\,2, porque me importa que la robótica esté cada vez más presente en la vida cotidiana.
+
+En Mercado Libre me interesa exactamente eso: subir la vara. No hablo solo de plantas automatizadas, sino de plantas \textit{autónomas}; usar gemelos digitales para iterar configuraciones y procesos en software antes de tocar el piso; diseñar arquitecturas a prueba de balas, donde si un robot falla, las celdas vecinas redistribuyen carga dinámicamente y la línea no se para. Sumado a esto, el reto de escala (10--100$\times$ de lo que he tocado), el trabajo cross-equipo con Brasil regional, y la oportunidad de estar en MX cuando la receta de innovación aún se está escribiendo, hacen que sea el rol al que quiero entrar.
+
+% --- 2 ---
+\section*{2. ¿Cuál es tu mayor fortaleza y tu mayor debilidad?}
+
+\textbf{Fortaleza}: tomar problemas concretos y entregar la solución completa --- desde definir la arquitectura hasta escribir el código que la sostiene. En automatización industrial pesada dirigí el delivery de transfer cars de 90 toneladas certificadas TÜV SIL-2 a clientes Fortune 500, con un equipo de seis ingenieros. En paralelo, en la última startup, escribí cada línea del stack de control y fusión sensorial de un AGV agrícola en seis semanas con un BOM de \$3K USD, y defendí el unit economics ante VCs (hectáreas $\to$ ROI año 1). Esa intersección entre depth técnica y criterio de inversión es la base con la que llego al rol.
+
+\textbf{Debilidad}: he aprendido a llamarla por su nombre --- ego. Hubo una época, antes de que despegara mi primera empresa, en la que quería \textit{más} antes de tiempo: rechacé puestos junior por sentir que merecía algo mayor, y terminé en quiebra. Me costó relaciones personales y me obligó a parar. Lo que cambió: leí \textit{Ego Is the Enemy} (Ryan Holiday), empecé a trabajar con matrices de riesgo explícitas antes de comprometerme a algo, y aprendí a planear por etapas en vez de saltarme pasos. Ese aprendizaje hoy se traduce en algo concreto: soy padre de familia presente y un profesional que prioriza decidir bien sobre decidir rápido. El ego sigue siendo algo que reviso periódicamente --- por eso tampoco me pongo títulos a mí mismo y prefiero que sean los resultados los que hablen.
+
+% --- 3 ---
+\section*{3. Si obtienes el puesto, ¿cómo te ves dentro de 3 años?}
+
+Quiero crecer dentro de MELI, pero lo que de verdad me interesa no es la siguiente etiqueta en el organigrama, sino el alcance de mi impacto. Quiero llegar a un punto donde mi visión no solo influya en cómo operamos, sino en \textit{qué creamos y utilizamos} en MELI.
+
+Hay un libro que me ha marcado, \textit{The Wave} de uno de los fundadores de DeepSeek. Describe tres olas tecnológicas que están reconfigurando la economía: los LLMs, los robots --- en particular los VLA aspirando a generalistas ---, y, como consecuencia natural del volumen de datos que esos robots generan, la computación cuántica como nueva forma de procesar simulaciones. En MELI me veo aportando a las tres, especialmente a la tercera. La computación cuántica abre ventanas de granularidad para simulación de procesos, diseño de warehouses y distribución de activos que hoy son intratables con cómputo clásico, y permite un objetivo concreto: homologar la arquitectura robótica entre los CEDIS principales (que ya están moviéndose) y los CEDIS secundarios, donde aún no se ha tocado.
+
+Quiero ser el agente que no solo despliega la innovación del presente, sino el que nos mantiene preparados para la del futuro. En esta carrera tecnológica, el primero en lograr la aplicación real es el que se sube a la ola y gana market share. Quiero aportar exactamente eso a Mercado Libre.
+
+% --- 4 ENGLISH ---
+\section*{4. A challenge I overcame --- and how (in English, per the brief)}
+
+The challenge came early in my time at Limser. The customer was \textbf{Harsco}, a metals services company whose plant directors reported into Brazil. By the time I joined the project, the relationship had deteriorated: the AGVs we were building for their foundry weren't progressing as expected, Limser didn't have a clear methodology to push them through, and Miguel from Harsco --- the customer lead --- was visibly upset. The first time I walked into the plant in person, the meeting opened with reproaches, not introductions.
+
+I made a deliberate choice: rather than patch the AGV development plan and hope, I proposed standing up an automation department from scratch inside Limser, with myself accountable. The customer agreed to give us a chance. I rebuilt the development methodology around the actual realities of the foundry --- the safety risks of running automated equipment around induction furnaces, the operational consequences if one AGV failed mid-shift, the criticality of integrating the AGVs with their WMS so a load-cell-based weighing system could feed inventory and metal-quality data downstream to Ternium, their downstream customer. The pressure was sharp: in side conversations with the LatAm director of procurement, he told me that the Harsco plant was internally being debated for closure, and that what we were delivering --- AGVs plus the integrated weighing/WMS narrative --- was the lever they were using to negotiate a ten-year operational extension with Ternium.
+
+I built the team from people I had met in collegiate robotics teams, who shared the same drive. The project ran on a tight budget vs. a tight timeline, and the trade-off was managed week by week between scope, overtime and progress. On the last visit I made to the plant, Miguel and I had coffee, shook hands, and started talking about future projects. The plant kept operating. Limser is still working with Harsco today --- on cranes now, a different scope. That outcome taught me what it really means to take ownership of something that started badly, to step into a high-pressure customer relationship and let the work do the speaking. It is also the kind of relationship I would want to build with the MELI operations leaders in Brazil --- starting calm, showing up, and proving the work case by case.
+
+\vspace{1em}
+
+{\centering\color{meliyellowdark}\rule{0.35\linewidth}{1.2pt}\par}
+\vspace{0.4em}
+{\centering\small\color{muted} Andrés Islas Bravo \;·\; \href{mailto:andresislas2107@gmail.com}{andresislas2107@gmail.com} \;·\; Mayo 2026\par}
+
+\end{document}

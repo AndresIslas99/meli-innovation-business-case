@@ -1,0 +1,82 @@
+{
+  "research_date": "2026-05-14",
+  "agent": "main_session_websearch",
+  "categoria": "Proveedores de sistemas de sortation (cross-belt, tilt-tray, sliding-shoe, swivel-wheel, robotic) — top global con candidatos a soportar operación MX/LATAM",
+  "vendors": [
+    {
+      "name": "BEUMER Group",
+      "parent_company": "BEUMER Group (Alemania, privado)",
+      "mx_presence_type": "regional_partner_no_office",
+      "mx_offices": [],
+      "mx_distributor_name": "Oficinas regionales LATAM (Brasil, Chile); MX vía partner global",
+      "flagship_sorter_types": ["Cross-belt sorter", "Tilt-tray sorter", "BG Sorter Compact"],
+      "notable_latam_cases": [],
+      "service_sla_notes": "Soporte regional desde Brasil/Chile; expectativa de viaje de FSE en caso crítico.",
+      "strategic_note": "Líder global en parcel sorting. Su Compact Belt Tray Sorter está optimizado para e-commerce.",
+      "source_links": ["https://www.beumergroup.com/"],
+      "data_gaps": ["oficina directa MX", "instalaciones MX/LATAM"]
+    },
+    {
+      "name": "Vanderlande",
+      "parent_company": "Toyota Industries Corporation (vía Toyota Advanced Logistics; tras unificación TAL 2024)",
+      "mx_presence_type": "regional_partner_no_office",
+      "mx_offices": [],
+      "mx_distributor_name": "Toyota Material Handling tiene presencia MX — la unificación TAL podría incluir Vanderlande vía esa red",
+      "flagship_sorter_types": ["CROSSORTER", "POSISORTER", "Pouch sorter (FLEET)", "ADAPTO shuttle"],
+      "notable_latam_cases": [],
+      "service_sla_notes": "Soporte a través de la red Toyota MX a partir de la unificación TAL.",
+      "strategic_note": "La unificación 2024 de Bastian Solutions + Vanderlande Warehouse + viastore bajo Toyota Advanced Logistics (TAL) cambia la dinámica de soporte regional. Toyota MX existe — el handshake con TAL para warehouse equipment es probable.",
+      "source_links": [
+        "https://www.vanderlande.com/",
+        "https://www.dcvelocity.com/supply-chain/other-services/systems-integration-services/honeywell-may-spin-off-its-warehouse-and-logistics-divisions"
+      ],
+      "data_gaps": ["claridad sobre canal MX post-TAL", "instalaciones LATAM verificables"]
+    },
+    {
+      "name": "Honeywell Intelligrated (ahora Pyramid Robotics)",
+      "parent_company": "Private equity (Honeywell desinvirtió en 2025)",
+      "mx_presence_type": "regional_partner_no_office",
+      "mx_offices": [],
+      "mx_distributor_name": null,
+      "flagship_sorter_types": ["Posisort", "OPEX Sure Sort", "Cross-belt"],
+      "notable_latam_cases": [],
+      "service_sla_notes": "Tras la desinversión de Honeywell la marca operativa cambia; soporte LATAM en transición.",
+      "strategic_note": "El cambio de manos de Honeywell→PE en 2025 introduce incertidumbre: cualquier RFP debe considerar la estabilidad del soporte/refacciones tras la transición.",
+      "source_links": [
+        "https://www.dcvelocity.com/supply-chain/other-services/systems-integration-services/honeywell-sells-intelligrated-division-to-a-private-equity-firm"
+      ],
+      "data_gaps": ["estabilidad post-transición", "nuevo canal MX"]
+    },
+    {
+      "name": "Dematic",
+      "parent_company": "KION Group (Alemania; XETRA:KGX)",
+      "mx_presence_type": "regional_partner_no_office",
+      "mx_offices": [],
+      "mx_distributor_name": "Red KION (Linde, STILL) presencia MX",
+      "flagship_sorter_types": ["Multishuttle", "RapidPick", "Cross-belt sortation"],
+      "notable_latam_cases": [],
+      "service_sla_notes": "KION Group tiene presencia industrial en MX vía Linde Material Handling — el soporte de Dematic puede canalizarse por ahí.",
+      "strategic_note": "Dematic es uno de los 5 líderes globales en sistemas inteligentes de sortation (~26% market share combinado top 5).",
+      "source_links": ["https://www.dematic.com/en-us/"],
+      "data_gaps": ["canal directo Dematic MX vs vía KION"]
+    },
+    {
+      "name": "Tompkins Robotics",
+      "parent_company": "Tompkins Robotics (USA, private)",
+      "mx_presence_type": "unknown",
+      "mx_offices": [],
+      "mx_distributor_name": null,
+      "flagship_sorter_types": ["tSort (robotic sortation portable)", "tSort Plus"],
+      "notable_latam_cases": [],
+      "service_sla_notes": "Sin información de presencia MX/LATAM en búsqueda.",
+      "strategic_note": "tSort es un sorter robótico modular reconfigurable — alternativa diferente al cross-belt fijo. Útil para CEDIS con footprint variable / fases de crecimiento. Footprint pequeño = entrega rápida.",
+      "source_links": ["https://www.tompkinsrobotics.com/"],
+      "data_gaps": ["presencia MX/LATAM", "casos similares en operaciones e-commerce"]
+    }
+  ],
+  "research_gaps": [
+    "Mercado de sorters en MX está dominado por integraciones globales con soporte regional desde Brasil/Chile/USA — ningún proveedor tiene oficina dedicada de sortation en MX al momento de esta búsqueda.",
+    "El mercado global de parcel sortation crece a CAGR ~5-9% (proyectado USD $5.68B para 2032) — para MX específicamente, el crecimiento se acelera por la entrada agresiva de e-commerce + nearshoring.",
+    "Adopción 'goods-to-robot' como categoría emergente (sorter robotizado para pick fácil + robot-pick para SKUs difíciles) — vigilar Mujin, Boston Dynamics Stretch, RightHand Robotics."
+  ]
+}

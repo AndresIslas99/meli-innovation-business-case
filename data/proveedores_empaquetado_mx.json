@@ -1,0 +1,104 @@
+{
+  "research_date": "2026-05-14",
+  "agent": "main_session_websearch",
+  "categoria": "Proveedores de tecnología de empaquetado automatizado relevantes a e-commerce/CEDIS en México",
+  "vendors": [
+    {
+      "name": "Packsize International",
+      "parent_company": "Packsize International (privately held)",
+      "mx_presence_type": "direct_office",
+      "mx_offices": ["México (sitio web localizado packsize.mx; participación en Expo Pack Guadalajara 2025 y Expo Pack México 2026)"],
+      "mx_distributor_name": null,
+      "flagship_products_for_ecommerce": ["X-Series (X4/X5/X6 auto-box)", "EM machine system con Z-Fold corrugado"],
+      "notable_latam_cases": [
+        {"customer": "Autopartes Tracto de México", "summary": "Implementación EM machine system + Z-Fold para cajas right-sized por orden", "source": "https://www.packsize.com/case-study/autopartes-tracto-de-mexico"}
+      ],
+      "service_sla_notes": "Modelo PIM (Packaging-as-a-Service); incluye material consumible + máquina + soporte. Detalles SLA específicos MX no publicados.",
+      "strategic_note": "En abril 2025 Packsize anunció la adquisición de Sparck Technologies (CMC Pakto / CartonWrap), consolidando la categoría auto-box. Tras la fusión, el portafolio cubre tanto cajas erected (Packsize) como cajas wrap (Sparck/CMC).",
+      "source_links": [
+        "https://www.packsize.mx/",
+        "https://www.packsize.com/product/x-series",
+        "https://www.packsize.com/case-study/autopartes-tracto-de-mexico",
+        "https://www.packsize.com/press-release/packsize-to-acquire-sparck-technologies"
+      ],
+      "data_gaps": ["dirección de oficina(s) físicas en MX", "número de instalaciones MX", "SLA contractual estándar MX"]
+    },
+    {
+      "name": "Sparck Technologies (CMC Pakto / CartonWrap)",
+      "parent_company": "Packsize International (desde mayo 2025)",
+      "mx_presence_type": "regional_partner_no_office",
+      "mx_offices": [],
+      "mx_distributor_name": null,
+      "flagship_products_for_ecommerce": ["CVP Impack", "CVP Everest", "Pakto CartonWrap auto-bag wrap"],
+      "notable_latam_cases": [],
+      "service_sla_notes": "Post-adquisición Packsize, expectativa de canalización vía Packsize MX. Pre-adquisición operaba vía distribuidores europeos.",
+      "strategic_note": "Adquirido por Packsize abril-mayo 2025. La consolidación reduce el universo de candidatos auto-box independientes en LATAM.",
+      "source_links": [
+        "https://sparcktechnologies.com/",
+        "https://interactanalysis.com/insight/packsize-to-acquire-sparck-technologies/",
+        "https://www.packsize.com/press-release/packsize-to-acquire-sparck-technologies"
+      ],
+      "data_gaps": ["presencia MX pre-adquisición", "roadmap de integración con Packsize MX"]
+    },
+    {
+      "name": "Sealed Air (AutoBag, Instapak, Bubble Wrap)",
+      "parent_company": "Sealed Air Corporation (NYSE:SEE)",
+      "mx_presence_type": "direct_office",
+      "mx_offices": [
+        "Toluca, Estado de México (planta — laminados y bolsas)",
+        "Monterrey, Nuevo León (planta — bolsas)",
+        "Tlalnepantla de Baz, Estado de México (entidad legal Sealed Air de México Operations S de RL de CV)"
+      ],
+      "mx_distributor_name": null,
+      "flagship_products_for_ecommerce": ["AutoBag 850HB hybrid bagging (paper + poly mailers, hasta 700 órdenes/hr)", "Instapak foam-in-place", "Bubble Wrap"],
+      "notable_latam_cases": [
+        {"customer": "Mercado regional MX + Centroamérica", "summary": "Plantas de Toluca y Monterrey distribuyen a todo MX + Centroamérica", "source": "https://t21.com.mx/automatizacion-punto-clave-en-la-operatividad-de-sealed-air/"}
+      ],
+      "service_sla_notes": "Presencia directa con 2 plantas en MX → cadena de suministro de consumibles y soporte de máquina cercana al CEDIS de Tepotzotlán/Cuautitlán (~30-40 km de Toluca y Tlalnepantla).",
+      "strategic_note": "Ventaja logística natural: la AutoBag 850HB (lanzada en Packaging Innovations 2025) cubre el throughput de un FC tipo Mercado Envíos (700 órdenes/hr/máquina).",
+      "source_links": [
+        "https://www.sealedair.com/es",
+        "https://www.sealedair.com/la/company/our-company/who-we-are",
+        "https://www.prnewswire.com/news-releases/sealed-air-launches-autobag-brand-850hb-hybrid-bagging-machine-for-paper-and-poly-mailers-302556908.html",
+        "https://t21.com.mx/automatizacion-punto-clave-en-la-operatividad-de-sealed-air/",
+        "https://us.kompass.com/c/sealed-air-de-mexico-operations-s-de-rl-de-cv/mx854466/"
+      ],
+      "data_gaps": ["SLA específico contractual MX", "MTTR garantizado", "casos LATAM verificados específicamente con AutoBag 850HB"]
+    },
+    {
+      "name": "Quadient (CVP Impack / CVP Everest)",
+      "parent_company": "Quadient (Euronext:QDT)",
+      "mx_presence_type": "regional_partner_no_office",
+      "mx_offices": [],
+      "mx_distributor_name": "Sin distribuidor MX exclusivo identificado en búsqueda; presencia global vía sitio quadient.com",
+      "flagship_products_for_ecommerce": ["CVP Impack", "CVP Everest (auto-box right-sized)"],
+      "notable_latam_cases": [],
+      "service_sla_notes": "Requeriría contacto directo con Quadient global para confirmar canal MX.",
+      "strategic_note": "Competencia directa a Packsize en el segmento auto-box. Con la consolidación Packsize-Sparck en 2025, Quadient queda como uno de los pocos independientes globales.",
+      "source_links": [
+        "https://www.quadient.com/",
+        "https://www.materialhandling247.com/product/cvp_500_automated_packing_system/",
+        "https://www.quadient.com/en/contact-us"
+      ],
+      "data_gaps": ["presencia oficial MX", "distribuidor LATAM", "casos LATAM verificables"]
+    },
+    {
+      "name": "Smurfit Kappa",
+      "parent_company": "Smurfit Westrock (NYSE:SW post-2024 merger)",
+      "mx_presence_type": "direct_office",
+      "mx_offices": ["Múltiples plantas en MX — corrugado y empaque a medida (búsqueda confirma operación MX)"],
+      "mx_distributor_name": null,
+      "flagship_products_for_ecommerce": ["Cajas corrugadas custom, e-commerce mailers, void-fill"],
+      "notable_latam_cases": [],
+      "service_sla_notes": "Proveedor consolidado de empaque pasivo (no auto-box); relevante como input al sistema, no como tecnología de empaque automatizado en sí.",
+      "strategic_note": "Útil para benchmarking del costo-por-caja del status quo vs auto-box.",
+      "source_links": ["https://crownpack.com/store/mexico-city/", "https://marketing4ecommerce.mx/empresas-embalaje-packaging-ecommerce-mexico/"],
+      "data_gaps": ["plantas específicas MX", "capacidad de integración con sistema auto-box"]
+    }
+  ],
+  "research_gaps": [
+    "Búsqueda especifica de oficinas/direcciones MX de Quadient, BvL, Ranpak, Storopack no devolvió datos verificables en este batch — marcado como 'unknown' o 'no resultados verificables'.",
+    "SLA contractual estándar de cada proveedor en MX no se encuentra en fuentes públicas — supuesto transparente: SLA típico industria = 24-48 hrs respuesta, MTTR 4-8 hrs para sistemas críticos, refacciones críticas <2 semanas.",
+    "Mejor entender: rango de tamaños/materiales soportados por cada máquina (críticos para el fit con el mix SKU de un FC e-commerce de MELI). Recomendar RFI directo a cada proveedor en fase de short-list."
+  ]
+}

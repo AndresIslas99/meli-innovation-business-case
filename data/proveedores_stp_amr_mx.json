@@ -1,0 +1,132 @@
+{
+  "research_date": "2026-05-14",
+  "agent": "main_session_websearch",
+  "categoria": "Proveedores Shelves-to-Person (STP), Autonomous Mobile Robots (AMR), Goods-to-Person para fulfillment e-commerce/CEDIS en México",
+  "vendors": [
+    {
+      "name": "Geek+",
+      "parent_company": "Geekplus Technology Co., Ltd. (HKEX:2590) — primera AMR warehouse robotics empresa pública del mundo (IPO Hong Kong, 2025)",
+      "mx_presence_type": "unknown",
+      "mx_offices": [],
+      "mx_distributor_name": null,
+      "flagship_solution": "Shelves-to-Person (P-Series: P800 lifts shelves to picker), PopPick System (G2P), Sorter Robot",
+      "notable_latam_cases": [
+        {"customer": "Operación logística regional LATAM (mencionada en blog Geek+ pero sin nombre verificable)", "source": "https://blog.geekplus.com/case-studies/"}
+      ],
+      "service_sla_notes": "Cliente público notable: S&S Activewear con P800 organizando 24,360 ubicaciones de almacenamiento.",
+      "strategic_note": "El IPO de 2025 marca un punto de inflexión: Geek+ ahora tiene transparencia financiera/operativa que facilita due diligence. Presencia LATAM probable vía partner system integrators.",
+      "source_links": [
+        "https://www.geekplus.com/en",
+        "https://www.geekplus.com/shelf-to-person-picking",
+        "https://www.fortna.com/solutions/geekplus-mobile-robotics-solution/",
+        "https://english.ckgsb.edu.cn/knowledge/article/direct-delivery/"
+      ],
+      "data_gaps": ["presencia oficina MX", "distribuidor / partner integrator MX", "casos MELI específicos"]
+    },
+    {
+      "name": "Locus Robotics",
+      "parent_company": "Locus Robotics (private; Goldman Sachs y otros como inversionistas)",
+      "mx_presence_type": "regional_partner_no_office",
+      "mx_offices": [],
+      "mx_distributor_name": "GEODIS (3PL implementador; primer cliente LATAM Locus)",
+      "flagship_solution": "Origin AMR (LocusBot) + LocusOne warehouse execution platform",
+      "notable_latam_cases": [
+        {
+          "customer": "GEODIS — Cuautitlán Izcalli, Estado de México",
+          "summary": "Primer despliegue Locus Robotics en LATAM. Estructura mezzanine de 3 niveles, fleet de Origin bots, LocusOne platform. Cliente final: marca apparel global. Anuncio marzo 2024.",
+          "source": "https://geodis.com/us-en/locus-robotics-and-geodis-bring-next-generation-warehouse-amr-automation-mexico"
+        }
+      ],
+      "service_sla_notes": "Acuerdo GEODIS+Locus 2022 incluye despliegue de 1,000 LocusBots globalmente en 24 meses. Cuautitlán es uno de esos sitios.",
+      "strategic_note": "CRITICAL: el sitio GEODIS de Cuautitlán está en el MISMO SUBMERCADO INDUSTRIAL que los FCs principales de MELI MX (Tepotzotlán/Cuautitlán). Locus tiene ahora prueba operativa local. Vendor con la presencia LATAM más reciente y geográficamente más cercana a MELI MX.",
+      "source_links": [
+        "https://geodis.com/us-en/locus-robotics-and-geodis-bring-next-generation-warehouse-amr-automation-mexico",
+        "https://www.dcvelocity.com/articles/60194-locus-robotics-and-geodis-bring-next-generation-warehouse-amr-automation-to-mexico",
+        "https://locusrobotics.com/",
+        "https://www.prnewswire.com/news-releases/locus-robotics-and-geodis-bring-next-generation-warehouse-amr-automation-to-mexico-302084721.html"
+      ],
+      "data_gaps": ["oficina directa MX", "SLA contractual MX", "número de robots actualizado Cuautitlán"]
+    },
+    {
+      "name": "Quicktron",
+      "parent_company": "Shanghai Quicktron Intelligent Technology Co., Ltd.",
+      "mx_presence_type": "unknown",
+      "mx_offices": [],
+      "mx_distributor_name": null,
+      "flagship_solution": "STP AMR, MetaBot series",
+      "notable_latam_cases": [
+        {"customer": "Mercado Libre (mencionado en cobertura periodística como proveedor probable de STP en LATAM)", "source": "Tecnologística — verificación adicional requerida"}
+      ],
+      "service_sla_notes": "Detalles SLA LATAM no encontrados en fuentes públicas.",
+      "strategic_note": "Si Quicktron es efectivamente el proveedor de Cajamar (Brasil), tiene relación directa con MELI a nivel regional. Sin confirmación oficial pública por MELI ni Quicktron.",
+      "source_links": ["https://www.tecnologistica.com.br/es/especiais/tecnologia/18431/mercado-libre-implementa-sistema-inedito-de-robots-en-operacion-logistica-en-brasil/"],
+      "data_gaps": ["confirmación oficial proveedor MELI", "presencia LATAM/MX", "soporte local"]
+    },
+    {
+      "name": "Exotec",
+      "parent_company": "Exotec (Francia; unicornio robótica logística)",
+      "mx_presence_type": "unknown",
+      "mx_offices": [],
+      "mx_distributor_name": null,
+      "flagship_solution": "Skypod (3D AS/RS robot-based, Next-Generation system lanzado 2024-2025)",
+      "notable_latam_cases": [],
+      "service_sla_notes": "Más de 20 proyectos $400M USD globalmente; sin caso LATAM verificable en esta búsqueda.",
+      "strategic_note": "Skypod combina almacenamiento denso + picking (G2P) y direcciona >90% de procesos del warehouse. Fit excelente para FC con SKU mix muy fragmentado (e-commerce typical). Sin presencia LATAM documentada en 2025; alta barrera de soporte si fuera el primer sitio MX.",
+      "source_links": [
+        "https://www.exotec.com/",
+        "https://logisticsviewpoints.com/2025/02/20/exotecs-skypod-system-a-unique-solution-designed-to-address-supply-chain-challenges/",
+        "https://www.exotec.com/news/exotec-launches-next-generation-of-skypod-system-an-all-in-one-robot-based-as-rs-that-addresses-the-majority-of-processes-within-a-warehouse/"
+      ],
+      "data_gaps": ["presencia LATAM/MX", "partner integrator regional"]
+    },
+    {
+      "name": "AutoStore",
+      "parent_company": "AutoStore Holdings (Oslo Stock Exchange:AUTO)",
+      "mx_presence_type": "regional_partner_no_office",
+      "mx_offices": [],
+      "mx_distributor_name": "Vía integradores globales: Swisslog, Dematic, Bastian Solutions",
+      "flagship_solution": "Cube AS/RS — robots top-down sobre grid de bines, densidad de almacenamiento 4× vs rack tradicional",
+      "notable_latam_cases": [],
+      "service_sla_notes": "El soporte regional viene del integrator (Swisslog/Dematic) más que de AutoStore directo.",
+      "strategic_note": "AutoStore brilla en operaciones con SKU mix amplio y throughput moderado (típico e-commerce). Limitación: la unidad de almacenamiento es un bin estándar — no apto para items >0.6 m. Para mix MELI esto puede ser limitante en electrónicos grandes/línea blanca.",
+      "source_links": [
+        "https://www.autostoresystem.com/",
+        "https://www.autostoresystem.com/cases",
+        "https://www.dematic.com/en-us/solutions/autostore/",
+        "https://www.swisslog.com/en-us/case-studies-and-resources/blog/2025/07/benefits-of-autostore-htp"
+      ],
+      "data_gaps": ["integrators MX certificados", "casos LATAM"]
+    },
+    {
+      "name": "HAI Robotics",
+      "parent_company": "Hai Robotics Co., Ltd. (China)",
+      "mx_presence_type": "unknown",
+      "mx_offices": [],
+      "mx_distributor_name": null,
+      "flagship_solution": "ACR (Autonomous Case-handling Robot) — HAIPICK series",
+      "notable_latam_cases": [],
+      "service_sla_notes": "Sin presencia LATAM documentada en esta búsqueda.",
+      "strategic_note": "ACR es categoría intermedia entre AS/RS estática y AMR — alta densidad + flexibilidad. Adopción acelerada en APAC y Europa; LATAM aún temprano.",
+      "source_links": ["https://www.hairobotics.com/"],
+      "data_gaps": ["presencia LATAM/MX", "casos LATAM"]
+    },
+    {
+      "name": "Hikrobot (Hikvision Robotics)",
+      "parent_company": "Hikvision Digital Technology (SHE:002415)",
+      "mx_presence_type": "unknown",
+      "mx_offices": [],
+      "mx_distributor_name": null,
+      "flagship_solution": "AMR + STP + visión industrial",
+      "notable_latam_cases": [],
+      "service_sla_notes": "Como parte del grupo Hikvision, soporte regional vía red de partners de Hikvision MX (electrónica de vigilancia).",
+      "strategic_note": "Sinergia potencial con la red Hikvision MX para soporte de hardware; el software robótico vertical requeriría partner especializado.",
+      "source_links": ["https://en.hikrobotics.com/"],
+      "data_gaps": ["partner robotics MX (no de vigilancia)"]
+    }
+  ],
+  "research_gaps": [
+    "Identificación específica de partners/integrators robotics MX para Geek+, Exotec, HAI, Hikrobot — recomendar RFI dirigido en fase de long-list.",
+    "Detalles de soporte y SLA local específicos a cada vendor: la mayoría depende de modelo 3PL (GEODIS) o integrator regional (Swisslog/Dematic) más que de oficina propia del vendor.",
+    "Cifras actualizadas (2025-2026) del fleet de robots MELI Cajamar y si han desplegado en algún FC MX (información no pública)."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "documento": "Supuestos transparentes utilizados en el business case",
+  "fecha": "2026-05-14",
+  "autor": "Andrés Islas Bravo",
+  "principio": "Todo supuesto va aquí. Cuando un dato no fue verificable públicamente y se decidió usar un rango razonable, se documenta el rango y el razonamiento. Pueden mover los pesos / supuestos en los widgets interactivos para ver sensibilidad.",
+  "supuestos": [
+    {
+      "id": "S001",
+      "topic": "Stack de datos MELI MX (caso 4)",
+      "supuesto": "MELI opera una arquitectura típica de plataforma de datos: WMS (custom o derivado SAP EWM / Manhattan) → Kafka event streaming → Data Lake (S3/GCS) → Warehouse (Redshift/Snowflake/BigQuery) → BI (Looker/Tableau/Metabase).",
+      "razonamiento": "MELI es empresa pública NASDAQ y tiene equipo de Data Engineering documentado; arquitectura asumida es consistente con escalas de Latam fortune 100. Diferencias específicas (SaaS vs custom, vendor BI) no afectan la respuesta al caso.",
+      "confidence": "medium"
+    },
+    {
+      "id": "S002",
+      "topic": "Ubicación FCs MELI MX",
+      "supuesto": "Los CEDIS principales MELI MX están en: Tepotzotlán/Cuautitlán Izcalli (Edo. Mex.), Apodaca/Guadalupe (NL — Monterrey metro), Tlajomulco/Zapopan (Jal. — Guadalajara metro). Adicionalmente, nuevo FC anunciado en Hidalgo (100K m²).",
+      "razonamiento": "Tepotzotlán/Cuautitlán confirmado vía Datoz (3.2M sq ft 2023). FC Hidalgo confirmado vía Bloomberg. Apodaca y Tlajomulco son submercados industriales reconocidos donde grandes e-commerce típicamente ubican FCs; no se verificó específicamente en este batch.",
+      "confidence": "high (Edo. Mex.); medium (NL y Jalisco)"
+    },
+    {
+      "id": "S003",
+      "topic": "Caso 2 — interpretación de 'utilización 10%' en Put Away",
+      "supuesto": "El 10% se interpreta como utilización efectiva real (puestos asignados operando al 10% de su capacidad nominal), no como factor de seguridad ni como % de turnos cubiertos. Esto es lo que produce el bottleneck severo.",
+      "razonamiento": "Si fuera un factor de seguridad, el enunciado lo diría. La utilización 10% en Put Away con 90% en Picking es internamente coherente con una operación que tiene problemas de inducción (los items entran mal a put-away pero se piquean bien una vez almacenados).",
+      "confidence": "high"
+    },
+    {
+      "id": "S004",
+      "topic": "Caso 3 — secuencia OWP/OWS/R2R",
+      "supuesto": "El enunciado explícitamente dice 'Una vez que el operador confirmó que retiró el/los producto(s) de la estantería, los robots ya pueden iniciar sus movimientos'. Esto significa que OWP+OWS y R2R son secuenciales (no solapados): T_rack = OWP + OWS + R2R = 21.5 s.",
+      "razonamiento": "Lectura literal del enunciado. Si OWP/OWS y R2R fueran paralelos, racks/hr serían 423.5 con T_rack=8.5s; con el modelo secuencial son 167.4.",
+      "confidence": "high"
+    },
+    {
+      "id": "S005",
+      "topic": "Caso 5 — paralelismo de fases en Gantt",
+      "supuesto": "Las fases 2 (baseline) y 3 (long-list+RFI) pueden traslaparse parcialmente; fase 6 (business case) puede traslaparse con las últimas 2 semanas de fase 5 (POC). El resto es secuencial.",
+      "razonamiento": "Es la estructura típica de un proyecto de tecnología compleja con stakeholders múltiples — algunas fases dependen estrictamente de la entrega de otras, pero discovery e investigación de mercado pueden ir en paralelo.",
+      "confidence": "high"
+    },
+    {
+      "id": "S006",
+      "topic": "ROI / payback de iniciativas en Roadmap 18 meses",
+      "supuesto": "Auto-box packaging payback 18-24 meses; AMR/STP fleet payback 24-30 meses; sorter upgrade payback 18-30 meses. Todas asumen volumen estable + reducción 12-18% de cost-per-unit fulfilled.",
+      "razonamiento": "Consistente con benchmarks industria (Mordor, Modula): AMRs <24 meses, packaging machines 1-2 años, picking automation 2-3 años. Sin acceso a datos internos MELI, son rangos defendibles que deben validarse con POC.",
+      "confidence": "medium"
+    },
+    {
+      "id": "S007",
+      "topic": "SLA de proveedor estándar industria MX",
+      "supuesto": "Respuesta inicial <24-48 hrs, MTTR <8 hrs para sistemas críticos, refacciones críticas <2 semanas en stock local del distribuidor / partner.",
+      "razonamiento": "Rangos típicos de la industria automation MX. Para CEDIS de tier-1 (MELI, Amazon, Walmart) se negocian SLAs más estrictos (MTTR <4hrs con stock 24/7).",
+      "confidence": "medium"
+    },
+    {
+      "id": "S008",
+      "topic": "Salario operador warehouse MX 2026",
+      "supuesto": "$7,500-12,000 MXN/mes base con prestaciones, costo cargado ~$50-75 MXN/hr.",
+      "razonamiento": "Rangos derivados de mercado laboral MX 2024-2025; presiones nearshoring + reformas Ley Federal del Trabajo elevan piso. Variabilidad por ciudad: CDMX/MTY > GDL.",
+      "confidence": "medium"
+    },
+    {
+      "id": "S009",
+      "topic": "CAPEX rangos por sistema",
+      "supuesto": "STP ~$500-1,500 USD/m² instalado · Sorter cross-belt ~$2,000-5,000 USD/m lineal · AS/RS shuttle ~$3,000-8,000 USD/m² · Auto-box packaging machine ~$200K-1M USD/máquina + consumibles.",
+      "razonamiento": "Rangos publicados industria (Mordor, ARC, vendor whitepapers). Cada CEDIS tiene multiplicadores únicos (integración, sitio, layout). Para presupuestos de feasibility, usar rangos amplios.",
+      "confidence": "medium"
+    },
+    {
+      "id": "S010",
+      "topic": "Uptime fleet target",
+      "supuesto": "Steady state target 95%+; world-class 98%+. OEE acumulado (Availability × Performance × Quality) target 75%+ en steady state.",
+      "razonamiento": "Estándar industria. Mantenibilidad y refacciones cercanas (ver criterios de selección de proveedor) son los determinantes principales del uptime real.",
+      "confidence": "high"
+    }
+  ]
+}

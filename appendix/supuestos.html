@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supuestos transparentes · Business Case MELI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/meli-theme.css">
+  <style>
+    .app-shell { max-width: 980px; margin: 0 auto; padding: 2.5rem var(--gutter); }
+    .breadcrumb { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.2rem; }
+    .supuesto { padding: 1.2rem 1.4rem; background: var(--color-bg-soft); border-left: 3px solid var(--meli-yellow); border-radius: 0 var(--radius) var(--radius) 0; margin: 1rem 0; }
+    .supuesto__id { font-family: var(--font-mono); font-size: 0.8rem; color: var(--meli-blue); font-weight: 600; }
+    .confidence { display: inline-block; padding: 0.15em 0.55em; border-radius: 999px; font-size: 0.74rem; font-weight: 600; }
+    .confidence--high { background: #DFFBE9; color: #00A650; }
+    .confidence--medium { background: #FFF4D6; color: #B07500; }
+    .confidence--low { background: #FEE8EA; color: #E63946; }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+  <p class="breadcrumb"><a href="../index.html">← Volver al deck</a> · Appendix · Supuestos</p>
+  <h1>Supuestos transparentes</h1>
+  <p class="text-muted">Principio: todo dato no verificable públicamente va aquí, con razonamiento y nivel de confianza. Los widgets del deck permiten manipular varios de estos supuestos en vivo.</p>
+
+  <div class="callout">
+    <strong>Por qué esta página existe</strong>: el evaluador puede leer el deck con confianza de que los datos verificables tienen fuente (ver appendices de proveedores/universidades) y los no verificables están aquí, declarados. Defendible, no inflado.
+  </div>
+
+  <div class="supuesto">
+    <div><span class="supuesto__id">S001</span> · <span class="confidence confidence--medium">Confianza media</span></div>
+    <h3>Stack de datos MELI MX (caso 4)</h3>
+    <p><strong>Supuesto:</strong> MELI opera una arquitectura típica de plataforma de datos: WMS (custom o derivado SAP EWM / Manhattan) → Kafka event streaming → Data Lake (S3/GCS) → Warehouse (Redshift/Snowflake/BigQuery) → BI (Looker/Tableau/Metabase).</p>
+    <p><strong>Razonamiento:</strong> MELI es empresa pública NASDAQ con equipo de Data Engineering documentado; arquitectura asumida consistente con escalas de LATAM Fortune 100. Diferencias específicas (vendor BI, SaaS vs custom) no afectan la respuesta al caso.</p>
+  </div>
+
+  <div class="supuesto">
+    <div><span class="supuesto__id">S002</span> · <span class="confidence confidence--high">Confianza alta (Edo. Mex.) · media (NL y Jal.)</span></div>
+    <h3>Ubicación FCs MELI MX</h3>
+    <p><strong>Supuesto:</strong> Los CEDIS principales MELI MX están en: Tepotzotlán/Cuautitlán Izcalli (Edo. Mex.), Apodaca/Guadalupe (NL — Monterrey metro), Tlajomulco/Zapopan (Jal. — Guadalajara metro). Adicionalmente nuevo FC anunciado en Hidalgo (100K m²).</p>
+    <p><strong>Razonamiento:</strong> Tepotzotlán/Cuautitlán confirmado vía Datoz (3.2M sq ft 2023). FC Hidalgo confirmado vía Bloomberg. Apodaca y Tlajomulco son submercados industriales reconocidos donde grandes e-commerce típicamente ubican FCs.</p>
+  </div>
+
+  <div class="supuesto">
+    <div><span class="supuesto__id">S003</span> · <span class="confidence confidence--high">Confianza alta</span></div>
+    <h3>Caso 2 — interpretación de "utilización 10%"</h3>
+    <p><strong>Supuesto:</strong> El 10% se interpreta como utilización efectiva real (puestos asignados operando al 10% de su capacidad nominal), no como factor de seguridad ni como % de turnos cubiertos. Esto es lo que produce el bottleneck severo.</p>
+    <p><strong>Razonamiento:</strong> Lectura literal. Si fuera factor de seguridad, el enunciado lo aclararía. La utilización 10% en Put Away combinada con 90% en Picking es coherente con una operación que tiene problemas de inducción (los items entran mal pero se piquean bien una vez almacenados).</p>
+  </div>
+
+  <div class="supuesto">
+    <div><span class="supuesto__id">S004</span> · <span class="confidence confidence--high">Confianza alta</span></div>
+    <h3>Caso 3 — secuencia OWP/OWS/R2R</h3>
+    <p><strong>Supuesto:</strong> El enunciado dice explícitamente "Una vez que el operador confirmó que retiró el/los producto(s) de la estantería, los robots ya pueden iniciar sus movimientos". Esto significa que OWP+OWS y R2R son secuenciales (no solapados): T_rack = OWP + OWS + R2R = 21.5 s.</p>
+    <p><strong>Razonamiento:</strong> Lectura literal del enunciado. Si OWP/OWS y R2R fueran paralelos, racks/hr serían 423.5 con T_rack=8.5s; con el modelo secuencial son 167.4. El widget permite explorar ambas hipótesis si el evaluador quiere.</p>
+  </div>
+
+  <div class="supuesto">
+    <div><span class="supuesto__id">S005</span> · <span class="confidence confidence--high">Confianza alta</span></div>
+    <h3>Caso 5 — paralelismo de fases en Gantt</h3>
+    <p><strong>Supuesto:</strong> Las fases 2 (baseline) y 3 (long-list+RFI) se traslapan parcialmente; fase 6 (business case) se traslapa con las últimas 2 semanas de fase 5 (POC); la preparación de sitio (fase 11) ocurre durante la fabricación.</p>
+    <p><strong>Razonamiento:</strong> Estructura típica de un proyecto de tecnología compleja con stakeholders múltiples — algunas fases dependen estrictamente de la entrega de otras, pero discovery e investigación de mercado pueden ir en paralelo.</p>
+  </div>
+
+  <div class="supuesto">
+    <div><span class="supuesto__id">S006</span> · <span class="confidence confidence--medium">Confianza media</span></div>
+    <h3>ROI / payback de iniciativas en Roadmap 18 meses</h3>
+    <p><strong>Supuesto:</strong> Auto-box packaging payback 18–24 meses; AMR/STP fleet payback 24–30 meses; sorter upgrade payback 18–30 meses. Todas asumen volumen estable + reducción 12–18% de cost-per-unit fulfilled.</p>
+    <p><strong>Razonamiento:</strong> Consistente con benchmarks industria (Mordor, Modula): AMRs &lt;24 meses, packaging machines 1–2 años, picking automation 2–3 años. Sin acceso a datos internos MELI, son rangos defendibles que deben validarse con POC.</p>
+  </div>
+
+  <div class="supuesto">
+    <div><span class="supuesto__id">S007</span> · <span class="confidence confidence--medium">Confianza media</span></div>
+    <h3>SLA de proveedor estándar industria MX</h3>
+    <p><strong>Supuesto:</strong> Respuesta inicial &lt;24–48 hrs, MTTR &lt;8 hrs para sistemas críticos, refacciones críticas &lt;2 semanas en stock local del distribuidor / partner.</p>
+    <p><strong>Razonamiento:</strong> Rangos típicos de la industria automation MX. Para CEDIS tier-1 (MELI, Amazon, Walmart) se negocian SLAs más estrictos (MTTR &lt;4hrs con stock 24/7). El SLA específico es un elemento contractual a negociar caso por caso.</p>
+  </div>
+
+  <div class="supuesto">
+    <div><span class="supuesto__id">S008</span> · <span class="confidence confidence--medium">Confianza media</span></div>
+    <h3>Salario operador warehouse MX 2026</h3>
+    <p><strong>Supuesto:</strong> $7,500–12,000 MXN/mes base con prestaciones, costo cargado ~$50–75 MXN/hr.</p>
+    <p><strong>Razonamiento:</strong> Rangos derivados del mercado laboral MX 2024–2025; presiones nearshoring + reformas Ley Federal del Trabajo elevan el piso. Variabilidad por ciudad: CDMX/MTY &gt; GDL. Para business case se usa el cargado completo (no solo el base).</p>
+  </div>
+
+  <div class="supuesto">
+    <div><span class="supuesto__id">S009</span> · <span class="confidence confidence--medium">Confianza media</span></div>
+    <h3>CAPEX rangos por sistema</h3>
+    <p><strong>Supuesto:</strong> STP ~$500–1,500 USD/m² instalado · Sorter cross-belt ~$2,000–5,000 USD/m lineal · AS/RS shuttle ~$3,000–8,000 USD/m² · Auto-box packaging machine ~$200K–1M USD/máquina + consumibles.</p>
+    <p><strong>Razonamiento:</strong> Rangos publicados industria (Mordor, ARC, vendor whitepapers). Cada CEDIS tiene multiplicadores únicos (integración, sitio, layout). Para presupuestos de feasibility usar rangos amplios.</p>
+  </div>
+
+  <div class="supuesto">
+    <div><span class="supuesto__id">S010</span> · <span class="confidence confidence--high">Confianza alta</span></div>
+    <h3>Uptime fleet target</h3>
+    <p><strong>Supuesto:</strong> Steady state target 95%+; world-class 98%+. OEE acumulado (Availability × Performance × Quality) target 75%+ en steady state.</p>
+    <p><strong>Razonamiento:</strong> Estándar industria. Mantenibilidad y refacciones cercanas (ver criterios de selección de proveedor en caso 1) son los determinantes principales del uptime real.</p>
+  </div>
+
+  <p class="text-muted mt-3"><a href="../index.html">← Volver al deck principal</a></p>
+</div>
+</body>
+</html>

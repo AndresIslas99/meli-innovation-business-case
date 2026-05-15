@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proveedores STP / AMR / Sorters MX · Business Case MELI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/meli-theme.css">
+  <style>
+    .app-shell { max-width: 1100px; margin: 0 auto; padding: 2.5rem var(--gutter); }
+    .breadcrumb { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.2rem; }
+    .vendor { padding: 1.4rem 1.6rem; border: 1px solid var(--color-border); border-radius: var(--radius); margin: 1.2rem 0; background: var(--color-bg); box-shadow: var(--shadow-sm); }
+    .vendor__head { display:flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .vendor__name { font-size: 1.2rem; color: var(--meli-blue); margin: 0; }
+    .vendor__parent { font-size: 0.82rem; color: var(--color-text-muted); }
+    .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.6rem 1.2rem; margin: 0.8rem 0; font-size: 0.86rem; }
+    .meta-grid > div span:first-child { color: var(--color-text-muted); font-size: 0.78rem; display:block; margin-bottom: 0.1em; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+    .strategic { background: var(--meli-yellow-soft); padding: 0.6rem 0.9rem; border-radius: var(--radius-sm); margin: 0.6rem 0; font-size: 0.88rem; }
+    .gaps { font-size: 0.78rem; color: var(--color-text-muted); }
+    .pill { display:inline-block; padding: 0.12em 0.55em; font-size: 0.74rem; font-weight: 600; border-radius: 999px; }
+    .pill--direct { background: #DFFBE9; color: #00A650; }
+    .pill--distrib { background: #E8E9F2; color: #2D3277; }
+    .pill--unknown { background: #FEE8EA; color: #B07500; }
+    .section-divider { margin: 3rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--meli-yellow); }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+  <p class="breadcrumb"><a href="../index.html">← Volver al deck</a> · Appendix · Proveedores STP/AMR + Sorters MX</p>
+  <h1>Proveedores Shelves-to-Person, AMR y Sorters</h1>
+  <p class="text-muted">Listado curado por relevancia para fulfillment e-commerce/CEDIS en México. La investigación se concentró en presencia MX, casos LATAM verificables y dinámicas de mercado 2024–2025.</p>
+
+  <div class="callout callout--yellow">
+    <strong>Lecturas críticas 2024–2025</strong>:
+    <em>1)</em> Locus Robotics + GEODIS desplegaron AMR Origin en <strong>Cuautitlán Izcalli</strong> (Edo. Mex.) — primer despliegue Locus en LATAM, en el mismo submercado industrial que los FCs principales de MELI MX (Tepotzotlán). ·
+    <em>2)</em> Geek+ IPO en HKEX 2025 — primer AMR warehouse robotics público globalmente. ·
+    <em>3)</em> MELI Cajamar (Brasil) opera 334 robots STP con expansión a ~568. ·
+    <em>4)</em> MELI + Agility Robotics anunciaron 2025 despliegue de humanoides Digit en Texas con planes LATAM.
+  </div>
+
+  <h2 class="section-divider">Shelves-to-Person · AMR · Goods-to-Person</h2>
+
+  <!-- Geek+ -->
+  <div class="vendor">
+    <div class="vendor__head">
+      <h3 class="vendor__name">Geek+ (P-Series · PopPick · Sorter Robot)</h3>
+      <span class="pill pill--unknown">MX presence no confirmada</span>
+    </div>
+    <div class="vendor__parent">Parent: Geekplus Technology Co., Ltd. (HKEX:2590 — IPO 2025)</div>
+    <div class="meta-grid">
+      <div><span>MX presence</span>Sin oficina MX directa identificada; probable canal vía integrators globales</div>
+      <div><span>Flagship</span>P800 STP · PopPick (G2P) · Sorter Robot</div>
+      <div><span>Caso LATAM verificable</span>Cliente público: S&amp;S Activewear (24,360 ubicaciones STP)</div>
+      <div><span>Notable</span>Primer AMR warehouse robotics público (IPO 2025)</div>
+    </div>
+    <div class="strategic">
+      <strong>Nota estratégica</strong>: IPO marca punto de inflexión — financials públicos facilitan due diligence. Presencia LATAM probable vía partner system integrators (Fortna entre otros).
+    </div>
+    <p class="text-xs"><strong>Fuentes</strong>: <a href="https://www.geekplus.com/en" target="_blank">geekplus.com</a> · <a href="https://www.geekplus.com/shelf-to-person-picking" target="_blank">PopPick STP</a></p>
+  </div>
+
+  <!-- Locus -->
+  <div class="vendor">
+    <div class="vendor__head">
+      <h3 class="vendor__name">Locus Robotics (Origin AMR · LocusOne)</h3>
+      <span class="pill pill--direct">Operación viva en Cuautitlán Izcalli vía GEODIS</span>
+    </div>
+    <div class="vendor__parent">Parent: Locus Robotics (private)</div>
+    <div class="meta-grid">
+      <div><span>MX presence</span>Vía GEODIS (3PL) — primer cliente LATAM con Locus</div>
+      <div><span>Flagship</span>Origin AMR (LocusBot) + LocusOne warehouse execution platform</div>
+      <div><span>Caso LATAM verificable</span>GEODIS Cuautitlán Izcalli, Edo. Mex.: mezzanine 3 niveles, fleet Origin, cliente final marca apparel global (marzo 2024)</div>
+      <div><span>Acuerdo global</span>GEODIS+Locus 2022: 1,000 LocusBots globales en 24 meses</div>
+    </div>
+    <div class="strategic">
+      <strong>Nota estratégica CRÍTICA</strong>: el sitio GEODIS de Cuautitlán está en el <em>mismo submercado industrial</em> que los FCs principales de MELI MX (Tepotzotlán/Cuautitlán). Locus tiene prueba operativa local. Vendor con la presencia LATAM más reciente y geográficamente más cercana — <em>visita técnica a este sitio sería un benchmark de primera línea para cualquier RFI/RFP futuro</em>.
+    </div>
+    <p class="text-xs"><strong>Fuentes</strong>: <a href="https://geodis.com/us-en/locus-robotics-and-geodis-bring-next-generation-warehouse-amr-automation-mexico" target="_blank">GEODIS press release</a> · <a href="https://www.dcvelocity.com/articles/60194-locus-robotics-and-geodis-bring-next-generation-warehouse-amr-automation-to-mexico" target="_blank">DC Velocity</a> · <a href="https://locusrobotics.com/" target="_blank">locusrobotics.com</a></p>
+  </div>
+
+  <!-- Quicktron -->
+  <div class="vendor">
+    <div class="vendor__head">
+      <h3 class="vendor__name">Quicktron (MetaBot series · STP AMR)</h3>
+      <span class="pill pill--unknown">MX no confirmada · referencia LATAM probable</span>
+    </div>
+    <div class="vendor__parent">Parent: Shanghai Quicktron Intelligent Technology Co., Ltd.</div>
+    <div class="meta-grid">
+      <div><span>MX presence</span>Sin oficina MX confirmada</div>
+      <div><span>Flagship</span>STP AMR · MetaBot series</div>
+      <div><span>Caso LATAM</span>Una fuente periodística reporta Quicktron como proveedor STP de MELI (Brasil) — sin confirmación oficial</div>
+      <div><span>Notable</span>Si confirmado, relación directa con MELI a nivel regional</div>
+    </div>
+    <div class="strategic">
+      <strong>Nota estratégica</strong>: si efectivamente es el proveedor de Cajamar Brasil, la familiaridad con MELI ya existe a nivel regional — facilita despliegue MX. Falta confirmación oficial pública por MELI ni Quicktron.
+    </div>
+    <p class="text-xs"><strong>Fuentes</strong>: <a href="https://www.tecnologistica.com.br/es/especiais/tecnologia/18431/mercado-libre-implementa-sistema-inedito-de-robots-en-operacion-logistica-en-brasil/" target="_blank">Tecnologística — coverage MELI Cajamar</a></p>
+  </div>
+
+  <!-- Exotec -->
+  <div class="vendor">
+    <div class="vendor__head">
+      <h3 class="vendor__name">Exotec (Skypod · Next-Generation 2024–2025)</h3>
+      <span class="pill pill--unknown">Sin presencia LATAM documentada</span>
+    </div>
+    <div class="vendor__parent">Parent: Exotec (France, unicornio robótica logística)</div>
+    <div class="meta-grid">
+      <div><span>MX presence</span>Sin oficina MX/LATAM identificada</div>
+      <div><span>Flagship</span>Skypod (3D AS/RS robot-based, all-in-one)</div>
+      <div><span>Casos globales</span>20+ proyectos $400M USD: Oxford Industries, Grainger, E.Leclerc, Amer Sports</div>
+      <div><span>Diferencial</span>Direcciona >90% de procesos del warehouse con un solo sistema</div>
+    </div>
+    <div class="strategic">
+      <strong>Nota estratégica</strong>: fit técnico excelente para FC con SKU mix muy fragmentado (e-commerce typical). Alta barrera de soporte LATAM — si MELI fuera el primer sitio LATAM, debe negociarse SLA premium con FSE in-house residente.
+    </div>
+    <p class="text-xs"><strong>Fuentes</strong>: <a href="https://www.exotec.com/" target="_blank">exotec.com</a> · <a href="https://logisticsviewpoints.com/2025/02/20/exotecs-skypod-system-a-unique-solution-designed-to-address-supply-chain-challenges/" target="_blank">Logistics Viewpoints 2025</a></p>
+  </div>
+
+  <!-- AutoStore -->
+  <div class="vendor">
+    <div class="vendor__head">
+      <h3 class="vendor__name">AutoStore (Cube AS/RS top-down)</h3>
+      <span class="pill pill--distrib">Vía integrators globales (Swisslog · Dematic · Bastian)</span>
+    </div>
+    <div class="vendor__parent">Parent: AutoStore Holdings (Oslo Stock Exchange:AUTO)</div>
+    <div class="meta-grid">
+      <div><span>MX presence</span>Via integrators globales (Swisslog · Dematic)</div>
+      <div><span>Flagship</span>Cube AS/RS — robots top-down sobre grid de bines</div>
+      <div><span>Diferencial</span>4× densidad de almacenamiento vs rack tradicional</div>
+      <div><span>Limitación</span>Bin estándar — no apto para items &gt;0.6 m (electrónica grande, línea blanca)</div>
+    </div>
+    <div class="strategic">
+      <strong>Nota estratégica</strong>: SLA y soporte regional vienen del integrator (Swisslog / Dematic) más que de AutoStore. Si la mayoría del mix MELI cabe en bin estándar, ROI fuerte; si hay electrónicos grandes, fit limitado.
+    </div>
+    <p class="text-xs"><strong>Fuentes</strong>: <a href="https://www.autostoresystem.com/" target="_blank">autostoresystem.com</a> · <a href="https://www.dematic.com/en-us/solutions/autostore/" target="_blank">Dematic AutoStore</a></p>
+  </div>
+
+  <h2 class="section-divider">Sorters · cross-belt · tilt-tray · robotic sortation</h2>
+
+  <!-- BEUMER -->
+  <div class="vendor">
+    <div class="vendor__head">
+      <h3 class="vendor__name">BEUMER Group</h3>
+      <span class="pill pill--distrib">Soporte regional desde Brasil/Chile</span>
+    </div>
+    <div class="vendor__parent">Parent: BEUMER Group (Alemania, privado)</div>
+    <div class="meta-grid">
+      <div><span>MX presence</span>Sin oficina directa MX; oficinas regionales LATAM (Brasil, Chile)</div>
+      <div><span>Flagship</span>Cross-belt sorter · Tilt-tray sorter · BG Sorter Compact</div>
+      <div><span>Diferencial</span>Líder global parcel sorting; Compact Belt Tray optimizado para e-commerce</div>
+    </div>
+    <p class="text-xs"><strong>Fuentes</strong>: <a href="https://www.beumergroup.com/" target="_blank">beumergroup.com</a></p>
+  </div>
+
+  <!-- Vanderlande -->
+  <div class="vendor">
+    <div class="vendor__head">
+      <h3 class="vendor__name">Vanderlande (vía Toyota TAL post-unificación 2024)</h3>
+      <span class="pill pill--distrib">Canal MX vía red Toyota</span>
+    </div>
+    <div class="vendor__parent">Parent: Toyota Industries (Toyota Advanced Logistics — TAL, tras unificación 2024)</div>
+    <div class="meta-grid">
+      <div><span>MX presence</span>Toyota Material Handling tiene presencia MX; TAL incluye Vanderlande + Bastian + viastore</div>
+      <div><span>Flagship</span>CROSSORTER · POSISORTER · Pouch sorter FLEET · ADAPTO shuttle</div>
+      <div><span>Diferencial</span>Portafolio unificado post-merge facilita single-vendor para múltiples capas</div>
+    </div>
+    <p class="text-xs"><strong>Fuentes</strong>: <a href="https://www.vanderlande.com/" target="_blank">vanderlande.com</a></p>
+  </div>
+
+  <!-- Honeywell Intelligrated -->
+  <div class="vendor">
+    <div class="vendor__head">
+      <h3 class="vendor__name">Honeywell Intelligrated (en transición → PE)</h3>
+      <span class="pill pill--unknown">Riesgo de transición</span>
+    </div>
+    <div class="vendor__parent">Parent: Private equity (Honeywell desinvirtió en 2025)</div>
+    <div class="meta-grid">
+      <div><span>MX presence</span>Soporte LATAM en transición tras desinversión</div>
+      <div><span>Flagship</span>Posisort · OPEX Sure Sort · Cross-belt</div>
+      <div><span>Riesgo</span>Estabilidad de soporte / refacciones post-transición a evaluar</div>
+    </div>
+    <div class="strategic">
+      <strong>Nota estratégica</strong>: cualquier RFP debe considerar la estabilidad del soporte/refacciones tras la transición de manos. Si el roadmap MELI es 18+ meses, esperar a que se estabilice puede ser sensato.
+    </div>
+    <p class="text-xs"><strong>Fuentes</strong>: <a href="https://www.dcvelocity.com/supply-chain/other-services/systems-integration-services/honeywell-sells-intelligrated-division-to-a-private-equity-firm" target="_blank">DC Velocity — divestiture</a></p>
+  </div>
+
+  <!-- Dematic -->
+  <div class="vendor">
+    <div class="vendor__head">
+      <h3 class="vendor__name">Dematic (KION Group)</h3>
+      <span class="pill pill--distrib">Vía red KION (Linde · STILL) en MX</span>
+    </div>
+    <div class="vendor__parent">Parent: KION Group (Alemania, XETRA:KGX)</div>
+    <div class="meta-grid">
+      <div><span>MX presence</span>Vía red KION (Linde Material Handling con presencia industrial MX)</div>
+      <div><span>Flagship</span>Multishuttle · RapidPick · Cross-belt sortation · AutoStore integrator</div>
+      <div><span>Diferencial</span>Top 5 global en sistemas inteligentes de sortation (~26% market share combinado top 5)</div>
+    </div>
+    <p class="text-xs"><strong>Fuentes</strong>: <a href="https://www.dematic.com/en-us/" target="_blank">dematic.com</a></p>
+  </div>
+
+  <!-- Tompkins -->
+  <div class="vendor">
+    <div class="vendor__head">
+      <h3 class="vendor__name">Tompkins Robotics (tSort modular)</h3>
+      <span class="pill pill--unknown">MX no confirmada</span>
+    </div>
+    <div class="vendor__parent">Parent: Tompkins Robotics (USA, private)</div>
+    <div class="meta-grid">
+      <div><span>MX presence</span>Sin información de presencia MX/LATAM en búsqueda</div>
+      <div><span>Flagship</span>tSort robotic sortation portable · tSort Plus</div>
+      <div><span>Diferencial</span>Alternativa modular reconfigurable vs cross-belt fijo. Footprint pequeño, entrega rápida, escalable por celdas.</div>
+    </div>
+    <div class="strategic">
+      <strong>Nota estratégica</strong>: útil para CEDIS con footprint variable / fases de crecimiento. Si el roadmap MELI es expandir capacity por bloques (vs big-bang), tSort encaja en la lógica de Real Options del caso 5.
+    </div>
+    <p class="text-xs"><strong>Fuentes</strong>: <a href="https://www.tompkinsrobotics.com/" target="_blank">tompkinsrobotics.com</a></p>
+  </div>
+
+  <div class="callout mt-3">
+    <strong>Patrón general MX</strong>: el mercado de sortation en MX está dominado por integraciones globales con soporte regional desde Brasil/Chile/USA — ningún proveedor tiene oficina dedicada de sortation en MX al momento de esta búsqueda. Esto convierte la presencia local del partner / 3PL en criterio clave (peso alto en AHP "Soporte MX").
+  </div>
+
+  <p class="text-muted mt-3"><a href="../index.html">← Volver al deck principal</a></p>
+</div>
+</body>
+</html>

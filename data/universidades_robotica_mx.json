@@ -1,0 +1,177 @@
+{
+  "research_date": "2026-05-14",
+  "agent": "main_session_websearch",
+  "categoria": "Universidades mexicanas que forman talento en mecatrónica, robótica, automatización e ingeniería industrial — mapeadas a la ubicación de los principales CEDIS de MELI MX",
+  "meli_cedis_anchors": [
+    {"city": "Tepotzotlán / Cuautitlán Izcalli", "state": "Estado de México", "role": "FC principal MELI MX"},
+    {"city": "Apodaca / Guadalupe / Monterrey", "state": "Nuevo León", "role": "FC MELI MX zona norte"},
+    {"city": "Tlajomulco / Zapopan / Guadalajara", "state": "Jalisco", "role": "FC MELI MX zona occidente"}
+  ],
+  "universities": [
+    {
+      "name": "UPIITA — IPN (Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas)",
+      "campus_locations": ["Gustavo A. Madero, CDMX"],
+      "programs_relevant": [
+        "Ingeniería Mecatrónica (desde 1996 — segunda universidad en MX en ofrecer mecatrónica)",
+        "Ingeniería Telemática",
+        "Ingeniería Biónica",
+        "Ingeniería en Sistemas Automotrices"
+      ],
+      "proximity_to_meli_cedis": [
+        {"cedis_city": "Tepotzotlán/Cuautitlán", "distance_km_approx": "30-40 km", "comment": "Accesible vía Autopista México-Querétaro"}
+      ],
+      "notable_labs_or_partnerships": ["Laboratorios de mecatrónica IPN; participación recurrente en concursos de robótica nacionales junto con UNAM"],
+      "annual_graduates_estimate": "data_gap",
+      "source_links": [
+        "https://www.upiita.ipn.mx/oferta-educativa/mecatronica",
+        "https://www.upiita.ipn.mx/oferta-educativa",
+        "https://unamglobal.unam.mx/alumnos-de-ingenieria-mecatronica-y-mecanica-ganan-concurso-de-robotica/"
+      ],
+      "data_gaps": ["número anual de egresados específico"]
+    },
+    {
+      "name": "ESIME Azcapotzalco — IPN",
+      "campus_locations": ["Azcapotzalco, CDMX"],
+      "programs_relevant": [
+        "Ingeniería en Robótica Industrial"
+      ],
+      "proximity_to_meli_cedis": [
+        {"cedis_city": "Tepotzotlán/Cuautitlán", "distance_km_approx": "25-35 km", "comment": "Mismo corredor industrial Norte de CDMX"}
+      ],
+      "notable_labs_or_partnerships": ["Programa especializado en robótica industrial — fit muy directo para CEDIS"],
+      "annual_graduates_estimate": "data_gap",
+      "source_links": ["https://www.ipn.mx/oferta-educativa/educacion-superior/ver-carrera.html?lg=es&id=17"],
+      "data_gaps": ["número anual egresados", "tamaño laboratorio robótica industrial"]
+    },
+    {
+      "name": "ESIME Zacatenco — IPN",
+      "campus_locations": ["Gustavo A. Madero, CDMX"],
+      "programs_relevant": [
+        "Ingeniería en Control y Automatización",
+        "Ingeniería Mecánica",
+        "Ingeniería Mecatrónica"
+      ],
+      "proximity_to_meli_cedis": [
+        {"cedis_city": "Tepotzotlán/Cuautitlán", "distance_km_approx": "30 km", "comment": "Mismo corredor"}
+      ],
+      "notable_labs_or_partnerships": ["Doctorado en ISRM (Sistemas Robóticos y Mecatrónicos)"],
+      "annual_graduates_estimate": "data_gap",
+      "source_links": ["https://www.doctoradoisrm.ipn.mx/"],
+      "data_gaps": ["número egresados"]
+    },
+    {
+      "name": "Tec de Monterrey (ITESM)",
+      "campus_locations": [
+        "Monterrey, NL (Campus Monterrey)",
+        "Guadalajara, Jal. (Campus GDL)",
+        "Estado de México (Campus Toluca + Edo. Mex.)",
+        "CDMX (Campus Ciudad de México CCM)",
+        "Puebla, Querétaro y otros"
+      ],
+      "programs_relevant": [
+        "B.S. Ingeniería Mecatrónica",
+        "B.S. Ingeniería en Robótica y Sistemas Digitales (Monterrey, CDMX, Edo. Mex., GDL, Puebla, Querétaro)"
+      ],
+      "proximity_to_meli_cedis": [
+        {"cedis_city": "Monterrey/Apodaca", "distance_km_approx": "15-25 km", "comment": "Campus Monterrey en el mismo corredor industrial NL"},
+        {"cedis_city": "Guadalajara/Tlajomulco", "distance_km_approx": "20-30 km", "comment": "Campus GDL cerca al corredor industrial Jalisco"},
+        {"cedis_city": "Tepotzotlán/Cuautitlán", "distance_km_approx": "30-45 km", "comment": "Campus CCM + Campus Edo. Mex. + Campus Toluca cubren la zona"}
+      ],
+      "notable_labs_or_partnerships": [
+        "Colaboración directa con Intel, Continental, Mabe",
+        "RoboChamp Monterrey (competencia robótica)",
+        "Programa B.S. Robotics y Sistemas Digitales en 6 campus"
+      ],
+      "annual_graduates_estimate": "high (red multi-campus; estimación industria-estándar: ~300-500 mecatrónicos+robóticos/año combinados)",
+      "source_links": [
+        "https://tec.mx/en/Engineering-and-Sciences/bs-in-mechatronics-engineering",
+        "https://tec.mx/en/Engineering-and-Sciences/bs-in-robotics-and-digital-systems-engineering",
+        "https://dev4.tec.mx/es/ingenieria-y-ciencias/ingenieria-en-mecatronica"
+      ],
+      "data_gaps": ["número egresados exacto por programa por campus"]
+    },
+    {
+      "name": "UNAM — Facultad de Ingeniería",
+      "campus_locations": ["Ciudad Universitaria, CDMX"],
+      "programs_relevant": [
+        "Ingeniería Mecatrónica",
+        "Ingeniería Industrial",
+        "Ingeniería Mecánica"
+      ],
+      "proximity_to_meli_cedis": [
+        {"cedis_city": "Tepotzotlán/Cuautitlán", "distance_km_approx": "35-50 km", "comment": "Misma metrópolis"}
+      ],
+      "notable_labs_or_partnerships": ["Participación constante en concursos de robótica con IPN; programa con prestigio académico"],
+      "annual_graduates_estimate": "data_gap (alto volumen, red institucional)",
+      "source_links": ["https://unamglobal.unam.mx/alumnos-de-ingenieria-mecatronica-y-mecanica-ganan-concurso-de-robotica/"],
+      "data_gaps": ["egresados específicos"]
+    },
+    {
+      "name": "UANL — FIME (Facultad de Ingeniería Mecánica y Eléctrica)",
+      "campus_locations": ["San Nicolás de los Garza, NL"],
+      "programs_relevant": [
+        "Ingeniería Mecatrónica",
+        "Ingeniería en Manufactura",
+        "Ingeniería Industrial y de Sistemas"
+      ],
+      "proximity_to_meli_cedis": [
+        {"cedis_city": "Apodaca/Guadalupe/Monterrey", "distance_km_approx": "10-20 km", "comment": "Centro de manufactura NL — pool de talento natural"}
+      ],
+      "notable_labs_or_partnerships": ["Vinculación industrial estrecha con clusters automotrices NL (Kia, GM, Stellantis)"],
+      "annual_graduates_estimate": "high (FIME UANL es de las más grandes en MX en ingeniería)",
+      "source_links": [],
+      "data_gaps": ["número egresados específico mecatrónica", "presencia de laboratorio de robótica logística"]
+    },
+    {
+      "name": "ITESO — Universidad Jesuita de Guadalajara",
+      "campus_locations": ["Tlaquepaque, Jalisco"],
+      "programs_relevant": [
+        "Ingeniería en Mecatrónica",
+        "Ingeniería Industrial",
+        "Ingeniería en Sistemas Computacionales"
+      ],
+      "proximity_to_meli_cedis": [
+        {"cedis_city": "Tlajomulco/Zapopan", "distance_km_approx": "15-25 km", "comment": "Mismo metro GDL"}
+      ],
+      "notable_labs_or_partnerships": [],
+      "annual_graduates_estimate": "data_gap",
+      "source_links": [],
+      "data_gaps": ["egresados", "lab robótica"]
+    },
+    {
+      "name": "Universidad Panamericana — Ingeniería",
+      "campus_locations": ["CDMX (Campus Mixcoac)", "Guadalajara (Campus Bonaterra/Zapopan)"],
+      "programs_relevant": ["Ingeniería en Mecatrónica", "Ingeniería Industrial"],
+      "proximity_to_meli_cedis": [
+        {"cedis_city": "Tepotzotlán/Cuautitlán", "distance_km_approx": "45-60 km", "comment": ""},
+        {"cedis_city": "Tlajomulco/Zapopan", "distance_km_approx": "10-20 km", "comment": ""}
+      ],
+      "notable_labs_or_partnerships": [],
+      "annual_graduates_estimate": "data_gap",
+      "source_links": [],
+      "data_gaps": ["egresados", "laboratorios específicos"]
+    },
+    {
+      "name": "Universidad de Monterrey (UDEM)",
+      "campus_locations": ["San Pedro Garza García, NL"],
+      "programs_relevant": ["Ingeniería en Mecatrónica", "Ingeniería en Tecnología y Negocios"],
+      "proximity_to_meli_cedis": [
+        {"cedis_city": "Apodaca/Guadalupe/Monterrey", "distance_km_approx": "15-25 km", "comment": "Misma metro MTY"}
+      ],
+      "notable_labs_or_partnerships": [],
+      "annual_graduates_estimate": "data_gap",
+      "source_links": [],
+      "data_gaps": ["egresados", "labs"]
+    }
+  ],
+  "talent_pipeline_by_cedis": {
+    "Tepotzotlán/Cuautitlán (Edo. Mex.)": ["UPIITA-IPN", "ESIME Azcapotzalco IPN", "ESIME Zacatenco IPN", "Tec Edo.Mex/CCM/Toluca", "UNAM FI"],
+    "Apodaca/Guadalupe (Nuevo León)": ["Tec Monterrey (Campus MTY)", "UANL FIME", "UDEM"],
+    "Tlajomulco/Zapopan (Jalisco)": ["Tec GDL", "ITESO", "Univ. Panamericana GDL"]
+  },
+  "research_gaps": [
+    "Números específicos de egresados anuales por programa / campus / año no se encuentran fácilmente en buscadores; recomendar contacto directo con cada bolsa de trabajo / vinculación universidad para datos precisos.",
+    "Programas específicos de prácticas profesionales / dual-track / co-op no están confirmados — un programa estructurado con 3-4 universidades cercanas a cada CEDIS sería una propuesta de valor relevante (ver Roadmap 18m).",
+    "Laboratorios y posgrados específicos en logística automatizada, AGV/AMR, OPC UA — están dispersos, no en un programa especializado MX. Oportunidad para MELI: patrocinar laboratorio conjunto con 1-2 universidades."
+  ]
+}
