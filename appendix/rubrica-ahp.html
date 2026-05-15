@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rúbrica AHP · Business Case MELI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/meli-theme.css">
+  <style>
+    .app-shell { max-width: 1100px; margin: 0 auto; padding: 2.5rem var(--gutter); }
+    .breadcrumb { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.2rem; }
+    .criterion-card {
+      background: #FFFFFF; border: 1px solid var(--color-border);
+      border-left: 4px solid var(--meli-yellow); border-radius: 8px;
+      padding: 1.2rem 1.5rem; margin: 1rem 0;
+    }
+    .criterion-card h3 { margin: 0 0 0.3em 0; color: var(--meli-blue); display:flex; align-items:baseline; gap:0.5em; }
+    .criterion-card .num { font-family: var(--font-mono); font-size:1.1rem; }
+    .anchors-table { width: 100%; margin-top: 0.6em; }
+    .anchors-table th { background: var(--meli-blue); color: white; padding: 0.4em 0.7em; font-size: 0.78rem; text-align: left; }
+    .anchors-table td { padding: 0.45em 0.7em; border-bottom: 1px solid var(--color-border); font-size: 0.86rem; }
+    .anchors-table tr:nth-child(even) td { background: var(--color-bg-soft); }
+    .anchor-score { font-family: var(--font-mono); font-weight: 600; color: var(--meli-blue); text-align: center; width: 60px; }
+    .vendor-matrix th, .vendor-matrix td { padding: 0.45em 0.6em; font-size: 0.82rem; border-bottom: 1px solid var(--color-border); }
+    .vendor-matrix th { background: var(--meli-blue); color: white; }
+    .vendor-matrix .score-cell { font-family: var(--font-mono); text-align: center; font-weight: 600; color: var(--meli-blue); }
+    .vendor-evidence-block { background: var(--color-bg-soft); padding: 1rem 1.3rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--meli-blue); }
+    .vendor-evidence-block h4 { margin: 0 0 0.4em 0; color: var(--meli-blue); }
+    .criterion-row { padding: 0.5em 0; border-bottom: 1px dashed var(--color-border); font-size: 0.86rem; }
+    .criterion-row:last-child { border-bottom: none; }
+    .criterion-row__head { display:flex; justify-content:space-between; align-items:baseline; gap:0.6em; margin-bottom:0.15em; }
+    .criterion-row__label { font-weight: 600; color: var(--meli-blue); font-size: 0.82rem; }
+    .criterion-row__score { font-family: var(--font-mono); font-weight: 700; color: var(--meli-blue); font-size: 0.95rem; }
+    .criterion-row__sources { margin-top: 0.25em; font-size: 0.75rem; color: var(--color-text-muted); }
+    .criterion-row__sources a { color: var(--color-info); margin-right: 0.5em; }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+  <p class="breadcrumb"><a href="../index.html">← Volver al deck</a> · Appendix · Rúbrica AHP</p>
+  <h1>Rúbrica AHP · Caso 1 Empaquetado</h1>
+  <p class="text-muted">Documento canónico de la metodología de scoring usada en el widget interactivo del slide 02. Define qué significa cada score 0–100 por criterio (anchors) y documenta la evidencia que sostiene el score asignado a cada vendor.</p>
+
+  <div class="callout callout--yellow">
+    <strong>Propósito de esta página</strong>: en una entrevista, si la panel pregunta «¿de dónde sale el 90 que Packsize tiene en Soporte MX?», la respuesta vive aquí — con anchor descriptivo + evidencia + source link verificable. La defensa no es de memoria, es trazable.
+  </div>
+
+  <h2 style="margin-top:2rem;">1. Pesos por defecto y racional</h2>
+  <table>
+    <thead><tr><th>Criterio</th><th>Peso default</th><th>Racional</th></tr></thead>
+    <tbody>
+      <tr><td>① Fit operativo</td><td class="anchor-score">25%</td><td rowspan="6" style="vertical-align:top;">Fit + Económica como co-masters (25% c/u): decisión técnico-financiera principal. Soporte MX (20%) refleja peso del sustento operativo post-instalación. Riesgo (15%) calibra vendor instability y lock-in. Talento default 10% asume tech madura con skill ramp 2-4 sem; subir a 20%+ si el contexto requiere integración custom alta o tech emergente. Sustentabilidad (5%) opera como tie-breaker — relevante ESG pero no determinante en decisión core.</td></tr>
+      <tr><td>② Soporte MX</td><td class="anchor-score">20%</td></tr>
+      <tr><td>③ Talento (pipeline)</td><td class="anchor-score">10%</td></tr>
+      <tr><td>④ Económica</td><td class="anchor-score">25%</td></tr>
+      <tr><td>⑤ Riesgo</td><td class="anchor-score">15%</td></tr>
+      <tr><td>⑥ Sustentabilidad</td><td class="anchor-score">5%</td></tr>
+    </tbody>
+  </table>
+
+  <h2 style="margin-top:2rem;">2. Anchors por criterio (definiciones)</h2>
+
+  <div class="criterion-card">
+    <h3><span class="num">①</span> Fit operativo</h3>
+    <p class="text-sm">Cómo encaja la tecnología con el SKU mix actual, el throughput requerido y las integraciones disponibles (WMS/MES, OPC UA, APIs).</p>
+    <table class="anchors-table">
+      <thead><tr><th>Score</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td class="anchor-score">0</td><td>No soporta el SKU mix actual o throughput insuficiente; bloquea operación.</td></tr>
+        <tr><td class="anchor-score">25</td><td>Soporta solo un sub-segmento del mix; requiere bypass manual.</td></tr>
+        <tr><td class="anchor-score">50</td><td>Cubre el rango típico; performa al throughput nominal; integraciones básicas.</td></tr>
+        <tr><td class="anchor-score">75</td><td>Cubre todo el rango con márgenes; integraciones nativas WMS estándar (API REST).</td></tr>
+        <tr><td class="anchor-score">100</td><td>Cubre rango ampliado x1.5; integraciones nativas + OPC UA + APIs abiertas multi-vendor.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="criterion-card">
+    <h3><span class="num">②</span> Soporte MX</h3>
+    <p class="text-sm">Presencia local en México: oficinas, plantas, distribuidores certificados, SLA contractual, stock refacciones críticas, MTTR garantizado, casos LATAM verificables.</p>
+    <table class="anchors-table">
+      <thead><tr><th>Score</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td class="anchor-score">0</td><td>Sin canal LATAM; soporte solo internacional; SLA respuesta &gt;72 hrs.</td></tr>
+        <tr><td class="anchor-score">25</td><td>Solo vía partner regional Brasil/Chile; SLA 48-72 hrs; sin presencia MX.</td></tr>
+        <tr><td class="anchor-score">50</td><td>Distribuidor MX certificado; SLA &lt;48 hrs; sin stock local de refacciones críticas.</td></tr>
+        <tr><td class="anchor-score">75</td><td>Oficina/distribuidor MX directo; SLA &lt;24 hrs; stock local de refacciones &gt;24 meses.</td></tr>
+        <tr><td class="anchor-score">100</td><td>Planta o assembly MX; FSE residente; MTTR ≤4 hrs contractual; cadena consumibles establecida.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="criterion-card">
+    <h3><span class="num">③</span> Talento (pipeline)</h3>
+    <p class="text-sm">Disponibilidad local de operadores capacitables y técnicos formados; cercanía universidades; tiempo capacitación; certificación vendor.</p>
+    <table class="anchors-table">
+      <thead><tr><th>Score</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td class="anchor-score">0</td><td>Tecnología exótica con capacitación &gt;12 sem; sin pipeline universitario cercano.</td></tr>
+        <tr><td class="anchor-score">25</td><td>1-2 universidades cercanas con programa marginal; capacitación 6-12 sem; sin certificación vendor.</td></tr>
+        <tr><td class="anchor-score">50</td><td>3-5 universidades cercanas (UPIITA, ESIME, Tec); capacitación 3-6 sem; certificación vendor existe.</td></tr>
+        <tr><td class="anchor-score">75</td><td>5+ universidades cercanas (UPIITA, ESIME, Tec, UANL-FIME, ITESO); capacitación 2-4 sem; programa vendor maduro.</td></tr>
+        <tr><td class="anchor-score">100</td><td>Pool laboral abundante (operador manual estándar); capacitación 1-2 sem o ninguna.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="criterion-card">
+    <h3><span class="num">④</span> Económica</h3>
+    <p class="text-sm">CAPEX inicial + costo integración + OPEX recurrente (consumibles, energía, mantenimiento) + payback period vs benchmark industria.</p>
+    <table class="anchors-table">
+      <thead><tr><th>Score</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td class="anchor-score">0</td><td>CAPEX prohibitivo (&gt;USD 5M/máquina); payback &gt;5 años; OPEX elevado.</td></tr>
+        <tr><td class="anchor-score">25</td><td>CAPEX alto (USD 1-5M); payback 3-5 años; OPEX consumibles propietarios.</td></tr>
+        <tr><td class="anchor-score">50</td><td>CAPEX rango medio (USD 200K-1M); payback 2-3 años; OPEX moderado.</td></tr>
+        <tr><td class="anchor-score">75</td><td>CAPEX optimizado (USD &lt;500K); payback 1-2 años; OPEX competitivo; modelo bundled.</td></tr>
+        <tr><td class="anchor-score">100</td><td>CAPEX bajo/cero (status quo); payback inmediato (sin inversión); OPEX humano alto pero conocido.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="criterion-card">
+    <h3><span class="num">⑤</span> Riesgo</h3>
+    <p class="text-sm">Estabilidad corporativa del vendor; madurez de la tecnología; dependencias single-source; vendor lock-in; refacciones críticas.</p>
+    <table class="anchors-table">
+      <thead><tr><th>Score</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td class="anchor-score">0</td><td>Vendor en transición crítica o startup pre-producción; tech prototipo (&lt;2 años); single-source en partes críticas.</td></tr>
+        <tr><td class="anchor-score">25</td><td>Vendor inestable; tech &lt;3 años en mercado; single-source en componentes; alta dependencia.</td></tr>
+        <tr><td class="anchor-score">50</td><td>Vendor estable; tech madura 5+ años; 2-3 fuentes para componentes críticos.</td></tr>
+        <tr><td class="anchor-score">75</td><td>Vendor blue-chip; tech establecida 10+ años; 3+ fuentes; arquitectura abierta.</td></tr>
+        <tr><td class="anchor-score">100</td><td>Tech estándar industria; vendor diversificable; cero lock-in; partes commodity.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="criterion-card">
+    <h3><span class="num">⑥</span> Sustentabilidad</h3>
+    <p class="text-sm">Material reciclable o reusable; reducción de material vs status quo; energía por unidad procesada; reducción de DIM weight (impacto logístico).</p>
+    <table class="anchors-table">
+      <thead><tr><th>Score</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td class="anchor-score">0</td><td>Material no reciclable; high-waste (sobre-empaque &gt;30%); energía alta.</td></tr>
+        <tr><td class="anchor-score">25</td><td>Material parcialmente reciclable; moderate waste; sin reducción DIM weight.</td></tr>
+        <tr><td class="anchor-score">50</td><td>Material mayormente reciclable; energía estándar industria; reducción DIM &lt;10%.</td></tr>
+        <tr><td class="anchor-score">75</td><td>Material reciclable + reducción consumo 20-30% vs status quo; reducción DIM 20-25%.</td></tr>
+        <tr><td class="anchor-score">100</td><td>Mono-material reciclable + reducción &gt;50% vs status quo + DIM weight optimizado + tracking carbono.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="margin-top:2.5rem;">3. Matriz vendor × criterio (scores resumen)</h2>
+  <table class="vendor-matrix">
+    <thead>
+      <tr>
+        <th>Vendor</th>
+        <th>① Fit</th>
+        <th>② Soporte MX</th>
+        <th>③ Talento</th>
+        <th>④ Económica</th>
+        <th>⑤ Riesgo</th>
+        <th>⑥ Sustent.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Packsize X-Series</strong></td><td class="score-cell">85</td><td class="score-cell">90</td><td class="score-cell">70</td><td class="score-cell">75</td><td class="score-cell">70</td><td class="score-cell">90</td></tr>
+      <tr><td><strong>Sparck CMC Pakto</strong></td><td class="score-cell">80</td><td class="score-cell">70</td><td class="score-cell">60</td><td class="score-cell">70</td><td class="score-cell">55</td><td class="score-cell">88</td></tr>
+      <tr><td><strong>Sealed Air AutoBag 850HB</strong></td><td class="score-cell">75</td><td class="score-cell">95</td><td class="score-cell">80</td><td class="score-cell">85</td><td class="score-cell">85</td><td class="score-cell">65</td></tr>
+      <tr><td><strong>Quadient CVP Impack</strong></td><td class="score-cell">78</td><td class="score-cell">50</td><td class="score-cell">60</td><td class="score-cell">72</td><td class="score-cell">75</td><td class="score-cell">85</td></tr>
+      <tr><td><strong>Status quo manual + Smurfit</strong></td><td class="score-cell">50</td><td class="score-cell">100*</td><td class="score-cell">100*</td><td class="score-cell">60</td><td class="score-cell">85</td><td class="score-cell">40</td></tr>
+    </tbody>
+  </table>
+  <p class="text-xs text-muted" style="margin-top:0.4em;">* Status quo: scores 100 en Soporte MX y Talento reflejan ventaja del incumbente (cero ramp-up, pool laboral abundante), NO endorsement del proceso manual. El AHP evalúa si vale la pena DESPLAZAR la baseline, no si la baseline es buena en términos absolutos.</p>
+
+  <h2 style="margin-top:2.5rem;">4. Evidencia detallada por vendor</h2>
+  <p class="text-muted">Para cada vendor, los 6 scores con la evidencia que los sostiene y los source links verificables. Esta información también se renderiza inline en el widget del slide 02.</p>
+
+  <!-- Packsize -->
+  <div class="vendor-evidence-block">
+    <h4>Packsize X-Series (auto-box)</h4>
+    <div class="criterion-row">
+      <div class="criterion-row__head"><span class="criterion-row__label">① Fit operativo</span><span class="criterion-row__score">85</span></div>
+      <div>X-Series soporta cajas erected con dimensiones desde ~100×100×30 mm hasta ~600×400×400 mm; throughput X4 ~600 cajas/hr, X5 ~900, X6 ~1200; integración nativa WMS vía APIs REST; corrugado Z-Fold mono-material.</div>
+      <div class="criterion-row__sources">Fuentes: <a href="https://www.packsize.com/product/x-series" target="_blank">packsize.com/x-series</a></div>
+    </div>
+    <div class="criterion-row">
+      <div class="criterion-row__head"><span class="criterion-row__label">② Soporte MX</span><span class="criterion-row__score">90</span></div>
+      <div>packsize.mx activo (sitio español localizado); caso público Autopartes Tracto de México (EM machine + Z-Fold); participación Expo Pack GDL 2025 + MX 2026. Sin embargo no se identificó dirección física de oficina propia MX → no llega a 100.</div>
+      <div class="criterion-row__sources">Fuentes: <a href="https://www.packsize.mx/" target="_blank">packsize.mx</a> · <a href="https://www.packsize.com/case-study/autopartes-tracto-de-mexico" target="_blank">case Autopartes Tracto</a></div>
+    </div>
+    <div class="criterion-row">
+      <div class="criterion-row__head"><span class="criterion-row__label">③ Talento</span><span class="criterion-row__score">70</span></div>
+      <div>Universidades cercanas a CEDIS Tepotzotlán/Cuautitlán: UPIITA-IPN, ESIME Azcapotzalco, Tec de Monterrey CCM/Edo. Mex.; capacitación vendor típica 2-3 sem; programa formal de certificación no confirmado.</div>
+      <div class="criterion-row__sources">Fuentes: <a href="https://www.upiita.ipn.mx/oferta-educativa/mecatronica" target="_blank">UPIITA-IPN Mecatrónica</a></div>
+    </div>
+    <div class="criterion-row">
+      <div class="criterion-row__head"><span class="criterion-row__label">④ Económica</span><span class="criterion-row__score">75</span></div>
+      <div>CAPEX rango USD 250-700K por máquina + consumibles Z-Fold (~USD 0.10-0.20/caja); modelo PIM (Packaging-as-a-Service) bundle máquina + material + soporte; payback industria packaging 1-2 años per Modula.</div>
+      <div class="criterion-row__sources">Fuentes: <a href="https://modula.us/blog/automated-warehouse-systems-improve-space-labor-roi/" target="_blank">Modula warehouse ROI</a></div>
+    </div>
+    <div class="criterion-row">
+      <div class="criterion-row__head"><span class="criterion-row__label">⑤ Riesgo</span><span class="criterion-row__score">70</span></div>
+      <div>Vendor privado estable; adquirió Sparck mayo 2025 → transition risk ~12 meses post-cierre. Corrugado Z-Fold tiene múltiples proveedores (no single-source).</div>
+      <div class="criterion-row__sources">Fuentes: <a href="https://www.packsize.com/press-release/packsize-to-acquire-sparck-technologies" target="_blank">Press release adquisición</a></div>
+    </div>
+    <div class="criterion-row">
+      <div class="criterion-row__head"><span class="criterion-row__label">⑥ Sustentabilidad</span><span class="criterion-row__score">90</span></div>
+      <div>Auto-box right-sized reduce material 20-30% vs caja fija; Z-Fold mono-material reciclable; reducción DIM weight 25-30%.</div>
+    </div>
+  </div>
+
+  <!-- Sparck -->
+  <div class="vendor-evidence-block">
+    <h4>Sparck CMC Pakto (auto-wrap)</h4>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">① Fit operativo</span><span class="criterion-row__score">80</span></div><div>CartonWrap envuelve items rígidos con cartón fanfold a medida; throughput 600-1000 wraps/hr; CVP Impack para volumen menor (500/hr); menor right-sizing dimensional vs erected box pero mayor velocidad para items rígidos.</div><div class="criterion-row__sources">Fuentes: <a href="https://sparcktechnologies.com/" target="_blank">sparcktechnologies.com</a></div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">② Soporte MX</span><span class="criterion-row__score">70</span></div><div>Canal MX en transición a Packsize MX post-adquisición mayo 2025; SLA legacy de Sparck Europa incierto durante integración 12 meses; ventaja eventual de heredar canal Packsize MX.</div><div class="criterion-row__sources">Fuentes: <a href="https://interactanalysis.com/insight/packsize-to-acquire-sparck-technologies/" target="_blank">Interact Analysis merger coverage</a></div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">③ Talento</span><span class="criterion-row__score">60</span></div><div>Mismo pool universitario que Packsize (UPIITA, ESIME, Tec); capacitación 3-5 sem (tech wrap más reciente); programa certificación en consolidación post-merger.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">④ Económica</span><span class="criterion-row__score">70</span></div><div>CAPEX estimado USD 200-500K; payback 1-2 años; OPEX moderado (consumibles cartón fanfold ~USD 0.08-0.15/wrap); compite directamente con Packsize en categoría auto-pack.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">⑤ Riesgo</span><span class="criterion-row__score">55</span></div><div>Transición corporativa activa Packsize-Sparck; soporte legacy incierto 12 meses post-merger; recomendación para RFP MELI 2026: cláusula contractual de continuidad SLA bridging.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">⑥ Sustentabilidad</span><span class="criterion-row__score">88</span></div><div>Wrap a medida reduce material 15-25%; cartón fanfold mono-material reciclable; DIM weight reducido 20-25%.</div></div>
+  </div>
+
+  <!-- Sealed Air -->
+  <div class="vendor-evidence-block">
+    <h4>Sealed Air AutoBag 850HB (bagging)</h4>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">① Fit operativo</span><span class="criterion-row__score">75</span></div><div>AutoBag 850HB procesa bolsas hybrid paper+poly hasta 700 órdenes/hr/máquina (lanzado Packaging Innovations 2025); fit excelente soft goods, apparel, items pequeños rígidos; menos right-sizing dimensional vs auto-box (bolsa, no caja).</div><div class="criterion-row__sources">Fuentes: <a href="https://www.prnewswire.com/news-releases/sealed-air-launches-autobag-brand-850hb-hybrid-bagging-machine-for-paper-and-poly-mailers-302556908.html" target="_blank">PR AutoBag 850HB launch</a></div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">② Soporte MX</span><span class="criterion-row__score">95</span></div><div>DOS plantas MX: Toluca (Edo. Mex.) + Monterrey (NL). Entidad legal Sealed Air de México Operations S de RL de CV (Tlalnepantla). Plantas distribuyen a todo MX + Centroamérica. Toluca a ~40 km del corredor Tepotzotlán/Cuautitlán de MELI MX. Cadena consumibles 25+ años.</div><div class="criterion-row__sources">Fuentes: <a href="https://www.sealedair.com/la/company/our-company/who-we-are" target="_blank">Sealed Air LA</a> · <a href="https://t21.com.mx/automatizacion-punto-clave-en-la-operatividad-de-sealed-air/" target="_blank">Cobertura T21 MX</a></div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">③ Talento</span><span class="criterion-row__score">80</span></div><div>Tech bagging madura 30+ años; capacitación operador 1-2 sem; certificación Sealed Air estándar; pool abundante (operador packaging estándar) + presencia industrial MX.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">④ Económica</span><span class="criterion-row__score">85</span></div><div>CAPEX AutoBag 850HB ~USD 150-400K (más bajo que auto-box); OPEX consumibles paper+poly ~USD 0.05-0.12/bolsa; payback 1-2 años; consumibles manufacturados localmente MX.</div><div class="criterion-row__sources">Fuentes: <a href="https://modula.us/blog/automated-warehouse-systems-improve-space-labor-roi/" target="_blank">Modula warehouse ROI</a></div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">⑤ Riesgo</span><span class="criterion-row__score">85</span></div><div>Vendor blue-chip público NYSE:SEE — 65+ años en mercado; tech bagging madura 30+ años; 2 plantas MX = redundancia geográfica; sin transiciones corporativas LATAM-críticas recientes.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">⑥ Sustentabilidad</span><span class="criterion-row__score">65</span></div><div>AutoBag 850HB permite paper mailers (reciclable) + poly (menos); reducción material moderada vs caja fija; residual no siempre mono-stream reciclable; menor performance ESG vs auto-box cartón.</div></div>
+  </div>
+
+  <!-- Quadient -->
+  <div class="vendor-evidence-block">
+    <h4>Quadient CVP Impack (auto-box)</h4>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">① Fit operativo</span><span class="criterion-row__score">78</span></div><div>CVP Impack auto-box similar a Packsize X-Series; throughput 600-1000 boxes/hr; integraciones WMS vía APIs estándar; OPC UA nativo no confirmado en docs públicos.</div><div class="criterion-row__sources">Fuentes: <a href="https://www.materialhandling247.com/product/cvp_500_automated_packing_system/" target="_blank">Material Handling 24/7 Quadient CVP</a></div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">② Soporte MX</span><span class="criterion-row__score">50</span></div><div>Sin oficina MX identificada en búsqueda pública; canal global vía quadient.com; partner LATAM autorizado por confirmar mediante RFI directo; recomendación short-list solo tras validar canal soporte.</div><div class="criterion-row__sources">Fuentes: <a href="https://www.quadient.com/en/contact-us" target="_blank">quadient.com contact</a></div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">③ Talento</span><span class="criterion-row__score">60</span></div><div>Capacitación vendor ~3 sem; tech madura pero presencia LATAM más débil reduce density de técnicos certificados localmente; pipeline universitario no específico.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">④ Económica</span><span class="criterion-row__score">72</span></div><div>CAPEX estimado USD 300-800K; payback 1-2 años; consumibles propietarios (lock-in moderado en suministros); competidor directo a Packsize.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">⑤ Riesgo</span><span class="criterion-row__score">75</span></div><div>Vendor estable público (Euronext:QDT); tech madura; consolidación competitiva Packsize+Sparck mayo 2025 deja Quadient como independiente solo — riesgo de presión competitiva 24 meses.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">⑥ Sustentabilidad</span><span class="criterion-row__score">85</span></div><div>Auto-box right-sizing reduce material 20-25%; cartón fanfold reciclable estándar; performance similar a Packsize.</div></div>
+  </div>
+
+  <!-- Status quo -->
+  <div class="vendor-evidence-block">
+    <h4>Status quo manual + Smurfit</h4>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">① Fit operativo</span><span class="criterion-row__score">50</span></div><div>Cubre todo el rango de SKUs (cero limitación técnica); throughput limitado por velocidad humana (~30-60 paquetes/hr); sin integración automatizada con WMS.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">② Soporte MX</span><span class="criterion-row__score">100*</span></div><div>Smurfit Westrock múltiples plantas MX; operador humano = incumbent (cero ramp-up); soporte HR establecido. NOTA: 100 NO es endorsement — refleja incumbencia. AHP evalúa si DESPLAZAR baseline.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">③ Talento</span><span class="criterion-row__score">100*</span></div><div>Operador manual estándar = pool más abundante MX (INEGI ENOE); capacitación días no semanas; sin curva técnica. Mismo caveat.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">④ Económica</span><span class="criterion-row__score">60</span></div><div>CAPEX cero; OPEX alto: labor ~USD 7,500-12,000 MXN/mes/operador cargado + over-pack 30-50% más material + DIM weight elevado eleva costo transporte UPS/FedEx.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">⑤ Riesgo</span><span class="criterion-row__score">85</span></div><div>Tech estándar industria; cero vendor lock-in; partes commodity. Pero costo de oportunidad de NO automatizar crece exponencialmente con volumen.</div></div>
+    <div class="criterion-row"><div class="criterion-row__head"><span class="criterion-row__label">⑥ Sustentabilidad</span><span class="criterion-row__score">40</span></div><div>Over-pack típico aumenta material 30-50% vs caja a medida; DIM weight elevado eleva huella transporte; cartón es reciclable pero el desperdicio dimensional es la mayor carga ambiental.</div></div>
+  </div>
+
+  <p class="text-muted mt-3"><a href="../index.html">← Volver al deck principal</a></p>
+</div>
+</body>
+</html>

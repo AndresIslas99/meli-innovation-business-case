@@ -270,11 +270,19 @@
     </table>
   </div>
 
+  <!-- ===== FUNDAMENTO callout ===== -->
+  <div class="callout" style="border-left-color:var(--meli-yellow-dark);background:var(--color-bg-soft);">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue);letter-spacing:0.06em;text-transform:uppercase;">Fundamento del scoring</p>
+    <p class="text-sm" style="margin-bottom:0.3em;"><strong>Datos</strong>: RFI vendors + due diligence (fase 2–3 del plan) + evidencia verificable de fuentes públicas o ofertas comerciales.</p>
+    <p class="text-sm" style="margin-bottom:0.3em;"><strong>Método</strong>: AHP (Saaty 1980) — el evaluador asigna pesos por criterio, el widget los normaliza a suma=1; cada vendor entra con scores 0–100 por criterio según la rúbrica visible abajo.</p>
+    <p class="text-sm" style="margin:0;"><strong>Fuente</strong>: rúbrica completa (anchors 0/25/50/75/100) renderizada bajo el chart; evidencia + source links por vendor visible en el ranking detail. Vista canónica también en <a href="appendix/rubrica-ahp.html" target="_blank">appendix/rubrica-ahp.html</a>.</p>
+  </div>
+
   <!-- =================== WIDGET AHP =================== -->
   <div class="widget" id="widget-caso1">
     <div class="widget__header">
-      <h3 class="widget__title">⚙ Scorecard AHP · pesa los criterios, mira el ranking de soluciones</h3>
-      <span class="widget__hint">Muevan los pesos. La suma se normaliza automáticamente.</span>
+      <h3 class="widget__title">⚙ Scorecard AHP · muevan los pesos, vean el ranking + evidencia por vendor</h3>
+      <span class="widget__hint">La suma de pesos se normaliza automáticamente. Cada score 0–100 tiene rúbrica y evidencia visibles.</span>
     </div>
 
     <div class="widget__controls">
@@ -287,8 +295,9 @@
         <input type="range" id="ahp-w2" min="0" max="100" value="20" step="1">
       </div>
       <div class="widget__control">
-        <label>③ Talento (mant.) <span class="value-display" id="ahp-w3-val">10%</span></label>
+        <label>③ Talento (pipeline) <span class="value-display" id="ahp-w3-val">10%</span></label>
         <input type="range" id="ahp-w3" min="0" max="100" value="10" step="1">
+        <span class="text-xs text-muted" style="display:block;margin-top:0.2em;font-style:italic;">Default 10% asume tech madura (skill ramp 2-4 sem). Subir si requiere integración custom alta.</span>
       </div>
       <div class="widget__control">
         <label>④ Económica <span class="value-display" id="ahp-w4-val">25%</span></label>
@@ -306,7 +315,19 @@
 
     <div id="ahp-chart" class="widget__chart"><div class="widget__loading">Cargando entorno Python interactivo...</div></div>
 
-    <div id="ahp-ranking" style="margin-top:1rem;"></div>
+    <!-- Rúbrica de scoring — visible siempre (no click) -->
+    <div style="margin-top:1.3rem;">
+      <h4 style="margin:0 0 0.4em 0;color:var(--meli-blue);font-size:0.95rem;">Rúbrica de scoring · anchors por criterio</h4>
+      <p class="text-xs text-muted" style="margin:0 0 0.7em 0;">Cada criterio define qué significa cada score 0/25/50/75/100. Los scores asignados a cada vendor (abajo) se justifican respecto a estos anchors.</p>
+      <div id="ahp-rubric-panel"></div>
+    </div>
+
+    <!-- Ranking con evidencia por vendor por criterio -->
+    <div style="margin-top:1.3rem;">
+      <h4 style="margin:0 0 0.4em 0;color:var(--meli-blue);font-size:0.95rem;">Evidencia detallada por vendor</h4>
+      <p class="text-xs text-muted" style="margin:0 0 0.7em 0;">Cada vendor con sus 6 scores y la evidencia que los sostiene. Fuentes con link verificable cuando aplica.</p>
+      <div id="ahp-ranking"></div>
+    </div>
   </div>
 
   <div class="sources">
@@ -330,6 +351,14 @@
     </div>
     <h2 class="slide__title">Bottleneck severo en Put Away. 1.6M items/mes <em>no</em> se alcanza sin tocar palancas.</h2>
     <p class="slide__subtitle">Aplicando Theory of Constraints: focalizamos en el cuello, no en lo que tiene cabeza. La utilización del 10% en Put Away es la pista crítica.</p>
+  </div>
+
+  <!-- ===== FUNDAMENTO ===== -->
+  <div class="callout" style="border-left-color:var(--meli-yellow-dark);background:var(--color-bg-soft);">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue);letter-spacing:0.06em;text-transform:uppercase;">Fundamento</p>
+    <p class="text-sm" style="margin-bottom:0.3em;"><strong>Datos</strong>: parámetros del enunciado MELI (200 items/hr/puesto, 20 puestos, 16 hr/día, 6 días/sem, util 10% en Put Away · análogo para Picking y Sorter).</p>
+    <p class="text-sm" style="margin-bottom:0.3em;"><strong>Método</strong>: Theory of Constraints (Goldratt 1984) — capacidad efectiva = bruta × factor de eficiencia/utilización. Bottleneck = min{capacidad_efectiva}. Little's Law (L=λW) para WIP buffer.</p>
+    <p class="text-sm" style="margin:0;"><strong>Fuente</strong>: cálculos cruzados en <code>analysis/math_casos.py</code> (verificación numérica). Supuesto S003: «10% es utilización efectiva real, no factor de seguridad» (ver <a href="appendix/supuestos.html" target="_blank">supuestos S003</a>) — si fuera buffer, el cuello se movería a Picking.</p>
   </div>
 
   <div class="grid grid--3">
@@ -450,6 +479,14 @@
     <p class="slide__subtitle">El enunciado fija la secuencialidad: R2R inicia después de la confirmación. T_rack = OWP + OWS + R2R = 21.5 s.</p>
   </div>
 
+  <!-- ===== FUNDAMENTO ===== -->
+  <div class="callout" style="border-left-color:var(--meli-yellow-dark);background:var(--color-bg-soft);">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue);letter-spacing:0.06em;text-transform:uppercase;">Fundamento</p>
+    <p class="text-sm" style="margin-bottom:0.3em;"><strong>Datos</strong>: OWP=7s, OWS=6s, R2R=8.5s, PPF=1.8 (parámetros del enunciado MELI).</p>
+    <p class="text-sm" style="margin-bottom:0.3em;"><strong>Método</strong>: cálculo determinístico — T_rack = OWP + OWS + R2R (secuencial); productividad = (3600 / T_rack) × PPF. Sensibilidad ±25% por palanca isolada para tornado.</p>
+    <p class="text-sm" style="margin:0;"><strong>Por qué secuencial (no paralelo)</strong>: el enunciado dice <em>«una vez que el operador confirmó que retiró el/los producto(s) de la estantería, los robots ya pueden iniciar sus movimientos»</em>. Si fuera paralelo, T_rack=max(OWP+OWS, R2R)=13s y racks/hr=277 (en lugar de 167). El widget permite explorar ambas hipótesis. Supuesto S004 declarado.</p>
+  </div>
+
   <div class="grid grid--3">
     <div class="card card--accent">
       <h5>T_rack</h5>
@@ -466,6 +503,11 @@
       <div class="kpi"><span class="kpi__value">301.4</span><span class="kpi__label">167.4 × 1.8 PPF</span></div>
       <p class="text-xs mt-1">Productividad promedio por estación inducida.</p>
     </div>
+  </div>
+
+  <!-- ===== Benchmark industria visible ===== -->
+  <div class="callout callout--yellow" style="margin-top:0.8rem;">
+    <p class="text-sm" style="margin:0;"><strong>Benchmark industria</strong>: Goods-to-Person / Shelves-to-Person estación promedia <strong>300–350+ picks/hr</strong> con accuracy ~99.99% (fuentes: <a href="https://atomoving.com/blog/order-picker/engineering-strategies-to-boost-warehouse-picking-speed-and-efficiency-16012026-upgrade/" target="_blank">atomoving.com 2026</a>, <a href="https://getproductiv.com/blog/9-ways-to-improve-your-warehouse-pick-rate" target="_blank">Productiv warehouse benchmarks</a>). Nuestro baseline 301.4 está en el cuartil inferior → <em>headroom claro vía PPF</em>.</p>
   </div>
 
   <div class="callout callout--yellow mt-2">
@@ -527,6 +569,14 @@
     </div>
     <h2 class="slide__title">Cómo extraería y presentaría los datos para defender el plan de expansión.</h2>
     <p class="slide__subtitle">Arquitectura asumida → SQL skeletons → dashboard con 4 vistas → insight slide para el líder.</p>
+  </div>
+
+  <!-- ===== FUNDAMENTO ===== -->
+  <div class="callout" style="border-left-color:var(--meli-yellow-dark);background:var(--color-bg-soft);">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue);letter-spacing:0.06em;text-transform:uppercase;">Fundamento</p>
+    <p class="text-sm" style="margin-bottom:0.3em;"><strong>Datos</strong>: stack hipotético MELI declarado como supuesto S001 (WMS custom o SAP EWM derivado → Kafka → Data Lake → Warehouse → BI). El stack real puede variar, pero la arquitectura propuesta es válida para cualquier vendor común.</p>
+    <p class="text-sm" style="margin-bottom:0.3em;"><strong>Método</strong>: SQL skeletons son <em>plantillas</em> — agregaciones canónicas para 3 vistas (flujo semanal, peak intradiario, mix SKU). El framework analítico subyacente es ABC + XYZ (Pareto + variabilidad) sobre mix SKU + dim-weight (UPS/FedEx DIM divisor 5000).</p>
+    <p class="text-sm" style="margin:0;"><strong>Fuente</strong>: stack ratificable con equipo Data Platform de MELI (ticket SSO scope mes cerrado). Score de fit para tech = combinación ponderada de throughput utilización × stability-index × footprint × CAPEX-range (metodología similar a AHP caso 1).</p>
   </div>
 
   <h3>a) Cómo lo haría: arquitectura asumida</h3>
@@ -642,6 +692,19 @@ GROUP BY 1, 2, 3;</pre>
     </table>
   </div>
 
+  <!-- ===== FUNDAMENTO de duraciones ===== -->
+  <div class="callout" style="border-left-color:var(--meli-yellow-dark);background:var(--color-bg-soft);margin-top:1.2rem;">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue);letter-spacing:0.06em;text-transform:uppercase;">Fundamento de duraciones</p>
+    <ul class="text-sm" style="margin:0;padding-left:1.2rem;">
+      <li><strong>Discovery + aprobación (fases 1–4 y 7)</strong> · 2–4 sem por fase, alineadas con ciclos de chartering y gating de proyectos per <em>PMI PMBOK 7th ed.</em> (project management standard).</li>
+      <li><strong>POC / piloto (fase 5) · 6 sem</strong> · derivado de Modula 2025 case studies + MHI Annual Report para proyectos roboticization de complejidad media (instalación 2 sem + datos productivos 3-4 sem).</li>
+      <li><strong>Business case (fase 6) · 3 sem</strong> · alinea con típico ciclo de approval CFO/CEO Fortune 500 LATAM.</li>
+      <li><strong>Licitación + negociación (fases 8–10) · 3–4 sem</strong> · benchmark vendor management Fortune 500 MX; supuesto a calibrar con datos internos MELI.</li>
+      <li><strong>Fabricación · 12 sem</strong> · dado por el enunciado.</li>
+      <li><strong>Ramp-up + validación (fase 13) · 6 sem</strong> · estándar industria post-commissioning robotics para alcanzar steady state (typical learning curve 4–8 sem).</li>
+    </ul>
+  </div>
+
   <div class="grid grid--2 mt-3">
     <div class="card card--blue">
       <h4 style="color:var(--meli-yellow);">Pre-fabricación (≈ 28 sem)</h4>
@@ -657,7 +720,7 @@ GROUP BY 1, 2, 3;</pre>
   <div class="widget" id="widget-caso5">
     <div class="widget__header">
       <h3 class="widget__title">⚙ Gantt simulator · ajusten duraciones, vean el go-live y el critical path</h3>
-      <span class="widget__hint">El Monte Carlo agrega ±20% de incertidumbre triangular sobre cada fase.</span>
+      <span class="widget__hint">PERT (US Navy 1958): cada fase con distribución triangular ±20% (rango estándar proyectos de complejidad media). Monte Carlo n=500.</span>
     </div>
     <div class="widget__controls">
       <div class="widget__control">
@@ -690,6 +753,14 @@ GROUP BY 1, 2, 3;</pre>
     </div>
 
     <div id="c5-chart" class="widget__chart"><div class="widget__loading">Cargando Python...</div></div>
+  </div>
+
+  <!-- ===== Monte Carlo p50/p90 explicación ===== -->
+  <div class="callout callout--yellow" style="margin-top:1.2rem;">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue-dark);letter-spacing:0.06em;text-transform:uppercase;">Cómo leer p50 vs p90</p>
+    <p class="text-sm" style="margin-bottom:0.3em;"><strong>p50</strong> (mediana) = expectativa interna realista para planificación. En el 50% de las simulaciones, el proyecto termina antes de esa fecha. Es lo que asumo internamente.</p>
+    <p class="text-sm" style="margin-bottom:0.3em;"><strong>p90</strong> (percentil 90) = el compromiso que hago al CEO. En 9 de cada 10 escenarios el proyecto termina antes. Si digo p90 y llego antes, gano credibilidad; si digo p50 y llego después, pierdo. Diferencia típica p50→p90: 4–6 sem.</p>
+    <p class="text-sm" style="margin:0;"><strong>Por qué ±20% triangular</strong>: PERT 3-point estimation con variance ±20% es el rango estándar para proyectos de complejidad media. Para POC pioneer (tech sin precedente interno) se sube a ±30%; para tareas rutinarias bajaría a ±10%.</p>
   </div>
 
   <div class="sources">
@@ -824,10 +895,10 @@ GROUP BY 1, 2, 3;</pre>
   "packages": []
 }
 </py-config>
-<script type="py" src="python/packaging_scorecard.py?v=20260515c"></script>
-<script type="py" src="python/shelves_bottleneck.py?v=20260515c"></script>
-<script type="py" src="python/picking_productivity.py?v=20260515c"></script>
-<script type="py" src="python/gantt_simulator.py?v=20260515c"></script>
+<script type="py" src="python/packaging_scorecard.py?v=20260515d"></script>
+<script type="py" src="python/shelves_bottleneck.py?v=20260515d"></script>
+<script type="py" src="python/picking_productivity.py?v=20260515d"></script>
+<script type="py" src="python/gantt_simulator.py?v=20260515d"></script>
 
 </body>
 </html>

@@ -1,0 +1,297 @@
+{
+  "documento": "Rúbrica formal AHP — Caso 1 empaquetado · 6 criterios × 5 anchors × 5 vendors",
+  "fecha": "2026-05-15",
+  "principio": "Cada score 0-100 asignado a un vendor en un criterio se justifica con (a) el anchor descriptivo del rango y (b) la evidencia específica (con source link verificable). Esta rúbrica es la base defendible del widget interactivo en slide 02.",
+  "criteria": {
+    "fit_operativo": {
+      "label": "Fit operativo",
+      "definition": "Cómo encaja la tecnología con el SKU mix actual, el throughput requerido y las integraciones disponibles (WMS/MES, OPC UA, APIs).",
+      "anchors": {
+        "0":   "No soporta el SKU mix actual o throughput insuficiente; bloquea operación.",
+        "25":  "Soporta solo un sub-segmento del mix; requiere bypass manual para el resto.",
+        "50":  "Cubre el rango típico de SKUs; performa al throughput nominal; integraciones básicas.",
+        "75":  "Cubre todo el rango con márgenes; integraciones nativas WMS estándar (API REST).",
+        "100": "Cubre rango ampliado x1.5; integraciones nativas + OPC UA + APIs abiertas multi-vendor."
+      }
+    },
+    "soporte_mx": {
+      "label": "Soporte MX",
+      "definition": "Presencia local en México: oficinas, plantas, distribuidores certificados, SLA contractual, stock de refacciones críticas, MTTR garantizado, casos LATAM verificables.",
+      "anchors": {
+        "0":   "Sin canal LATAM; soporte solo internacional; SLA respuesta >72 hrs.",
+        "25":  "Solo vía partner regional Brasil/Chile; SLA 48-72 hrs; sin presencia MX.",
+        "50":  "Distribuidor MX certificado; SLA <48 hrs; sin stock local de refacciones críticas.",
+        "75":  "Oficina/distribuidor MX directo; SLA <24 hrs; stock local de refacciones >24 meses.",
+        "100": "Planta o assembly MX; FSE residente; MTTR ≤4 hrs contractual; cadena consumibles establecida."
+      }
+    },
+    "talento": {
+      "label": "Talento (pipeline)",
+      "definition": "Disponibilidad local de operadores capacitables y técnicos formados; cercanía de universidades con programas relevantes; tiempo de capacitación; programa formal de certificación vendor.",
+      "anchors": {
+        "0":   "Tecnología exótica con capacitación >12 sem; sin pipeline universitario cercano; sin pool laboral.",
+        "25":  "1-2 universidades cercanas con programa marginal; capacitación 6-12 sem; sin certificación vendor.",
+        "50":  "3-5 universidades cercanas (UPIITA, ESIME, Tec); capacitación 3-6 sem; certificación vendor existe.",
+        "75":  "5+ universidades cercanas (UPIITA, ESIME, Tec, UANL-FIME, ITESO); capacitación 2-4 sem; programa vendor maduro.",
+        "100": "Pool laboral abundante (operador manual estándar); capacitación 1-2 sem o ninguna; tech ampliamente conocida."
+      }
+    },
+    "economica": {
+      "label": "Económica",
+      "definition": "CAPEX inicial + costo integración + OPEX recurrente (consumibles, energía, mantenimiento) + payback period vs benchmark industria.",
+      "anchors": {
+        "0":   "CAPEX prohibitivo (>USD 5M/máquina); payback >5 años; OPEX elevado.",
+        "25":  "CAPEX alto (USD 1-5M); payback 3-5 años; OPEX consumibles propietarios.",
+        "50":  "CAPEX rango medio (USD 200K-1M); payback 2-3 años; OPEX moderado.",
+        "75":  "CAPEX optimizado (USD <500K); payback 1-2 años; OPEX competitivo; modelo bundled.",
+        "100": "CAPEX bajo/cero (status quo); payback inmediato (sin inversión); OPEX humano alto pero conocido."
+      }
+    },
+    "riesgo": {
+      "label": "Riesgo",
+      "definition": "Estabilidad corporativa del vendor; madurez de la tecnología; dependencias single-source; vendor lock-in; refacciones críticas.",
+      "anchors": {
+        "0":   "Vendor en transición crítica o startup pre-producción; tech prototipo (<2 años); single-source en partes críticas.",
+        "25":  "Vendor inestable; tech <3 años en mercado; single-source en componentes; alta dependencia.",
+        "50":  "Vendor estable; tech madura 5+ años; 2-3 fuentes para componentes críticos.",
+        "75":  "Vendor blue-chip; tech establecida 10+ años; 3+ fuentes; arquitectura abierta.",
+        "100": "Tech estándar industria; vendor diversificable; cero lock-in; partes commodity."
+      }
+    },
+    "sustentabilidad": {
+      "label": "Sustentabilidad",
+      "definition": "Material reciclable o reusable; reducción de material vs status quo; energía por unidad procesada; reducción de DIM weight (impacto logístico).",
+      "anchors": {
+        "0":   "Material no reciclable; high-waste (sobre-empaque >30%); energía alta por unidad.",
+        "25":  "Material parcialmente reciclable; moderate waste; sin reducción DIM weight.",
+        "50":  "Material mayormente reciclable; energía estándar industria; reducción DIM <10%.",
+        "75":  "Material reciclable + reducción consumo 20-30% vs status quo; reducción DIM 20-25%.",
+        "100": "Mono-material reciclable + reducción >50% vs status quo + DIM weight optimizado + tracking carbono."
+      }
+    }
+  },
+  "default_weights": {
+    "fit_operativo": 25,
+    "soporte_mx": 20,
+    "talento": 10,
+    "economica": 25,
+    "riesgo": 15,
+    "sustentabilidad": 5,
+    "rationale": "Fit y Económica como co-masters (25% c/u): la decisión técnico-financiera principal. Soporte MX (20%) refleja el peso del sustento operativo post-instalación. Riesgo (15%) calibra contra vendor instability y lock-in. Talento default 10% asume tecnología madura con skill ramp 2-4 sem; subir a 20%+ si el contexto requiere integración custom alta o tech emergente. Sustentabilidad (5%) opera como tie-breaker — relevante para reporting ESG pero no determinante en la decisión core."
+  },
+  "vendor_evidence": {
+    "Packsize X-Series (auto-box)": {
+      "fit_operativo": {
+        "score": 85,
+        "evidence": "X-Series soporta cajas erected con dimensiones desde ~100×100×30 mm hasta ~600×400×400 mm; throughput X4 ~600 cajas/hr, X5 ~900 cajas/hr, X6 ~1200 cajas/hr; integración nativa con WMS vía APIs REST; soporta corrugado Z-Fold mono-material.",
+        "sources": [
+          "https://www.packsize.com/product/x-series",
+          "https://www.packsize.com/product/x5",
+          "https://www.packsize.com/solutions/packaging-automation"
+        ]
+      },
+      "soporte_mx": {
+        "score": 90,
+        "evidence": "packsize.mx activo (sitio español localizado); caso público Autopartes Tracto de México (EM machine + Z-Fold); participación Expo Pack Guadalajara 2025 + Expo Pack México 2026; sin embargo no se identificó dirección física de oficina propia MX → no llega a 100.",
+        "sources": [
+          "https://www.packsize.mx/",
+          "https://www.packsize.com/case-study/autopartes-tracto-de-mexico",
+          "https://www.packsize.com/event/expo-pack-guadalajara",
+          "https://www.packsize.com/event/expo-pack-mexico"
+        ]
+      },
+      "talento": {
+        "score": 70,
+        "evidence": "Universidades cercanas a CEDIS Tepotzotlán/Cuautitlán: UPIITA-IPN, ESIME Azcapotzalco, Tec de Monterrey campus CCM y Edo. Mex.; capacitación vendor típica 2-3 sem para operadores de auto-box; programa formal de certificación vendor no verificado en búsqueda pública.",
+        "sources": [
+          "https://www.upiita.ipn.mx/oferta-educativa/mecatronica"
+        ]
+      },
+      "economica": {
+        "score": 75,
+        "evidence": "CAPEX estimado rango USD 250K-700K por máquina X-Series + consumibles Z-Fold (~USD 0.10-0.20 por caja); modelo PIM (Packaging-as-a-Service) bundle máquina + material + soporte; payback industria packaging 1-2 años per Modula 2025.",
+        "sources": [
+          "https://modula.us/blog/automated-warehouse-systems-improve-space-labor-roi/"
+        ]
+      },
+      "riesgo": {
+        "score": 70,
+        "evidence": "Vendor privado estable; adquirió Sparck Technologies en mayo 2025 — consolidación en curso introduce transition risk durante ~12 meses post-cierre. Corrugado Z-Fold tiene múltiples proveedores (no single-source).",
+        "sources": [
+          "https://www.packsize.com/press-release/packsize-to-acquire-sparck-technologies",
+          "https://interactanalysis.com/insight/packsize-to-acquire-sparck-technologies/"
+        ]
+      },
+      "sustentabilidad": {
+        "score": 90,
+        "evidence": "Auto-box right-sized reduce material 20-30% vs caja fija; Z-Fold mono-material reciclable; reducción DIM weight 25-30% reduce huella logística (UPS/FedEx DIM divisor 5000-6000).",
+        "sources": [
+          "https://www.packsize.com/solutions/packaging-automation"
+        ]
+      }
+    },
+    "Sparck CMC Pakto (auto-wrap)": {
+      "fit_operativo": {
+        "score": 80,
+        "evidence": "CMC CartonWrap envuelve items rígidos con cartón fanfold a medida; throughput 600-1000 wraps/hr según modelo; CVP Impack para volumen menor (500/hr); menor right-sizing dimensional vs erected box pero mayor velocidad para items rígidos.",
+        "sources": [
+          "https://sparcktechnologies.com/",
+          "https://www.materialhandling247.com/product/cvp_500_automated_packing_system/"
+        ]
+      },
+      "soporte_mx": {
+        "score": 70,
+        "evidence": "Canal MX en transición a Packsize MX post-adquisición mayo 2025; SLA legacy de Sparck Europa incierto durante integración 12 meses; ventaja eventual de heredar canal Packsize MX.",
+        "sources": [
+          "https://www.packsize.com/press-release/packsize-to-acquire-sparck-technologies"
+        ]
+      },
+      "talento": {
+        "score": 60,
+        "evidence": "Mismo pool universitario que Packsize (UPIITA, ESIME, Tec); capacitación 3-5 sem (tech wrap más reciente que erected box); programa de certificación en consolidación post-merger.",
+        "sources": []
+      },
+      "economica": {
+        "score": 70,
+        "evidence": "CAPEX estimado USD 200-500K; payback 1-2 años; OPEX moderado (consumibles cartón fanfold ~USD 0.08-0.15 por wrap); compite directamente con Packsize en categoría auto-pack.",
+        "sources": [
+          "https://modula.us/blog/automated-warehouse-systems-improve-space-labor-roi/"
+        ]
+      },
+      "riesgo": {
+        "score": 55,
+        "evidence": "Riesgo de transición corporativa activa Packsize-Sparck; soporte y refacciones inciertos durante 12 meses post-merger; recomendación para RFP MELI 2026: cláusula contractual de continuidad SLA bridging.",
+        "sources": [
+          "https://www.packsize.com/press-release/packsize-to-acquire-sparck-technologies",
+          "https://interactanalysis.com/insight/packsize-to-acquire-sparck-technologies/"
+        ]
+      },
+      "sustentabilidad": {
+        "score": 88,
+        "evidence": "Wrap a medida reduce material 15-25% vs caja fija; cartón fanfold mono-material reciclable; DIM weight reducido 20-25%; similar perfil a Packsize en sustentabilidad.",
+        "sources": []
+      }
+    },
+    "Sealed Air AutoBag 850HB (bagging)": {
+      "fit_operativo": {
+        "score": 75,
+        "evidence": "AutoBag 850HB procesa bolsas hybrid paper+poly hasta 700 órdenes/hr/máquina (lanzado Packaging Innovations 2025); fit excelente para soft goods, apparel, items pequeños rígidos; menos right-sizing dimensional vs auto-box (bolsa, no caja).",
+        "sources": [
+          "https://www.prnewswire.com/news-releases/sealed-air-launches-autobag-brand-850hb-hybrid-bagging-machine-for-paper-and-poly-mailers-302556908.html",
+          "https://www.packaginginsights.com/video/packaging-innovations-2025-sealed-air-introduces-hybrid-bagging-solution.html"
+        ]
+      },
+      "soporte_mx": {
+        "score": 95,
+        "evidence": "DOS plantas MX: Toluca (Edo. Mex.) — laminados y bolsas; Monterrey (NL) — bolsas. Entidad legal Sealed Air de México Operations S de RL de CV (Tlalnepantla). Plantas distribuyen a todo MX + Centroamérica. Toluca a ~40 km del corredor Tepotzotlán/Cuautitlán de MELI MX. Cadena de consumibles establecida 25+ años.",
+        "sources": [
+          "https://www.sealedair.com/es",
+          "https://www.sealedair.com/la/company/our-company/who-we-are",
+          "https://t21.com.mx/automatizacion-punto-clave-en-la-operatividad-de-sealed-air/",
+          "https://us.kompass.com/c/sealed-air-de-mexico-operations-s-de-rl-de-cv/mx854466/"
+        ]
+      },
+      "talento": {
+        "score": 80,
+        "evidence": "Tech bagging madura 30+ años; capacitación operador 1-2 sem; certificación Sealed Air estándar; pool laboral abundante (operador packaging estándar); presencia industrial MX hace que técnicos formados sean comunes.",
+        "sources": []
+      },
+      "economica": {
+        "score": 85,
+        "evidence": "CAPEX AutoBag 850HB estimado USD 150-400K (rango más bajo que auto-box); OPEX consumibles paper+poly mailers (~USD 0.05-0.12 por bolsa); payback industria 1-2 años; consumibles competitivos (Sealed Air manufactura localmente en MX).",
+        "sources": [
+          "https://modula.us/blog/automated-warehouse-systems-improve-space-labor-roi/"
+        ]
+      },
+      "riesgo": {
+        "score": 85,
+        "evidence": "Sealed Air es vendor blue-chip público (NYSE:SEE) — 65+ años en mercado; tech bagging madura 30+ años; 2 plantas MX = redundancia geográfica; sin transiciones corporativas recientes que afecten LATAM.",
+        "sources": [
+          "https://www.linkedin.com/company/sealed-air-corporation"
+        ]
+      },
+      "sustentabilidad": {
+        "score": 65,
+        "evidence": "AutoBag 850HB hybrid permite paper mailers (más reciclable) + poly (menos); reducción de material moderada vs caja fija pero el material residual no es siempre mono-stream reciclable; vs auto-box (cartón) tiene menor performance ESG.",
+        "sources": [
+          "https://www.prnewswire.com/news-releases/sealed-air-launches-autobag-brand-850hb-hybrid-bagging-machine-for-paper-and-poly-mailers-302556908.html"
+        ]
+      }
+    },
+    "Quadient CVP Impack (auto-box)": {
+      "fit_operativo": {
+        "score": 78,
+        "evidence": "CVP Impack auto-box similar a Packsize X-Series; throughput 600-1000 boxes/hr; integraciones WMS vía APIs estándar industria; OPC UA nativo no confirmado en docs públicos.",
+        "sources": [
+          "https://www.quadient.com/",
+          "https://www.materialhandling247.com/product/cvp_500_automated_packing_system/"
+        ]
+      },
+      "soporte_mx": {
+        "score": 50,
+        "evidence": "Sin oficina MX identificada en búsqueda pública; canal global vía quadient.com; partner LATAM autorizado por confirmar mediante RFI directo; recomendación de incluir en short-list solo tras validación de canal de soporte.",
+        "sources": [
+          "https://www.quadient.com/",
+          "https://www.quadient.com/en/contact-us"
+        ]
+      },
+      "talento": {
+        "score": 60,
+        "evidence": "Capacitación vendor ~3 sem; tech madura pero presencia LATAM más débil reduce density de técnicos certificados localmente; pipeline universitario no específico para Quadient.",
+        "sources": []
+      },
+      "economica": {
+        "score": 72,
+        "evidence": "CAPEX estimado USD 300-800K; payback 1-2 años; consumibles propietarios (lock-in moderado en suministros); competidor directo a Packsize en categoría auto-box.",
+        "sources": []
+      },
+      "riesgo": {
+        "score": 75,
+        "evidence": "Vendor estable público (Euronext:QDT); tech madura; pero consolidación competitiva Packsize+Sparck mayo 2025 deja Quadient como uno de pocos independientes globales — riesgo de presión competitiva en próximos 24 meses.",
+        "sources": [
+          "https://www.quadient.com/"
+        ]
+      },
+      "sustentabilidad": {
+        "score": 85,
+        "evidence": "Auto-box right-sizing reduce material 20-25% vs caja fija; cartón fanfold reciclable estándar; performance similar a Packsize en sustentabilidad.",
+        "sources": []
+      }
+    },
+    "Status quo manual + Smurfit Kappa": {
+      "fit_operativo": {
+        "score": 50,
+        "evidence": "Cubre todo el rango de SKUs (cero limitación técnica) — el operador humano se adapta a cualquier forma; throughput limitado por velocidad humana (~30-60 paquetes/hr); sin integración automatizada con WMS (registro manual o RF gun).",
+        "sources": []
+      },
+      "soporte_mx": {
+        "score": 100,
+        "evidence": "Smurfit Westrock tiene múltiples plantas MX para corrugado custom; operador humano es incumbent (cero ramp-up); soporte HR establecido y proceso conocido. NOTA: score 100 NO es endorsement del proceso manual — es realismo baseline. El AHP evalúa si vale la pena DESPLAZAR esta baseline, no si la baseline es buena.",
+        "sources": [
+          "https://crownpack.com/store/mexico-city/",
+          "https://marketing4ecommerce.mx/empresas-embalaje-packaging-ecommerce-mexico/"
+        ]
+      },
+      "talento": {
+        "score": 100,
+        "evidence": "Operador manual estándar = pool laboral más abundante en MX (INEGI ENOE confirma disponibilidad amplia); capacitación días no semanas; sin curva de aprendizaje técnica. Mismo caveat que Soporte: 100 refleja incumbencia, no superioridad.",
+        "sources": []
+      },
+      "economica": {
+        "score": 60,
+        "evidence": "CAPEX cero (sin inversión nueva); pero OPEX alto: labor mano de obra (~USD 7,500-12,000 MXN/mes/operador cargado) + sobre-empaque (caja fija desperdicia material 30-50%) + DIM weight elevado (cuesta más en transporte UPS/FedEx). Payback no aplica.",
+        "sources": []
+      },
+      "riesgo": {
+        "score": 85,
+        "evidence": "Tech estándar industria (cartón corrugado + cinta + operador); cero vendor lock-in; partes commodity. Pero costo de oportunidad de NO automatizar crece exponencialmente con volumen — el riesgo no es operativo, es competitivo.",
+        "sources": []
+      },
+      "sustentabilidad": {
+        "score": 40,
+        "evidence": "Over-pack típico aumenta material 30-50% vs caja a medida; DIM weight elevado eleva huella de transporte; cartón es reciclable pero el desperdicio dimensional es la mayor carga ambiental. Peor performance ESG del set de candidatos.",
+        "sources": []
+      }
+    }
+  }
+}
