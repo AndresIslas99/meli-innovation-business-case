@@ -773,55 +773,89 @@ GROUP BY 1, 2, 3;</pre>
   </div>
 </section>
 
-<!-- ============================ SLIDE 07 · MOTIVACIONALES (BRIEF) ============================ -->
+<!-- ============================ SLIDE 07 · MOTIVACIONALES (BLOG) ============================ -->
 <section id="slide-motivacionales" class="slide">
   <div class="slide__header">
     <div class="slide__eyebrow">
       <span class="slide__number">07</span>
-      <span class="slide__kicker">Preguntas adicionales · resumen</span>
+      <span class="slide__kicker">Preguntas adicionales</span>
     </div>
-    <h2 class="slide__title">Motivacionales — 3 bullets cada una. Detalle completo en PDF formal.</h2>
-    <p class="slide__subtitle">El PDF está en <code>exports/motivacionales_andres_islas.pdf</code> (también adjunto al email).</p>
+    <h2 class="slide__title">Motivacionales · respuestas completas.</h2>
+    <p class="slide__subtitle">Las mismas respuestas del PDF formal, en formato narrativo con material visual de proyectos verificables.</p>
   </div>
 
-  <div class="grid grid--2">
-    <div class="card">
-      <h4>1. ¿Qué te interesa del puesto?</h4>
-      <ul class="text-sm">
-        <li>Crear e innovar es lo que me mueve. En Limser construí un sistema de asistencia remota encriptado que redujo viáticos y bajó el tiempo de respuesta a &lt;3 hrs — sigo recibiendo mensajes de colaboradores agradeciendo que les facilitó la vida.</li>
-        <li>En MELI quiero ir a plantas <em>autónomas</em>, gemelos digitales para iteración en software, arquitecturas a prueba de balas donde las celdas vecinas redistribuyen carga si un robot falla.</li>
-        <li>El reto de escala 10–100× lo que he tocado, el cross-equipo con Brasil regional, y aterrizar la receta de innovación en MX cuando aún se está escribiendo.</li>
-      </ul>
+  <!-- PDF download bar -->
+  <div class="pdf-download-bar">
+    <div class="pdf-download-bar__text">
+      <p class="pdf-download-bar__title">📄 ¿Prefieren leerlo en PDF?</p>
+      <p class="pdf-download-bar__sub">El documento formal de 4 páginas también va adjunto al email. Misma redacción + tipografía Inter institucional.</p>
     </div>
-    <div class="card">
-      <h4>2. Fortaleza · debilidad</h4>
-      <ul class="text-sm">
-        <li><strong>Fortaleza</strong>: tomar problemas concretos y entregar la solución completa — desde la arquitectura hasta el código que la sostiene. Transfer cars de 90 T SIL-2 a Fortune 500 con un equipo de 6 ingenieros, y en paralelo el stack de control + fusión sensorial de un AGV agrícola escrito desde cero en 6 semanas.</li>
-        <li><strong>Debilidad</strong>: siempre fue el querer más antes de tiempo. Cuando arrancaba como ingeniero me empujé a cosas para las que no estaba listo y terminé en quiebra; me costó la relación con mi pareja en ese momento. Ese alto forzado fue el que cambió las cosas: leí <em>Ego Is the Enemy</em> (Ryan Holiday) y por primera vez pude ponerle nombre a cómo me autosaboteaba. Después vinieron los hábitos prácticos — matrices de riesgo antes de comprometerme, planear por etapas. Pero el cambio de fondo fue aprender a escuchar al ego como señal, no como impulso.</li>
-        <li>Hoy se manifiesta en cosas concretas: padre de familia presente sin abandonar mis proyectos, y saber decir no a algo que parece atractivo pero no encaja. Por eso tampoco me pongo títulos a mí mismo — prefiero que la lectura del rango venga del equipo después de ver el trabajo.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h4>3. Tres años</h4>
-      <ul class="text-sm">
-        <li>No me interesa la siguiente etiqueta del organigrama, sino el alcance del impacto — quiero influir en lo que MELI crea, elige y despliega, no solo en cómo opera.</li>
-        <li><strong>Corto plazo (2 años)</strong>: autonomía operativa de varios procesos críticos en CEDIS con &lt;10% de downtime. Eso es IA aplicada al piso, no automatización aislada. Ya hice algo análogo en mantenimiento: una IA que supervisaba las tareas diarias del equipo, alimentada por un data lake con manuales y <em>ground truth</em>, entregaba sugerencias accionables al técnico en campo y redujo tiempos de diagnóstico. En MELI puede escalar a sensores + IA + WMS unificado + dashboards que recomiendan, no solo muestran.</li>
-        <li><strong>Tres años</strong>: contribuir a la arquitectura unificada de la red MX bajo ISA-95 + OPC UA, mentorear specialists juniors, y homologar los CEDIS principales con los secundarios. Horizonte largo (<em>The Wave</em>, cofundador DeepSeek): LLMs → robots VLA → computación cuántica para simulación. MELI ya está en la 2da ola (Cajamar, Agility); el rol decide si llegamos preparados a la 3ra.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h4>4. A challenge I overcame <span class="brand-tag brand-tag--ghost" style="font-size:0.65rem;">EN per brief</span></h4>
-      <ul class="text-sm">
-        <li><strong>Limser × Harsco</strong> (plant directors reporting into Brazil — same setup as MELI). When I joined, the AGV project was failing and the customer lead, Miguel, was openly upset.</li>
-        <li>I proposed standing up an automation department from scratch with me accountable; rebuilt the methodology around foundry realities (induction furnace safety, AGV failure consequences) and added a load-cell-to-WMS integration that gave Ternium audit-grade metal-quality data.</li>
-        <li>Outcome: the Harsco plant — which was internally debated for closure — used our delivery to renew a 10-year operating extension with Ternium. Last visit ended with handshakes and conversations about future projects. Limser still works with Harsco today.</li>
-      </ul>
-    </div>
+    <a class="btn-primary" href="exports/motivacionales_andres_islas.pdf" download>Descargar PDF (37 KB)</a>
   </div>
 
-  <div class="callout callout--yellow mt-3">
-    <strong>El PDF formal</strong> tiene cada respuesta a 2 párrafos con storytelling completo + métricas verificables. Está pensado para lectura aparte del deck.
-  </div>
+  <!-- ============== Q1 ¿Qué te interesa? ============== -->
+  <article class="motivacional-article">
+    <h3><span class="num">1</span> ¿Qué te interesa del puesto?</h3>
+
+    <p>Lo que me mueve cada día es crear e innovar. En cada rol técnico que he tomado he buscado que mi tiempo en esa empresa fuera un antes y un después. Un ejemplo concreto: en Limser construí un sistema de asistencia remota encriptado para mantenimiento de software de equipos de alto valor; los ingenieros dejaron de viajar a sitio, la empresa redujo viáticos, y el tiempo de respuesta bajó a menos de tres horas. Sigo recibiendo mensajes de colaboradores que agradecen que ese sistema les facilitó la vida y el balance con su familia. Otro caso es la última startup, donde escribí desde cero la pila de algoritmos para que AGVs navegaran en invernaderos — un escenario donde la mayoría de los AGVs comerciales fallan —; esos robots están hoy en producción, ayudando a la seguridad alimentaria, que es uno de los retos humanos más grandes. También aporto cuando no hay dinero de por medio: contribuciones a <code>nav2</code> de ROS&nbsp;2, porque me importa que la robótica esté cada vez más presente en la vida cotidiana.</p>
+
+    <p>En Mercado Libre me interesa exactamente eso: subir la vara. No hablo solo de plantas automatizadas, sino de plantas <em>autónomas</em>; usar gemelos digitales para iterar configuraciones y procesos en software antes de tocar el piso; diseñar arquitecturas a prueba de balas, donde si un robot falla, las celdas vecinas redistribuyen carga dinámicamente y la línea no se para. Sumado a esto, el reto de escala (10–100× de lo que he tocado), el trabajo cross-equipo con Brasil regional, y la oportunidad de estar en MX cuando la receta de innovación aún se está escribiendo, hacen que sea el rol al que quiero entrar.</p>
+
+    <figure data-media-slot="q1-asistencia-remota">
+      <div class="media-placeholder">
+        <strong>📷 Material visual opcional</strong>
+        Foto o screenshot del sistema de asistencia remota encriptado en Limser. Drop tu archivo en <code>assets/images/q1-asistencia-remota.{jpg,png}</code> y reemplazaré este placeholder con la imagen.
+      </div>
+      <figcaption>Sistema de asistencia remota encriptado · Limser · 2022–2024</figcaption>
+    </figure>
+  </article>
+
+  <!-- ============== Q2 Fortaleza · debilidad ============== -->
+  <article class="motivacional-article">
+    <h3><span class="num">2</span> ¿Cuál es tu mayor fortaleza y tu mayor debilidad?</h3>
+
+    <p><strong>Fortaleza</strong>: tomar problemas concretos y entregar la solución completa — desde definir la arquitectura hasta escribir el código que la sostiene. En automatización industrial pesada dirigí el delivery de transfer cars de 90 toneladas certificadas TÜV SIL-2 a clientes Fortune 500, con un equipo de seis ingenieros. En paralelo, en la última startup, escribí cada línea del stack de control y fusión sensorial de un AGV agrícola en seis semanas con un BOM de $3K USD, y defendí el unit economics ante VCs (hectáreas → ROI año 1). Esa intersección entre depth técnica y criterio de inversión es la base con la que llego al rol.</p>
+
+    <p><strong>Debilidad</strong>: mi mayor debilidad ha sido siempre el querer más antes de tiempo. Cuando estaba arrancando como ingeniero, antes de que mi primera empresa funcionara, me obsesioné con ser más de lo que era — rechazaba puestos junior pensando que merecía algo mayor, me empujaba a cosas para las que aún no estaba listo. Terminé en quiebra, y la quiebra no fue solo financiera: me costó la relación con mi pareja en ese momento, y me obligó a parar.</p>
+
+    <p>Ese alto forzado fue lo que cambió las cosas. Por primera vez tuve que mirar de frente cómo me estaba autosaboteando, y un libro me ayudó a ponerle nombre: <em>Ego Is the Enemy</em>, de Ryan Holiday. Después vinieron los hábitos prácticos — usar matrices de riesgo antes de comprometerme con un siguiente paso, planear por etapas en lugar de saltármelos, ser explícito conmigo mismo sobre lo que estaba listo para asumir. Pero el cambio de fondo fue aprender a escuchar al ego como señal, no como impulso.</p>
+
+    <p>Hoy esa lección se manifiesta en cosas concretas. Soy padre de familia presente sin abandonar mis proyectos. Sé cuándo decir no a algo que parece atractivo pero no encaja. Y en este case en particular: no me pongo títulos a mí mismo — prefiero que la lectura del rango la haga el equipo después de ver el trabajo.</p>
+  </article>
+
+  <!-- ============== Q3 Tres años ============== -->
+  <article class="motivacional-article">
+    <h3><span class="num">3</span> Si obtienes el puesto, ¿cómo te ves dentro de 3 años?</h3>
+
+    <p>Quiero crecer dentro de MELI, pero lo que de verdad me importa no es la siguiente etiqueta en el organigrama — es el alcance del impacto. Quiero llegar a un punto donde mi visión influya no solo en cómo operamos sino en lo que MELI crea, elige y despliega.</p>
+
+    <p>A corto plazo, los próximos dos años los veo enfocados en algo concreto y medible: la autonomía operativa de varios procesos críticos en CEDIS con menos del 10% de downtime. Eso significa más que automatización aislada — significa IA aplicada al piso. Ya hice algo análogo: construí una IA que supervisaba las tareas diarias del equipo de mantenimiento, alimentada por un data lake con manuales técnicos y <em>ground truth</em>, y entregaba sugerencias accionables al técnico en campo. Eso redujo tiempos de diagnóstico y dejó al técnico hacer lo que un humano hace mejor: tomar la decisión final con contexto completo. En MELI ese principio puede escalar mucho — sensores en piso + IA + WMS unificado + dashboards que no solo muestran el estado, sino que recomiendan la siguiente decisión.</p>
+
+    <p>A tres años quiero estar contribuyendo a la arquitectura unificada de toda la red MX bajo ISA-95 + OPC UA, mentoreando a specialists juniors, y ayudando a definir la siguiente generación de FCs — empezando por homologar los CEDIS principales con los secundarios, donde aún no se ha tocado, para que ningún sitio quede rezagado.</p>
+
+    <p>El horizonte que me mantiene mirando lejos lo describe <em>The Wave</em>, del cofundador de DeepSeek: tres olas tecnológicas que están reconfigurando la economía. La primera son los LLMs — donde estamos ahora. La segunda son los robots, particularmente los VLA aspirando a generalistas — donde nos estamos moviendo, y a la que MELI ya se está subiendo con casos como Cajamar y el acuerdo con Agility Robotics. La tercera, que viene como consecuencia natural del volumen de datos que esos robots generan, es la computación cuántica como nueva forma de procesar simulaciones a una granularidad que el cómputo clásico no alcanza.</p>
+
+    <p>Quiero ayudar a MELI a subirse a esa tercera ola cuando llegue, no de reactivo. La cuántica abre ventanas concretas: simulación de procesos a granularidad sin precedentes, diseño óptimo de <em>warehouses</em>, distribución dinámica de activos, e incluso modelos para homologar la operación robótica entre CEDIS principales y secundarios bajo restricciones que hoy son intratables. No es trabajo del primer año, pero las decisiones de arquitectura que tomemos ahora — qué datos capturamos, qué interfaces estandarizamos, qué hipótesis modelamos — determinan si estamos listos cuando esa ola llegue. En esta carrera tecnológica, el primero en aterrizar la aplicación real gana <em>market share</em>. Quiero aportar exactamente eso a Mercado Libre.</p>
+  </article>
+
+  <!-- ============== Q4 Challenge — EN ============== -->
+  <article class="motivacional-article">
+    <h3><span class="num">4</span> A challenge I overcame <span class="brand-tag brand-tag--ghost" style="font-size:0.65rem;">in English, per brief</span></h3>
+
+    <p>The challenge came early in my time at Limser. The customer was <strong>Harsco</strong>, a metals services company whose plant directors reported into Brazil. By the time I joined the project, the relationship had deteriorated: the AGVs we were building for their foundry weren't progressing as expected, Limser didn't have a clear methodology to push them through, and Miguel from Harsco — the customer lead — was visibly upset. The first time I walked into the plant in person, the meeting opened with reproaches, not introductions.</p>
+
+    <p>I made a deliberate choice: rather than patch the AGV development plan and hope, I proposed standing up an automation department from scratch inside Limser, with myself accountable. The customer agreed to give us a chance. I rebuilt the development methodology around the actual realities of the foundry — the safety risks of running automated equipment around induction furnaces, the operational consequences if one AGV failed mid-shift, the criticality of integrating the AGVs with their WMS so a load-cell-based weighing system could feed inventory and metal-quality data downstream to Ternium, their downstream customer. The pressure was sharp: in side conversations with the LatAm director of procurement, he told me that the Harsco plant was internally being debated for closure, and that what we were delivering — AGVs plus the integrated weighing/WMS narrative — was the lever they were using to negotiate a ten-year operational extension with Ternium.</p>
+
+    <p>I built the team from people I had met in collegiate robotics teams, who shared the same drive. The project ran on a tight budget vs. a tight timeline, and the trade-off was managed week by week between scope, overtime and progress. On the last visit I made to the plant, Miguel and I had coffee, shook hands, and started talking about future projects. The plant kept operating. Limser is still working with Harsco today — on cranes now, a different scope. That outcome taught me what it really means to take ownership of something that started badly, to step into a high-pressure customer relationship and let the work do the speaking. It is also the kind of relationship I would want to build with the MELI operations leaders in Brazil — starting calm, showing up, and proving the work case by case.</p>
+
+    <figure data-media-slot="q4-transfer-car">
+      <div class="media-placeholder">
+        <strong>🎬 Video del transfer car en operación</strong>
+        Andrés tiene videos del transfer car moviéndose. Drop el archivo en <code>assets/videos/q4-transfer-car.mp4</code> (recomendable &lt;25 MB para carga rápida en GitHub Pages) y lo embeberé automáticamente con controles HTML5. Para videos &gt;100 MB, subir a YouTube como <em>unlisted</em> y pasar el video ID.
+      </div>
+      <figcaption>Transfer car 90 T en operación · proyecto Limser × Harsco</figcaption>
+    </figure>
+  </article>
 </section>
 
 <!-- ============================ SLIDE 99 · CIERRE ============================ -->
@@ -895,10 +929,10 @@ GROUP BY 1, 2, 3;</pre>
   "packages": []
 }
 </py-config>
-<script type="py" src="python/packaging_scorecard.py?v=20260515e"></script>
-<script type="py" src="python/shelves_bottleneck.py?v=20260515e"></script>
-<script type="py" src="python/picking_productivity.py?v=20260515e"></script>
-<script type="py" src="python/gantt_simulator.py?v=20260515e"></script>
+<script type="py" src="python/packaging_scorecard.py?v=20260515f"></script>
+<script type="py" src="python/shelves_bottleneck.py?v=20260515f"></script>
+<script type="py" src="python/picking_productivity.py?v=20260515f"></script>
+<script type="py" src="python/gantt_simulator.py?v=20260515f"></script>
 
 </body>
 </html>

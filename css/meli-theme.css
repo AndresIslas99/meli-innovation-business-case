@@ -467,3 +467,123 @@ button {
 .widget__chart:has(.js-plotly-plot) .widget__loading {
   display: none !important;
 }
+
+/* ============================================================
+   Motivacionales blog-style
+   ============================================================ */
+.motivacional-article {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--meli-yellow);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.6rem 1.9rem;
+  margin: 1.4rem 0;
+  box-shadow: var(--shadow-sm);
+}
+.motivacional-article h3 {
+  color: var(--meli-blue);
+  margin: 0 0 0.7em 0;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+.motivacional-article h3 .num {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  background: var(--meli-yellow);
+  color: var(--meli-blue-dark);
+  padding: 0.1em 0.55em;
+  border-radius: 4px;
+  font-weight: 700;
+}
+.motivacional-article p {
+  line-height: 1.65;
+  font-size: 0.96rem;
+  margin: 0.7em 0;
+}
+.motivacional-article p:first-of-type {
+  margin-top: 0;
+}
+.motivacional-article p:last-of-type {
+  margin-bottom: 0;
+}
+.motivacional-article figure {
+  margin: 1.2rem 0;
+  text-align: center;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius);
+  padding: 0.8rem;
+}
+.motivacional-article figure img,
+.motivacional-article figure video,
+.motivacional-article figure iframe {
+  max-width: 100%;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  display: block;
+  margin: 0 auto;
+}
+.motivacional-article figure iframe {
+  aspect-ratio: 16/9;
+  height: auto;
+  border: none;
+}
+.motivacional-article figcaption {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: 0.6em;
+  padding: 0 0.4em;
+}
+.media-placeholder {
+  background: var(--color-bg-soft);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: 2.5rem 1.5rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.media-placeholder strong {
+  display: block;
+  color: var(--meli-blue);
+  font-style: normal;
+  margin-bottom: 0.3em;
+}
+.pdf-download-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, var(--meli-blue) 0%, var(--meli-blue-dark) 100%);
+  color: #FFFFFF;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  margin: 1rem 0 1.5rem 0;
+}
+.pdf-download-bar__text {
+  flex: 1;
+}
+.pdf-download-bar__title {
+  font-weight: 700;
+  margin: 0 0 0.2em 0;
+  color: var(--meli-yellow);
+}
+.pdf-download-bar__sub {
+  margin: 0;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+.pdf-download-bar a.btn-primary {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  white-space: nowrap;
+}
