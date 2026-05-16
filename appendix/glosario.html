@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glosario · Business Case MELI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/meli-theme.css">
+  <style>
+    .app-shell { max-width: 1100px; margin: 0 auto; padding: 2.5rem var(--gutter); }
+    .breadcrumb { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.2rem; }
+    .cat { margin-top: 2rem; }
+    .cat h2 { color: var(--meli-blue); border-bottom: 3px solid var(--meli-yellow); padding-bottom: 0.4em; }
+    .term { display: grid; grid-template-columns: 170px 1fr 130px; gap: 0.4rem 1.2rem; padding: 0.55rem 0; border-bottom: 1px dashed var(--color-border); align-items: baseline; }
+    .term__sigla { font-family: var(--font-mono); font-weight: 700; color: var(--meli-blue); font-size: 0.95rem; }
+    .term__def { font-size: 0.92rem; color: var(--color-text); }
+    .term__where { font-size: 0.78rem; color: var(--color-text-muted); font-style: italic; text-align: right; }
+    .toc-mini { background: var(--color-bg-soft); padding: 1rem 1.4rem; border-radius: var(--radius); margin-bottom: 1.5rem; column-count: 2; gap: 1.2rem; }
+    .toc-mini a { color: var(--meli-blue); text-decoration: none; font-weight: 600; display: block; padding: 0.2em 0; }
+    .toc-mini a:hover { text-decoration: underline; }
+    @media (max-width: 720px) {
+      .term { grid-template-columns: 1fr; }
+      .term__where { text-align: left; }
+      .toc-mini { column-count: 1; }
+    }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+  <p class="breadcrumb"><a href="../index.html">← Volver al deck</a> · Appendix · Glosario completo</p>
+  <h1>Glosario · siglas, términos y referencias</h1>
+  <p class="text-muted">Todo término técnico, abreviatura, framework, vendor o métrica que aparece en el deliverable — con su significado pleno y dónde aparece. Diseñado para Q&amp;A rápido durante la entrevista (si te preguntan "¿qué es X?", está aquí).</p>
+
+  <div class="callout callout--yellow">
+    <strong>Cómo usar este glosario</strong>: lectura completa antes de la entrevista (≈ 20 min) para refrescar; durante Q&amp;A como ancla de seguridad. La versión imprimible de 1 página está en el slide 12 de <code>exports/business_case_andres_islas_pitch.pptx</code>.
+  </div>
+
+  <div class="toc-mini">
+    <a href="#siglas">A · Siglas / acrónimos</a>
+    <a href="#en">B · Términos en inglés</a>
+    <a href="#frameworks">C · Frameworks y autores</a>
+    <a href="#vendors">D · Vendors / empresas / tools</a>
+    <a href="#metricas">E · Métricas operativas</a>
+    <a href="#academicos">F · Términos académicos / SOTA</a>
+    <a href="#financieros">G · Términos financieros</a>
+    <a href="#meli">H · Vocabulario MELI / logística</a>
+  </div>
+
+  <!-- A · Siglas -->
+  <section class="cat" id="siglas">
+    <h2>A · Siglas / acrónimos (qué significa cada letra)</h2>
+    <div class="term"><span class="term__sigla">TOC</span><span class="term__def"><strong>Theory of Constraints</strong>. Marco de Goldratt para identificar bottlenecks operativos. 5 pasos: identify, exploit, subordinate, elevate, repeat.</span><span class="term__where">Slide 03 Caso 2</span></div>
+    <div class="term"><span class="term__sigla">AHP</span><span class="term__def"><strong>Analytic Hierarchy Process</strong>. Método de Saaty (1980) para decisión multi-criterio ponderada con check de consistencia.</span><span class="term__where">Slide 02 Caso 1</span></div>
+    <div class="term"><span class="term__sigla">TOPSIS</span><span class="term__def"><strong>Technique for Order Preference by Similarity to Ideal Solution</strong>. Hwang &amp; Yoon 1981. Mide cercanía a solución ideal positiva/negativa.</span><span class="term__where">SOTA Caso 1</span></div>
+    <div class="term"><span class="term__sigla">OEE</span><span class="term__def"><strong>Overall Equipment Effectiveness</strong>. Producto Availability × Performance × Quality. Nakajima 1988. World-class &gt;85%.</span><span class="term__where">Slide 03 Caso 2</span></div>
+    <div class="term"><span class="term__sigla">CPM</span><span class="term__def"><strong>Critical Path Method</strong>. Identifica la cadena más larga de actividades secuenciales en un proyecto. Kelley &amp; Walker 1959.</span><span class="term__where">Slide 06 Caso 5</span></div>
+    <div class="term"><span class="term__sigla">PERT</span><span class="term__def"><strong>Program Evaluation and Review Technique</strong>. Modelo de 3 puntos (optimista/realista/pesimista) sobre duraciones. US Navy 1958.</span><span class="term__where">Slide 06 Caso 5</span></div>
+    <div class="term"><span class="term__sigla">WIP</span><span class="term__def"><strong>Work-in-Process</strong>. Items en tránsito entre estaciones del flujo operativo.</span><span class="term__where">Slide 03 Caso 2</span></div>
+    <div class="term"><span class="term__sigla">NPV</span><span class="term__def"><strong>Net Present Value</strong>. Suma de flujos futuros descontados a valor presente. Si NPV &gt; 0, invertir.</span><span class="term__where">Slides 05-06, widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">IRR</span><span class="term__def"><strong>Internal Rate of Return</strong>. Tasa de descuento que hace NPV = 0. Mayor IRR = mejor proyecto.</span><span class="term__where">conceptos-phd.html</span></div>
+    <div class="term"><span class="term__sigla">CAPEX</span><span class="term__def"><strong>Capital Expenditure</strong>. Inversión inicial en máquinas / infraestructura / integración.</span><span class="term__where">Todos los slides</span></div>
+    <div class="term"><span class="term__sigla">OPEX</span><span class="term__def"><strong>Operating Expenditure</strong>. Gastos recurrentes (consumibles, energía, mano de obra, mantenimiento).</span><span class="term__where">Todos los slides</span></div>
+    <div class="term"><span class="term__sigla">TCO</span><span class="term__def"><strong>Total Cost of Ownership</strong>. CAPEX + integración + OPEX × 5 años. Visión completa de costos.</span><span class="term__where">conceptos-phd.html</span></div>
+    <div class="term"><span class="term__sigla">ROI</span><span class="term__def"><strong>Return on Investment</strong>. (Beneficio − Inversión) / Inversión × 100%.</span><span class="term__where">Todos</span></div>
+    <div class="term"><span class="term__sigla">DCF</span><span class="term__def"><strong>Discounted Cash Flow</strong>. Metodología de valuación que descuenta flujos futuros a valor presente.</span><span class="term__where">SOTA Caso 5</span></div>
+    <div class="term"><span class="term__sigla">RFI</span><span class="term__def"><strong>Request for Information</strong>. Primera fase de selección vendor — pide info sin compromiso comercial.</span><span class="term__where">Caso 1, 5</span></div>
+    <div class="term"><span class="term__sigla">RFP</span><span class="term__def"><strong>Request for Proposal</strong>. Segunda fase — pide propuesta comercial concreta para evaluar.</span><span class="term__where">Caso 1, 5</span></div>
+    <div class="term"><span class="term__sigla">WMS</span><span class="term__def"><strong>Warehouse Management System</strong>. Software central que controla operaciones del FC (recepción, slotting, picking, shipping).</span><span class="term__where">Caso 1, 4, 5</span></div>
+    <div class="term"><span class="term__sigla">ERP</span><span class="term__def"><strong>Enterprise Resource Planning</strong>. Sistema corporativo integrado (finanzas + RH + supply chain). Ej: SAP.</span><span class="term__where">Caso 4</span></div>
+    <div class="term"><span class="term__sigla">MES</span><span class="term__def"><strong>Manufacturing Execution System</strong>. Control en tiempo real de producción en planta.</span><span class="term__where">conceptos-phd.html</span></div>
+    <div class="term"><span class="term__sigla">SLA</span><span class="term__def"><strong>Service Level Agreement</strong>. Contrato que define tiempos garantizados de respuesta y reparación.</span><span class="term__where">Caso 1, supuestos</span></div>
+    <div class="term"><span class="term__sigla">MTTR</span><span class="term__def"><strong>Mean Time To Repair</strong>. Tiempo promedio para reparar un equipo después de una falla.</span><span class="term__where">Caso 1, rúbrica AHP</span></div>
+    <div class="term"><span class="term__sigla">MTBF</span><span class="term__def"><strong>Mean Time Between Failures</strong>. Horas operativas promedio entre averías. Uptime = MTBF / (MTBF + MTTR).</span><span class="term__where">conceptos-phd.html</span></div>
+    <div class="term"><span class="term__sigla">OPC UA</span><span class="term__def"><strong>OLE for Process Control Unified Architecture</strong> (IEC 62541). Estándar abierto para comunicar máquinas industriales con sistemas IT.</span><span class="term__where">Caso 1, 5, roadmap 18m</span></div>
+    <div class="term"><span class="term__sigla">ISA-95</span><span class="term__def"><strong>International Society of Automation Standard 95</strong> (IEC 62264). Estándar para integración entre ERP corporativo y control de planta.</span><span class="term__where">Caso 1, 5, roadmap</span></div>
+    <div class="term"><span class="term__sigla">ABC</span><span class="term__def"><strong>ABC analysis</strong> (Pareto). Clasifica SKUs por volumen/valor: A = top 20% que genera 80% del volumen.</span><span class="term__where">Caso 4</span></div>
+    <div class="term"><span class="term__sigla">XYZ</span><span class="term__def"><strong>XYZ analysis</strong>. Clasifica SKUs por variabilidad de demanda: X = estable, Z = errático. Combinado con ABC da 9 cuadrantes.</span><span class="term__where">Caso 4</span></div>
+    <div class="term"><span class="term__sigla">RCM</span><span class="term__def"><strong>Reliability-Centered Maintenance</strong>. SAE JA1011/1012. Marco para decidir qué/cómo/cuándo mantener basado en función + modo de falla + consecuencia.</span><span class="term__where">Caso 1, conceptos</span></div>
+    <div class="term"><span class="term__sigla">FC</span><span class="term__def"><strong>Fulfillment Center</strong>. Centro logístico que procesa órdenes e-commerce. Equivalente a CEDIS en español.</span><span class="term__where">Todos</span></div>
+    <div class="term"><span class="term__sigla">CEDIS</span><span class="term__def"><strong>Centro de Distribución</strong>. Término en español para fulfillment center. MELI MX opera CEDIS en Tepotzotlán/Cuautitlán, Apodaca, Tlajomulco.</span><span class="term__where">Todos</span></div>
+    <div class="term"><span class="term__sigla">STP</span><span class="term__def"><strong>Shelves-to-Person</strong>. Robots autónomos que llevan estanterías móviles hacia el operador fijo en una estación.</span><span class="term__where">Caso 2, 4</span></div>
+    <div class="term"><span class="term__sigla">G2P</span><span class="term__def"><strong>Goods-to-Person</strong>. Categoría general donde la mercancía llega al operador (STP es subset). Vs Person-to-Goods (operador camina al rack).</span><span class="term__where">Caso 3, conceptos</span></div>
+    <div class="term"><span class="term__sigla">AMR</span><span class="term__def"><strong>Autonomous Mobile Robot</strong>. Robot móvil con navegación autónoma (sin guías físicas). Locus, Geek+ son AMR.</span><span class="term__where">Caso 4, vendors</span></div>
+    <div class="term"><span class="term__sigla">AGV</span><span class="term__def"><strong>Automated Guided Vehicle</strong>. Robot móvil con guías (magnéticas / cinta en piso / láser). Predecesor de AMR.</span><span class="term__where">conceptos, vendors</span></div>
+    <div class="term"><span class="term__sigla">ACR</span><span class="term__def"><strong>Autonomous Case-handling Robot</strong>. Robots para mover cajas (no totes), tipo HAI Robotics HAIPICK.</span><span class="term__where">vendors STP/AMR</span></div>
+    <div class="term"><span class="term__sigla">AS/RS</span><span class="term__def"><strong>Automated Storage and Retrieval System</strong>. Sistema robotizado de almacenamiento + recuperación. AutoStore es un AS/RS.</span><span class="term__where">vendors</span></div>
+    <div class="term"><span class="term__sigla">DES</span><span class="term__def"><strong>Discrete Event Simulation</strong>. Simulación de sistemas modelados como secuencia de eventos discretos (vs continua). SimPy, AnyLogic.</span><span class="term__where">Caso 2 SOTA</span></div>
+    <div class="term"><span class="term__sigla">MAPF</span><span class="term__def"><strong>Multi-Agent Path Finding</strong>. Algoritmos para coordinar múltiples robots sin colisiones. CBS, PIBT son variantes.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">CBS</span><span class="term__def"><strong>Conflict-Based Search</strong>. Algoritmo MAPF óptimo (Sharon et al 2015). O(n³) — predecesor de PIBT.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">PIBT</span><span class="term__def"><strong>Priority Inheritance with Backtracking</strong>. Algoritmo MAPF escalable a &gt;100 robots (Okumura et al 2022).</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">MARL</span><span class="term__def"><strong>Multi-Agent Reinforcement Learning</strong>. RL para coordinar múltiples agentes con políticas compartidas o descentralizadas.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">QMIX</span><span class="term__def"><strong>QMIX</strong>. Algoritmo MARL (Rashid et al 2018) que descompone Q-value global en Q-values individuales con constraint de monotonicidad.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">MAPPO</span><span class="term__def"><strong>Multi-Agent Proximal Policy Optimization</strong>. Variante de PPO para multi-agente. Yu et al 2022.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">CP-SAT</span><span class="term__def"><strong>Constraint Programming - Satisfiability</strong>. Solver híbrido de Google OR-Tools (constraint propagation + linear relaxation). Wins MiniZinc Challenge.</span><span class="term__where">SOTA Caso 3, 5</span></div>
+    <div class="term"><span class="term__sigla">MIP</span><span class="term__def"><strong>Mixed Integer Programming</strong>. Optimización con variables enteras y continuas. Gurobi, CPLEX, OR-Tools.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">MDP</span><span class="term__def"><strong>Markov Decision Process</strong>. Marco matemático para decisiones secuenciales bajo incertidumbre. Estado → acción → recompensa.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">RL</span><span class="term__def"><strong>Reinforcement Learning</strong>. Aprendizaje por refuerzo — agente aprende política óptima mediante recompensas/castigos.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">ML</span><span class="term__def"><strong>Machine Learning</strong>. Algoritmos que aprenden patrones desde datos (no programados explícitamente).</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">DIM weight</span><span class="term__def"><strong>Dimensional weight</strong>. Peso volumétrico en logística. Carriers (UPS/FedEx) cobran por max(real, dim). DIM = (L × W × H) / DIM_factor.</span><span class="term__where">Caso 1, rúbrica</span></div>
+    <div class="term"><span class="term__sigla">OWP</span><span class="term__def"><strong>Operator Walk &amp; Pick</strong>. Tiempo que el operador tarda en encontrar el producto en la estantería presentada (7 s baseline).</span><span class="term__where">Caso 3</span></div>
+    <div class="term"><span class="term__sigla">OWS</span><span class="term__def"><strong>Operator Walk &amp; Stow</strong>. Tiempo que el operador tarda en colocar el producto en un tote de destino (6 s baseline).</span><span class="term__where">Caso 3</span></div>
+    <div class="term"><span class="term__sigla">R2R</span><span class="term__def"><strong>Rack-to-Rack</strong>. Tiempo que tardan los robots en retirar la estantería actual y traer la siguiente (8.5 s baseline).</span><span class="term__where">Caso 3</span></div>
+    <div class="term"><span class="term__sigla">PPF</span><span class="term__def"><strong>Pieces Per Fetch</strong>. Unidades promedio que se pican de cada rack presentado. PPF=1.8 baseline. Subir PPF es la palanca de mayor ROI (slotting algoritmo).</span><span class="term__where">Caso 3, roadmap</span></div>
+    <div class="term"><span class="term__sigla">UPH</span><span class="term__def"><strong>Units Per Hour</strong>. Throughput de operador o estación. Métrica clásica de productividad.</span><span class="term__where">vendors</span></div>
+    <div class="term"><span class="term__sigla">RUL</span><span class="term__def"><strong>Remaining Useful Life</strong>. Horas/ciclos esperados antes de la próxima falla. Para predictive maintenance.</span><span class="term__where">roadmap 18m</span></div>
+    <div class="term"><span class="term__sigla">EVPI</span><span class="term__def"><strong>Expected Value of Perfect Information</strong>. Cuánto valdría eliminar toda incertidumbre — guía si vale la pena pagar por más info (ej. POC).</span><span class="term__where">SOTA Caso 5</span></div>
+    <div class="term"><span class="term__sigla">RCPSP</span><span class="term__def"><strong>Resource-Constrained Project Scheduling Problem</strong>. Schedule óptimo bajo restricciones de recursos discretos. NP-hard, OR-Tools.</span><span class="term__where">SOTA Caso 5</span></div>
+    <div class="term"><span class="term__sigla">GERT</span><span class="term__def"><strong>Graphical Evaluation and Review Technique</strong>. Generaliza CPM con loops (rework) y probabilistic branching. Pritsker 1966.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">CCPM</span><span class="term__def"><strong>Critical Chain Project Management</strong>. Goldratt 1997. Project buffer agregado en lugar de buffers por task.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">BWM</span><span class="term__def"><strong>Best-Worst Method</strong>. Alternativa a AHP con 60% menos comparaciones. Rezaei 2015.</span><span class="term__where">SOTA Caso 1</span></div>
+    <div class="term"><span class="term__sigla">CRR</span><span class="term__def"><strong>Cox-Ross-Rubinstein</strong>. Árbol binomial para opciones (1979). Converge a Black-Scholes cuando N→∞.</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">MCMC</span><span class="term__def"><strong>Markov Chain Monte Carlo</strong>. Familia de algoritmos para muestrear distribuciones complejas (Bayesian inference).</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">CUSUM</span><span class="term__def"><strong>Cumulative Sum control chart</strong>. Detecta shifts pequeños en procesos. Page 1954. SPC clásico.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">EWMA</span><span class="term__def"><strong>Exponentially Weighted Moving Average</strong>. Suaviza con pesos exponenciales decrecientes. SPC + forecast.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">SPC</span><span class="term__def"><strong>Statistical Process Control</strong>. Control de calidad con métodos estadísticos. Padre: Shewhart.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">BCMP</span><span class="term__def"><strong>Baskett-Chandy-Muntz-Palacios</strong>. Familia de queueing networks con product-form solutions. 1975.</span><span class="term__where">SOTA Caso 2</span></div>
+    <div class="term"><span class="term__sigla">RTLS</span><span class="term__def"><strong>Real-Time Location System</strong>. Tracking en tiempo real de assets (pallets, carros) en warehouse. Walmart 90M pallets.</span><span class="term__where">SOTA Caso 2, 4</span></div>
+    <div class="term"><span class="term__sigla">OSP</span><span class="term__def"><strong>Ocado Smart Platform</strong>. Sistema robotizado grid-based de Ocado con 3,000+ bots y coordinación tipo air traffic control.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">MFC</span><span class="term__def"><strong>Micro-Fulfillment Center</strong>. FC compacto cerca del consumidor para entregas ultra-rápidas. Geek+ PopPick.</span><span class="term__where">vendors</span></div>
+    <div class="term"><span class="term__sigla">GNN</span><span class="term__def"><strong>Graph Neural Network</strong>. Red neuronal sobre grafos — útil para SKU relationships, supply chain. Hamilton GraphSAGE 2017.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">LSTM</span><span class="term__def"><strong>Long Short-Term Memory</strong>. Tipo de RNN para series temporales. Hochreiter &amp; Schmidhuber 1997.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">TFT</span><span class="term__def"><strong>Temporal Fusion Transformer</strong>. Forecaster moderno con attention. Lim et al Google 2020.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">VLA</span><span class="term__def"><strong>Vision Language Action</strong>. Modelo robot multimodal (visión + lenguaje + acción). Usado por Agility Digit humanoide.</span><span class="term__where">vendors MELI+Agility</span></div>
+    <div class="term"><span class="term__sigla">S₁ / S_T</span><span class="term__def"><strong>Sobol indices</strong> first-order y total. S₁ = contribución directa de variable; S_T = incluye interacciones. Saltelli 2002.</span><span class="term__where">Widget Sobol</span></div>
+    <div class="term"><span class="term__sigla">u / d / p</span><span class="term__def">Up factor, down factor, risk-neutral probability en árbol binomial CRR. u = exp(σ√Δt), d = 1/u, p = (exp(rΔt)-d)/(u-d).</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">HKEX</span><span class="term__def"><strong>Hong Kong Exchanges and Clearing</strong>. Bolsa de Hong Kong donde Geek+ hizo IPO 2025.</span><span class="term__where">vendors STP/AMR</span></div>
+    <div class="term"><span class="term__sigla">NYSE / NASDAQ</span><span class="term__def">Bolsas USA. Sealed Air cotiza en NYSE:SEE. MELI cotiza en NASDAQ.</span><span class="term__where">vendors, supuestos</span></div>
+    <div class="term"><span class="term__sigla">SCQA</span><span class="term__def"><strong>Situation-Complication-Question-Answer</strong>. Framework Minto (McKinsey) para estructurar narrativa ejecutiva.</span><span class="term__where">Slide 03 PPT</span></div>
+    <div class="term"><span class="term__sigla">MECE</span><span class="term__def"><strong>Mutually Exclusive, Collectively Exhaustive</strong>. Principio Minto para estructurar análisis sin gaps ni overlaps.</span><span class="term__where">Cross-cutting consulting</span></div>
+    <div class="term"><span class="term__sigla">STAR</span><span class="term__def"><strong>Situation-Task-Action-Result</strong>. Framework para responder preguntas behavioral en entrevistas. Énfasis en Action.</span><span class="term__where">Motivacionales Q4</span></div>
+    <div class="term"><span class="term__sigla">DEMATEL</span><span class="term__def"><strong>Decision Making Trial and Evaluation Laboratory</strong>. Identifica relaciones causales entre criterios. Gabus &amp; Fontela 1973.</span><span class="term__where">SOTA Caso 1</span></div>
+    <div class="term"><span class="term__sigla">ANP</span><span class="term__def"><strong>Analytic Network Process</strong>. Generalización de AHP que maneja feedback loops entre criterios. Saaty 1996.</span><span class="term__where">SOTA Caso 1</span></div>
+    <div class="term"><span class="term__sigla">RWARE</span><span class="term__def"><strong>Robotic Warehouse</strong>. Benchmark estandarizado para MARL en warehouse picking. Github semitable/robotic-warehouse.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">POC</span><span class="term__def"><strong>Proof of Concept</strong>. Piloto pequeño para validar tecnología antes de inversión completa. Fase 5 del Gantt.</span><span class="term__where">Caso 5</span></div>
+    <div class="term"><span class="term__sigla">FSE</span><span class="term__def"><strong>Field Service Engineer</strong>. Técnico que va a sitio del cliente para mantenimiento / reparación.</span><span class="term__where">Rúbrica AHP, vendors</span></div>
+  </section>
+
+  <!-- B · Términos en inglés -->
+  <section class="cat" id="en">
+    <h2>B · Términos en inglés sin equivalente claro</h2>
+    <div class="term"><span class="term__sigla">slotting</span><span class="term__def">Asignación de SKUs a ubicaciones físicas en almacén según velocity o afinidad. Algorithmic slotting eleva PPF sin tocar hardware.</span><span class="term__where">Caso 3, conceptos</span></div>
+    <div class="term"><span class="term__sigla">throughput</span><span class="term__def">Cantidad procesada por unidad de tiempo. Items/hr, paquetes/hr, órdenes/hr.</span><span class="term__where">Todos</span></div>
+    <div class="term"><span class="term__sigla">bottleneck</span><span class="term__def">Cuello de botella: la estación o recurso que limita el throughput total del sistema. TOC focaliza ahí.</span><span class="term__where">Caso 2</span></div>
+    <div class="term"><span class="term__sigla">footprint</span><span class="term__def">Área física ocupada (m² o sq ft). Densidad m²/puesto es métrica clave.</span><span class="term__where">Caso 2, rúbrica</span></div>
+    <div class="term"><span class="term__sigla">sortation</span><span class="term__def">Clasificación automática de items por destino. Tecnologías: cross-belt, tilt-tray, sliding-shoe.</span><span class="term__where">vendors sorters</span></div>
+    <div class="term"><span class="term__sigla">picking</span><span class="term__def">Extracción de items del almacén según orden. Proceso central del FC.</span><span class="term__where">Casos 2, 3</span></div>
+    <div class="term"><span class="term__sigla">put-away</span><span class="term__def">Almacenamiento de items recibidos en ubicaciones. Caso 2 baseline: 200 items/hr/puesto × 10% utilización.</span><span class="term__where">Caso 2</span></div>
+    <div class="term"><span class="term__sigla">golden zone</span><span class="term__def">Zona ergonómica (cintura-hombro) donde el operador no se agacha ni estira. SKUs A van ahí.</span><span class="term__where">conceptos slotting</span></div>
+    <div class="term"><span class="term__sigla">cube velocity</span><span class="term__def">Picks × volumen por unidad de tiempo. Refinamiento de ABC analysis para slotting.</span><span class="term__where">conceptos</span></div>
+    <div class="term"><span class="term__sigla">right-sizing</span><span class="term__def">Empaque ajustado al producto (no sobre-empaque). Reduce material 20-30% y DIM weight.</span><span class="term__where">Caso 1, roadmap</span></div>
+    <div class="term"><span class="term__sigla">payback</span><span class="term__def">Período en meses/años para recuperar el CAPEX vía ahorros operativos.</span><span class="term__where">Rúbrica, supuestos</span></div>
+    <div class="term"><span class="term__sigla">ramp-up</span><span class="term__def">Fase post-instalación donde el sistema acelera hasta el steady state esperado. Caso 5: 6 sem típico.</span><span class="term__where">Caso 5, roadmap</span></div>
+    <div class="term"><span class="term__sigla">gate / gating</span><span class="term__def">Punto de decisión (go/no-go) entre fases de proyecto. Real Options aplica aquí.</span><span class="term__where">Caso 5</span></div>
+    <div class="term"><span class="term__sigla">lock-in</span><span class="term__def">Dependencia de vendor o tecnología que es costosa de cambiar (consumibles propietarios, interfaces no estándar).</span><span class="term__where">Rúbrica, roadmap</span></div>
+    <div class="term"><span class="term__sigla">fanfold</span><span class="term__def">Cartón corrugado plegado en acordeón, alimenta máquinas auto-box continuamente.</span><span class="term__where">vendors empaquetado</span></div>
+    <div class="term"><span class="term__sigla">void-fill</span><span class="term__def">Material de relleno (aire, papel, espuma) para evitar movimiento dentro de la caja.</span><span class="term__where">vendors empaquetado</span></div>
+    <div class="term"><span class="term__sigla">auto-box</span><span class="term__def">Máquina que erecta cajas a medida en línea desde cartón continuo. Packsize X-Series, Quadient CVP.</span><span class="term__where">Caso 1</span></div>
+    <div class="term"><span class="term__sigla">auto-wrap</span><span class="term__def">Máquina que envuelve items rígidos con cartón fanfold (sin caja erected). Sparck CMC Pakto.</span><span class="term__where">Caso 1</span></div>
+    <div class="term"><span class="term__sigla">bagging</span><span class="term__def">Embolsado automático con bolsas paper+poly. Sealed Air AutoBag 850HB (700 órdenes/hr).</span><span class="term__where">Caso 1</span></div>
+    <div class="term"><span class="term__sigla">corrugado</span><span class="term__def">Cartón ondulado (corrugated), el material estándar de cajas e-commerce.</span><span class="term__where">vendors</span></div>
+    <div class="term"><span class="term__sigla">Z-Fold</span><span class="term__def">Tipo de cartón corrugado enrollado en Z (patente Packsize), alimenta X-Series.</span><span class="term__where">Rúbrica, vendors</span></div>
+    <div class="term"><span class="term__sigla">zero-shot</span><span class="term__def">Capacidad de un modelo de ML de generalizar a tarea/dato nuevo sin entrenamiento específico. Chronos forecasta SKUs nuevos sin training.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">foundation model</span><span class="term__def">Modelo pre-entrenado a gran escala que sirve como base para muchas tareas. Chronos, TimesFM, TimeGPT son foundation models para series temporales.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">embedding</span><span class="term__def">Representación vectorial densa de un objeto (palabra, SKU, usuario) que captura similitud. Word2Vec, GraphSAGE.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">attention mechanism</span><span class="term__def">Mecanismo en redes neuronales que pondera qué partes del input importan más. Base de transformers.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">churn</span><span class="term__def">Rotación o pérdida (de clientes, de empleados, de demanda).</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">edge case</span><span class="term__def">Caso extremo o poco frecuente que rompe asunciones del diseño.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">consumibles</span><span class="term__def">Insumos recurrentes que la máquina necesita (cartón, bolsas, cinta, tinta). Parte clave de OPEX.</span><span class="term__where">Rúbrica</span></div>
+    <div class="term"><span class="term__sigla">PIM</span><span class="term__def"><strong>Packaging-as-a-Service</strong>. Modelo Packsize que bundle máquina + consumibles + soporte en pago recurrente.</span><span class="term__where">vendors empaquetado</span></div>
+    <div class="term"><span class="term__sigla">mono-material</span><span class="term__def">Empaque hecho de un solo material (100% reciclable, sin separación). Vs hybrid paper+poly.</span><span class="term__where">Rúbrica</span></div>
+    <div class="term"><span class="term__sigla">steady state</span><span class="term__def">Condición estadísticamente estable después del transiente inicial. Cuando aplican Little's Law y queueing classic.</span><span class="term__where">Caso 2, 5</span></div>
+    <div class="term"><span class="term__sigla">ghost deck</span><span class="term__def">Esqueleto de presentación solo con títulos antes de detalle visual. Práctica McKinsey/BCG.</span><span class="term__where">PPT building</span></div>
+  </section>
+
+  <!-- C · Frameworks -->
+  <section class="cat" id="frameworks">
+    <h2>C · Frameworks y autores citados</h2>
+    <div class="term"><span class="term__sigla">Goldratt</span><span class="term__def">Eliyahu Goldratt — Theory of Constraints (1984, "The Goal"); Critical Chain Method (1997). TOC focaliza en el bottleneck.</span><span class="term__where">conceptos</span></div>
+    <div class="term"><span class="term__sigla">Saaty</span><span class="term__def">Thomas Saaty — AHP (1980); ANP (1996). Decisión multi-criterio jerárquica con check de consistencia.</span><span class="term__where">Caso 1, rúbrica</span></div>
+    <div class="term"><span class="term__sigla">Hwang &amp; Yoon</span><span class="term__def">Hwang &amp; Yoon — TOPSIS (1981). Cercanía a solución ideal positiva/negativa.</span><span class="term__where">conceptos, SOTA</span></div>
+    <div class="term"><span class="term__sigla">Little</span><span class="term__def">John D. C. Little — Little's Law (1961). L = λW para sistemas estables.</span><span class="term__where">Caso 2</span></div>
+    <div class="term"><span class="term__sigla">Nakajima</span><span class="term__def">Seiichi Nakajima — OEE = A × P × Q (1988, "Introduction to TPM").</span><span class="term__where">conceptos</span></div>
+    <div class="term"><span class="term__sigla">Kelley &amp; Walker</span><span class="term__def">Critical Path Method (CPM, 1959). Identifica la cadena de actividades secuenciales más larga.</span><span class="term__where">Caso 5</span></div>
+    <div class="term"><span class="term__sigla">US Navy</span><span class="term__def">PERT (1958). Originalmente para desarrollo del Polaris. Modelo triangular de 3 puntos.</span><span class="term__where">Caso 5</span></div>
+    <div class="term"><span class="term__sigla">Trigeorgis</span><span class="term__def">Lenos Trigeorgis — Real Options (1996, "Real Options: Managerial Flexibility").</span><span class="term__where">Caso 5</span></div>
+    <div class="term"><span class="term__sigla">Cox-Ross-Rubinstein</span><span class="term__def">Cox, Ross, Rubinstein — Árbol binomial para opciones (1979, J. Financial Economics).</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">Bartholdi &amp; Hackman</span><span class="term__def">"Warehouse &amp; Distribution Science" (libro libre online, Georgia Tech). Slotting + cube velocity.</span><span class="term__where">conceptos</span></div>
+    <div class="term"><span class="term__sigla">Erlang</span><span class="term__def">Agner K. Erlang — fundador queueing theory (1909). M/M/1, M/M/c, Erlang B/C formulas.</span><span class="term__where">conceptos</span></div>
+    <div class="term"><span class="term__sigla">Pareto</span><span class="term__def">Vilfredo Pareto (1896) — 80/20 rule. Base de ABC analysis.</span><span class="term__where">conceptos</span></div>
+    <div class="term"><span class="term__sigla">Vose</span><span class="term__def">David Vose — "Risk Analysis: A Quantitative Guide" (Wiley 2008). Beta-PERT distribution.</span><span class="term__where">Widget Gantt</span></div>
+    <div class="term"><span class="term__sigla">Sobol</span><span class="term__def">Ilya M. Sobol — sensitivity indices (1967, refined 1993). Saltelli (2002) estimator computacional.</span><span class="term__where">Widget Sobol</span></div>
+    <div class="term"><span class="term__sigla">Rezaei</span><span class="term__def">Jafar Rezaei — Best-Worst Method (BWM, 2015 Omega). Alternativa más eficiente a AHP.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">Shannon</span><span class="term__def">Claude Shannon — Information Theory (1948). Entropy weights para TOPSIS.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">Van der Aalst</span><span class="term__def">Wil van der Aalst — pionero de Process Mining (2004). PM4Py es la implementación open-source.</span><span class="term__where">SOTA Caso 2</span></div>
+    <div class="term"><span class="term__sigla">Sharon (CBS)</span><span class="term__def">Guni Sharon et al — Conflict-Based Search (CBS, 2015 Artificial Intelligence). MAPF óptimo.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">Okumura (PIBT)</span><span class="term__def">Keisuke Okumura et al — Priority Inheritance with Backtracking (2022). MAPF escalable.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">Rashid (QMIX)</span><span class="term__def">Tabish Rashid et al — QMIX (2018 JMLR). MARL con value decomposition monotónica.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">Yu (MAPPO)</span><span class="term__def">Chao Yu et al — MAPPO (2022). Multi-agent PPO con critic centralizado.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">Ansari (Chronos)</span><span class="term__def">Amazon Science 2024 — Chronos foundation model para forecasting (arXiv:2403.07815).</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">Taylor &amp; Letham (Prophet)</span><span class="term__def">Meta 2017 — Prophet forecasting library, robusto a missing data y seasonality irregular.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">Kalman</span><span class="term__def">Rudolf Kalman — Kalman filter (1960). Estimación recursiva bajo ruido gaussiano.</span><span class="term__where">SOTA Caso 5</span></div>
+    <div class="term"><span class="term__sigla">Sklar</span><span class="term__def">Abe Sklar — Cópulas (1959). Modelan dependencia entre variables sin asumir normalidad.</span><span class="term__where">SOTA Caso 5</span></div>
+    <div class="term"><span class="term__sigla">Bellman</span><span class="term__def">Richard Bellman — Dynamic programming (1957), Bellman equation, MDP foundations.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">Bezos 6-pager</span><span class="term__def">Jeff Bezos — Memo de 6 páginas en lugar de PowerPoint, leído en silencio al inicio de reuniones Amazon.</span><span class="term__where">PPT design</span></div>
+    <div class="term"><span class="term__sigla">Minto</span><span class="term__def">Barbara Minto — Pyramid Principle + SCQA (McKinsey 1960s). Estructura conclusión-primero.</span><span class="term__where">PPT structure</span></div>
+    <div class="term"><span class="term__sigla">Tufte</span><span class="term__def">Edward Tufte — "Visual Display of Quantitative Information" (1983). Data-ink ratio, anti-chartjunk.</span><span class="term__where">PPT design</span></div>
+    <div class="term"><span class="term__sigla">Reynolds</span><span class="term__def">Garr Reynolds — "Presentation Zen" (2007). Simplicidad + amplification through simplification.</span><span class="term__where">PPT design</span></div>
+    <div class="term"><span class="term__sigla">Duarte</span><span class="term__def">Nancy Duarte — "Slide:ology" (2008). Visual hierarchy, color theory para presentaciones.</span><span class="term__where">PPT design</span></div>
+    <div class="term"><span class="term__sigla">Holiday (Ego)</span><span class="term__def">Ryan Holiday — "Ego Is the Enemy" (2016). Libro de filosofía estoica aplicado a self-sabotage.</span><span class="term__where">Motivacionales Q2</span></div>
+    <div class="term"><span class="term__sigla">DeepSeek (The Wave)</span><span class="term__def">Cofundador DeepSeek — describe 3 olas tecnológicas: LLMs → robots VLA → computación cuántica.</span><span class="term__where">Motivacionales Q3</span></div>
+  </section>
+
+  <!-- D · Vendors -->
+  <section class="cat" id="vendors">
+    <h2>D · Vendors / empresas / tools</h2>
+    <div class="term"><span class="term__sigla">Packsize</span><span class="term__def">Vendor empaquetado auto-box (X-Series, Z-Fold). Sitio packsize.mx activo. Adquirió Sparck mayo 2025.</span><span class="term__where">Caso 1, rúbrica</span></div>
+    <div class="term"><span class="term__sigla">Sparck Technologies</span><span class="term__def">Vendor auto-wrap (CMC Pakto, CartonWrap). Ahora parte de Packsize. Transición de soporte LATAM.</span><span class="term__where">Caso 1</span></div>
+    <div class="term"><span class="term__sigla">Sealed Air</span><span class="term__def">NYSE:SEE. Vendor bagging (AutoBag 850HB, 700 órdenes/hr). 2 plantas MX (Toluca + Monterrey).</span><span class="term__where">Caso 1</span></div>
+    <div class="term"><span class="term__sigla">Quadient</span><span class="term__def">Euronext:QDT. Vendor auto-box (CVP Impack/Everest). Sin oficina MX identificada.</span><span class="term__where">Caso 1</span></div>
+    <div class="term"><span class="term__sigla">Smurfit Westrock</span><span class="term__def">NYSE:SW (merger 2024). Cartón corrugado custom, múltiples plantas MX. Input pasivo al sistema.</span><span class="term__where">Caso 1</span></div>
+    <div class="term"><span class="term__sigla">Geek+</span><span class="term__def">HKEX:2590. Vendor STP/AMR (P-Series). IPO 2025 — primera AMR warehouse pública.</span><span class="term__where">Caso 3, vendors</span></div>
+    <div class="term"><span class="term__sigla">Locus Robotics</span><span class="term__def">Vendor AMR (Origin + LocusOne). Operación viva en Cuautitlán Izcalli vía GEODIS — único caso LATAM verificable.</span><span class="term__where">Caso 3, vendors</span></div>
+    <div class="term"><span class="term__sigla">Quicktron</span><span class="term__def">Vendor STP/AMR chino (MetaBot). Probable proveedor de MELI Cajamar Brasil (no confirmado).</span><span class="term__where">vendors</span></div>
+    <div class="term"><span class="term__sigla">Exotec</span><span class="term__def">Vendor 3D AS/RS (Skypod). 20+ proyectos $400M globales. Sin presencia LATAM documentada.</span><span class="term__where">vendors</span></div>
+    <div class="term"><span class="term__sigla">AutoStore</span><span class="term__def">Oslo:AUTO. Vendor cube AS/RS top-down. 4× densidad vs rack tradicional. Vía integradores Swisslog/Dematic.</span><span class="term__where">vendors</span></div>
+    <div class="term"><span class="term__sigla">BEUMER</span><span class="term__def">Vendor alemán de sortation (cross-belt, tilt-tray, BG Sorter Compact). Líder global parcel sorting.</span><span class="term__where">vendors sorters</span></div>
+    <div class="term"><span class="term__sigla">Vanderlande</span><span class="term__def">Vendor sortation. Parte de Toyota Advanced Logistics (TAL) post-unificación 2024.</span><span class="term__where">vendors sorters</span></div>
+    <div class="term"><span class="term__sigla">Honeywell Intelligrated</span><span class="term__def">Vendor sortation. Vendido a private equity 2025 — transición de soporte LATAM.</span><span class="term__where">vendors sorters</span></div>
+    <div class="term"><span class="term__sigla">Dematic</span><span class="term__def">KION Group. Vendor sortation + AutoStore integrator. Vía red KION/Linde MX.</span><span class="term__where">vendors sorters</span></div>
+    <div class="term"><span class="term__sigla">Tompkins Robotics</span><span class="term__def">Vendor sortation robótica modular (tSort). Footprint pequeño, escalable por celdas.</span><span class="term__where">vendors sorters</span></div>
+    <div class="term"><span class="term__sigla">GEODIS</span><span class="term__def">3PL francesa global. Opera el sitio Locus en Cuautitlán Izcalli — caso operativo más cercano a MELI MX.</span><span class="term__where">vendors, roadmap</span></div>
+    <div class="term"><span class="term__sigla">Symbotic</span><span class="term__def">Vendor warehouse automation. Caso destacado: Amazon Shreveport FC con +25% throughput vs routing puro.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">Ocado</span><span class="term__def">Tech grocer UK con OSP (Ocado Smart Platform). 3,000+ bots con MAPF + air traffic control.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">Amazon Robotics</span><span class="term__def">Proteus + Cardinal + Sequoia. 1M+ robots deployed 2025. Pionero de fleet management a escala.</span><span class="term__where">SOTA cross-cut</span></div>
+    <div class="term"><span class="term__sigla">Agility Robotics</span><span class="term__def">Humanoide Digit. Acuerdo con MELI dic 2025 — piloto en Texas FC, planes LATAM.</span><span class="term__where">SOTA, cedis_meli</span></div>
+    <div class="term"><span class="term__sigla">PM4Py</span><span class="term__def">Open-source process mining (Fraunhofer FIT, Apache 2.0). Extrae bottlenecks reales desde event logs WMS.</span><span class="term__where">SOTA Caso 2</span></div>
+    <div class="term"><span class="term__sigla">Celonis</span><span class="term__def">Líder comercial de process mining. Integración SAP/Oracle/ERP nativa.</span><span class="term__where">SOTA Caso 2</span></div>
+    <div class="term"><span class="term__sigla">SimPy</span><span class="term__def">Python library para Discrete Event Simulation. Pure Python, sin dependencias.</span><span class="term__where">SOTA Caso 2</span></div>
+    <div class="term"><span class="term__sigla">AnyLogic</span><span class="term__def">Software comercial enterprise para simulación multi-method (DES + system dynamics + agent-based).</span><span class="term__where">SOTA Caso 2</span></div>
+    <div class="term"><span class="term__sigla">OR-Tools</span><span class="term__def">Google Operations Research Tools (Apache 2.0). CP-SAT + MIP + routing solvers production-ready.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">Chronos</span><span class="term__def">Amazon Science 2024. Foundation model para time series forecasting (tokenización LLM-style).</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">TimesFM</span><span class="term__def">Google Research 2024. Foundation model forecasting trained en 100B+ timepoints.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">TimeGPT</span><span class="term__def">Nixtla 2024. API zero-shot forecasting + anomaly detection. 3 líneas de código.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">Prophet</span><span class="term__def">Meta 2017. Forecasting aditivo (trend + seasonality + holidays). Robusto e interpretable.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">DoWhy / EconML</span><span class="term__def">Microsoft 2020+. Libraries Python para causal inference (DAGs, treatment effects).</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">PyMC</span><span class="term__def">Library Python para Bayesian modeling con MCMC. Alternativa a Stan.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">Ray RLlib</span><span class="term__def">Reinforcement Learning library distribuida (de Anyscale). Production-scale.</span><span class="term__where">SOTA Caso 3</span></div>
+    <div class="term"><span class="term__sigla">Walmart Labs</span><span class="term__def">RTLS en 90M pallets + 200+ external signals + Prophet + CUSUM. Caso flagship de demand sensing.</span><span class="term__where">SOTA Caso 4</span></div>
+  </section>
+
+  <!-- E · Métricas operativas -->
+  <section class="cat" id="metricas">
+    <h2>E · Métricas operativas</h2>
+    <div class="term"><span class="term__sigla">picks/hr</span><span class="term__def">Picks por hora por operador o por estación. Benchmark G2P: 300-350+. Manual: 60-100.</span><span class="term__where">Caso 3, benchmarks</span></div>
+    <div class="term"><span class="term__sigla">items/hr</span><span class="term__def">Items procesados por hora (throughput de estación o FC).</span><span class="term__where">Todos</span></div>
+    <div class="term"><span class="term__sigla">racks/hr</span><span class="term__def">Racks presentados por hora en STP (167.4 baseline en Caso 3).</span><span class="term__where">Caso 3</span></div>
+    <div class="term"><span class="term__sigla">utilización (ρ)</span><span class="term__def">% del tiempo que un servidor está ocupado. ρ = λ/μ. Crítico: ρ &lt; 0.85 para evitar explosión de cola.</span><span class="term__where">Caso 2, conceptos</span></div>
+    <div class="term"><span class="term__sigla">eficiencia</span><span class="term__def">% del throughput nominal efectivamente logrado. Caso 2: 90% baseline en picking.</span><span class="term__where">Caso 2</span></div>
+    <div class="term"><span class="term__sigla">uptime</span><span class="term__def">% del tiempo operativo (vs total). Uptime = MTBF / (MTBF + MTTR). Target steady state 95%+.</span><span class="term__where">Rúbrica, roadmap</span></div>
+    <div class="term"><span class="term__sigla">downtime</span><span class="term__def">Tiempo no operativo (paradas, averías, mantenimiento). Inverso de uptime.</span><span class="term__where">Rúbrica, supuestos</span></div>
+    <div class="term"><span class="term__sigla">cycle time</span><span class="term__def">Tiempo desde que un item entra al sistema hasta que sale. Conecta con Little's Law (W).</span><span class="term__where">conceptos</span></div>
+    <div class="term"><span class="term__sigla">lead time</span><span class="term__def">Tiempo desde el pedido hasta la entrega al cliente (más amplio que cycle time).</span><span class="term__where">general</span></div>
+    <div class="term"><span class="term__sigla">cost-per-unit fulfilled</span><span class="term__def">Costo operativo total dividido por items completados (USD/item). KPI agregado de eficiencia.</span><span class="term__where">Roadmap 18m</span></div>
+    <div class="term"><span class="term__sigla">throughput/m²</span><span class="term__def">Items/hr por metro cuadrado. Densidad operativa.</span><span class="term__where">conceptos</span></div>
+    <div class="term"><span class="term__sigla">CAPEX/m²</span><span class="term__def">Inversión por unidad de área. Benchmark STP: USD 500-1,500/m².</span><span class="term__where">supuestos</span></div>
+    <div class="term"><span class="term__sigla">p50 / p90</span><span class="term__def">Percentiles 50 (mediana) y 90 de una distribución. p50 = expectativa interna; p90 = compromiso al CEO.</span><span class="term__where">Caso 5</span></div>
+    <div class="term"><span class="term__sigla">accuracy</span><span class="term__def">% de operaciones correctas (picks sin error). Benchmark G2P: 99.99% con scan/weight check.</span><span class="term__where">conceptos</span></div>
+    <div class="term"><span class="term__sigla">MAPE</span><span class="term__def"><strong>Mean Absolute Percentage Error</strong>. Error % de forecast. Métrica estándar de modelos predictivos.</span><span class="term__where">SOTA Caso 4</span></div>
+  </section>
+
+  <!-- F · Académicos -->
+  <section class="cat" id="academicos">
+    <h2>F · Términos académicos / SOTA</h2>
+    <div class="term"><span class="term__sigla">eigenvalue</span><span class="term__def">Valor propio de una matriz. AHP usa λ_max para calcular Consistency Ratio.</span><span class="term__where">conceptos AHP</span></div>
+    <div class="term"><span class="term__sigla">consistency ratio (CR)</span><span class="term__def">AHP métrica de coherencia entre juicios pairwise. CR &lt; 0.1 = aceptable.</span><span class="term__where">Rúbrica AHP</span></div>
+    <div class="term"><span class="term__sigla">anchors</span><span class="term__def">Descripciones explícitas de qué significa cada nivel de score (0/25/50/75/100) en una rúbrica.</span><span class="term__where">Rúbrica AHP</span></div>
+    <div class="term"><span class="term__sigla">stochastic</span><span class="term__def">Aleatorio / probabilístico. Vs determinístico. DES modela variabilidad estocástica.</span><span class="term__where">SOTA Caso 2</span></div>
+    <div class="term"><span class="term__sigla">Monte Carlo</span><span class="term__def">Familia de algoritmos que usan muestreo aleatorio para resolver problemas matemáticos.</span><span class="term__where">Caso 5</span></div>
+    <div class="term"><span class="term__sigla">Latin Hypercube Sampling</span><span class="term__def">Muestreo estratificado para Monte Carlo más eficiente. Cubre el espacio uniforme.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">Beta-PERT</span><span class="term__def">Distribución de probabilidad para duraciones de proyecto. α = 1 + 4(mode-low)/(high-low). Más suave que triangular.</span><span class="term__where">Widget Gantt</span></div>
+    <div class="term"><span class="term__sigla">copulas</span><span class="term__def">Función que modela correlación entre variables sin asumir normalidad. Útil para Monte Carlo con dependencias.</span><span class="term__where">SOTA Caso 5</span></div>
+    <div class="term"><span class="term__sigla">posterior (Bayesian)</span><span class="term__def">Distribución actualizada tras observar datos. P(θ|datos) ∝ P(datos|θ) × P(θ).</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">prior (Bayesian)</span><span class="term__def">Creencia inicial sobre un parámetro antes de ver datos.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">tokenization</span><span class="term__def">Convertir input continuo (texto, series temporales) en tokens discretos. Base de transformers.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">patching</span><span class="term__def">Segmentar secuencia larga en patches para procesar con transformer (TimesFM hace esto).</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">multivariate</span><span class="term__def">Múltiples variables simultáneamente (vs univariate). Forecasting multivariate considera variables exógenas.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">autoregressive</span><span class="term__def">Modelo que predice basado en valores pasados de sí mismo. AR(p) usa p lags.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">decoder-only</span><span class="term__def">Arquitectura transformer sin encoder (GPT-style). Usado en TimesFM, Moirai.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">gradient boosting</span><span class="term__def">Ensemble que entrena árboles secuencialmente corrigiendo errores. XGBoost, LightGBM.</span><span class="term__where">SOTA Caso 1</span></div>
+    <div class="term"><span class="term__sigla">feature importance</span><span class="term__def">Métrica de qué tanto contribuye cada variable a la predicción. Permutation o tree-based.</span><span class="term__where">SOTA Caso 1</span></div>
+    <div class="term"><span class="term__sigla">DAG causal</span><span class="term__def">Directed Acyclic Graph de relaciones causales. DoWhy modela explícitamente.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">confounder</span><span class="term__def">Variable que afecta tanto a causa como a efecto, generando correlación espuria.</span><span class="term__where">SOTA Caso 4</span></div>
+    <div class="term"><span class="term__sigla">hyperparameter tuning</span><span class="term__def">Optimización de configuración de modelo ML (learning rate, depth, etc.). Optuna, BoTorch.</span><span class="term__where">SOTA</span></div>
+    <div class="term"><span class="term__sigla">variance decomposition</span><span class="term__def">Descomponer la varianza del output en contribuciones por input. Base de Sobol indices.</span><span class="term__where">Widget Sobol</span></div>
+    <div class="term"><span class="term__sigla">Saltelli sampling</span><span class="term__def">Esquema de muestreo eficiente para estimar Sobol indices. 2N + N×k evals.</span><span class="term__where">Widget Sobol</span></div>
+    <div class="term"><span class="term__sigla">heapq</span><span class="term__def">Implementación de priority queue en Python (módulo stdlib). Base de DES eficiente.</span><span class="term__where">Widget DES</span></div>
+    <div class="term"><span class="term__sigla">backward induction</span><span class="term__def">Cálculo retrocedente desde nodos terminales hasta raíz. Base de Real Options binomial.</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">early exercise</span><span class="term__def">Ejercer una opción americana antes del vencimiento. Sólo si payoff inmediato &gt; continuation value.</span><span class="term__where">Widget Real Options</span></div>
+  </section>
+
+  <!-- G · Financieros -->
+  <section class="cat" id="financieros">
+    <h2>G · Términos financieros</h2>
+    <div class="term"><span class="term__sigla">discount rate</span><span class="term__def">Tasa anual para descontar flujos futuros a valor presente. Típicamente 8-12% para corporativos LATAM.</span><span class="term__where">Widget Sobol, supuestos</span></div>
+    <div class="term"><span class="term__sigla">risk-free rate</span><span class="term__def">Tasa de bonos gobierno (libre de riesgo). USA: ~3-5%. Base de Real Options.</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">volatility (σ)</span><span class="term__def">Desviación estándar anualizada de retornos. Mide riesgo. Real options: σ del subyacente.</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">strike price (K)</span><span class="term__def">Precio de ejercicio de una opción. En Real Options = CAPEX a comprometer.</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">underlying (S)</span><span class="term__def">Valor presente del activo subyacente. En Real Options = PV de flujos futuros si se invierte.</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">time to expiration (T)</span><span class="term__def">Tiempo en años hasta que expira la opción. En Real Options = duración del POC/discovery.</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">option value</span><span class="term__def">Valor de la opción (CALL = derecho a comprar; PUT = derecho a vender). Calculado por binomial/Black-Scholes.</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">intrinsic value</span><span class="term__def">Valor si la opción se ejerciera hoy. CALL: max(S-K, 0). PUT: max(K-S, 0).</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">time value</span><span class="term__def">Valor de esperar (= option value − intrinsic value). Mide el valor de la flexibilidad.</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">CALL option</span><span class="term__def">Derecho (no obligación) a comprar el subyacente a strike K. En Real Options = opción de expandir / invertir.</span><span class="term__where">Caso 5, real options</span></div>
+    <div class="term"><span class="term__sigla">PUT option</span><span class="term__def">Derecho a vender. En Real Options = opción de abandonar / cancelar el proyecto.</span><span class="term__where">conceptos</span></div>
+    <div class="term"><span class="term__sigla">American option</span><span class="term__def">Puede ejercerse en cualquier momento antes de expiration (vs European: solo al final).</span><span class="term__where">Widget Real Options</span></div>
+    <div class="term"><span class="term__sigla">Black-Scholes</span><span class="term__def">Fórmula cerrada para pricing de opciones europeas. Binomial CRR converge a B-S cuando N→∞.</span><span class="term__where">SOTA Caso 5</span></div>
+    <div class="term"><span class="term__sigla">Real Options</span><span class="term__def">Aplicación de option pricing a decisiones de inversión real (no financieras). Trigeorgis 1996.</span><span class="term__where">Caso 5</span></div>
+    <div class="term"><span class="term__sigla">u, d, p (binomial)</span><span class="term__def">u = factor up, d = factor down, p = risk-neutral probability. Construcción del árbol CRR.</span><span class="term__where">Widget Real Options</span></div>
+  </section>
+
+  <!-- H · MELI -->
+  <section class="cat" id="meli">
+    <h2>H · Vocabulario MELI / logística específica</h2>
+    <div class="term"><span class="term__sigla">Mercado Envíos</span><span class="term__def">Brazo logístico de Mercado Libre. Cubre fulfillment + last-mile + cross-border. El rol del Work Sample reporta a esta área.</span><span class="term__where">Todos</span></div>
+    <div class="term"><span class="term__sigla">Cajamar</span><span class="term__def">CEDIS principal de MELI en Brasil (SP). 334+ robots STP. ~500K paquetes/día. Probable proveedor: Quicktron.</span><span class="term__where">SOTA, datos públicos</span></div>
+    <div class="term"><span class="term__sigla">Tepotzotlán / Cuautitlán</span><span class="term__def">Submercado industrial Edo. Mex. donde MELI tiene su FC principal MX (3.2M sq ft 2023).</span><span class="term__where">Universidades, supuestos</span></div>
+    <div class="term"><span class="term__sigla">Apodaca / Monterrey</span><span class="term__def">FC MELI MX zona norte (Nuevo León). Cluster industrial fuerte por nearshoring.</span><span class="term__where">Universidades</span></div>
+    <div class="term"><span class="term__sigla">Tlajomulco / Zapopan</span><span class="term__def">FC MELI MX zona occidente (Jalisco, GDL metro).</span><span class="term__where">Universidades</span></div>
+    <div class="term"><span class="term__sigla">Hidalgo FC</span><span class="term__def">Nuevo FC anunciado por MELI MX en Hidalgo. 100,000 m² para 400K envíos/día (Bloomberg 2024).</span><span class="term__where">supuestos, contexto</span></div>
+    <div class="term"><span class="term__sigla">cross-belt sorter</span><span class="term__def">Sorter con bandas perpendiculares motorizadas. Velocidad típica: 600+ items/min. BEUMER, Vanderlande, Dematic.</span><span class="term__where">vendors sorters</span></div>
+    <div class="term"><span class="term__sigla">tilt-tray sorter</span><span class="term__def">Sorter con bandejas que se inclinan. Versatilidad de sizes. 400-500 items/min.</span><span class="term__where">vendors sorters</span></div>
+    <div class="term"><span class="term__sigla">sliding-shoe sorter</span><span class="term__def">Sorter con zapatos deslizables que empujan items lateralmente. 200-400 items/min.</span><span class="term__where">vendors sorters</span></div>
+    <div class="term"><span class="term__sigla">3PL</span><span class="term__def"><strong>Third-Party Logistics provider</strong>. Empresa que opera logística por contrato (ej. GEODIS, DHL).</span><span class="term__where">vendors</span></div>
+    <div class="term"><span class="term__sigla">nearshoring</span><span class="term__def">Tendencia de manufactura USA → MX por proximidad geográfica y supply chain. USD 20B en MX 2024-2025.</span><span class="term__where">Contexto MELI MX</span></div>
+    <div class="term"><span class="term__sigla">AMVO</span><span class="term__def"><strong>Asociación Mexicana de Venta Online</strong>. Publica estudios anuales de e-commerce MX. $789B MXN mercado 2024.</span><span class="term__where">Datos públicos</span></div>
+    <div class="term"><span class="term__sigla">INEGI</span><span class="term__def"><strong>Instituto Nacional de Estadística y Geografía</strong>. Fuente oficial de datos demográficos y laborales MX.</span><span class="term__where">supuestos salariales</span></div>
+  </section>
+
+  <p class="text-muted mt-3"><a href="../index.html">← Volver al deck principal</a></p>
+</div>
+</body>
+</html>
