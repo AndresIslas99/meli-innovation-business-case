@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Métodos avanzados / SOTA 2024-2026 · Business Case MELI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/meli-theme.css">
+  <style>
+    .app-shell { max-width: 1180px; margin: 0 auto; padding: 2.5rem var(--gutter); }
+    .breadcrumb { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.2rem; }
+    .case-section { margin: 2rem 0; }
+    .case-section h2 { color: var(--meli-blue); border-bottom: 3px solid var(--meli-yellow); padding-bottom: 0.4em; }
+    .method { padding: 1.1rem 1.4rem; background: #FFFFFF; border: 1px solid var(--color-border); border-left: 4px solid var(--meli-yellow); border-radius: 0 8px 8px 0; margin: 0.9rem 0; }
+    .method h3 { margin: 0 0 0.35em 0; color: var(--meli-blue); font-size: 1.05rem; }
+    .method__meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.4rem 1rem; margin: 0.5em 0; font-size: 0.85rem; }
+    .method__meta > div span:first-child { color: var(--color-text-muted); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; display: block; font-weight: 600; }
+    .badge { display:inline-block; padding: 0.12em 0.55em; font-size: 0.72rem; font-weight: 600; border-radius: 999px; }
+    .badge--si { background: #DFFBE9; color: #00A650; }
+    .badge--maybe { background: #FFF4D6; color: #B07500; }
+    .badge--no { background: #E8E9F2; color: #2D3277; }
+    .toc-mini { background: var(--color-bg-soft); padding: 1rem 1.4rem; border-radius: var(--radius); margin-bottom: 1.5rem; }
+    .toc-mini a { color: var(--meli-blue); text-decoration: none; font-weight: 600; }
+    .toc-mini a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+  <p class="breadcrumb"><a href="../index.html">← Volver al deck</a> · Appendix · Métodos avanzados / SOTA 2024-2026</p>
+  <h1>Métodos cuantitativos avanzados · catálogo curado por caso</h1>
+  <p class="text-muted">Documento canónico de los métodos modernos que escalarían el análisis del business case más allá del baseline determinístico. Cada método incluye paper canónico (verificable en arxiv / google scholar), herramienta open-source con link, caso industria real 2024-2026 y evaluación de viabilidad para Work Sample (Sí · Mencionar · Overengineering).</p>
+
+  <div class="callout callout--yellow">
+    <strong>Framing honesto</strong>: el baseline determinístico (TOC, Little's Law, AHP, CPM + Monte Carlo) responde el case dentro de restricciones de tiempo y datos públicos. Cada método aquí <em>aplicaría con scope completo + datos internos MELI</em>. Lo que está implementado en los widgets del deck principal: <strong>Beta-PERT</strong> (caso 5 Gantt), <strong>DES pure-Python</strong> (caso 2 STP), <strong>Real Options binomial tree</strong> (caso 5), <strong>Sobol indices</strong> (cross-case NPV). El resto es awareness profesional sostenida con referencias.</p>
+  </div>
+
+  <div class="toc-mini">
+    <strong>Índice rápido</strong><br>
+    <a href="#caso1">Caso 1 · MCDM avanzado</a> ·
+    <a href="#caso2">Caso 2 · DES + queueing + process mining</a> ·
+    <a href="#caso3">Caso 3 · MAPF + MARL + slotting OR</a> ·
+    <a href="#caso4">Caso 4 · Foundation models + causal inference</a> ·
+    <a href="#caso5">Caso 5 · Real Options + Beta-PERT + Sobol</a> ·
+    <a href="#cross">Cross-cutting</a> ·
+    <a href="#casos-industria">Casos industria 2024-2026</a>
+  </div>
+
+  <!-- ================== CASO 1 ================== -->
+  <section class="case-section" id="caso1">
+    <h2>Caso 1 · MCDM avanzado (más allá de AHP Saaty 1980)</h2>
+
+    <div class="method">
+      <h3>BWM — Best-Worst Method <span class="badge badge--si">Sí en WS</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Rezaei 2015</div>
+        <div><span>Paper</span><a href="https://doi.org/10.1016/j.omega.2014.11.009" target="_blank">Omega 53:49–57</a></div>
+        <div><span>Tool open-source</span><code>pyDecision</code>, <code>bestworstmethod</code></div>
+        <div><span>Caso industria</span>Procurement Fortune 500 (post-AHP era)</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Solo requiere <strong>2n−3 comparaciones</strong> vs n(n−1)/2 de AHP (60% menos). CR típico 0.009 vs 0.03 de AHP. El decisor identifica el mejor y el peor criterio, luego compara cada uno contra esos dos extremos. Genera pesos consistentes sin matrix completa.</p>
+    </div>
+
+    <div class="method">
+      <h3>TOPSIS + Shannon entropy weights <span class="badge badge--si">Sí en WS</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Hwang &amp; Yoon 1981 / Shannon 1948</div>
+        <div><span>Paper</span><a href="https://link.springer.com/book/10.1007/978-3-642-48318-9" target="_blank">Multi-Attribute Decision Making</a></div>
+        <div><span>Tool</span><code>scipy.stats.entropy</code> + <code>scikit-learn</code></div>
+        <div><span>Caso industria</span>Construction supplier selection, energy</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Pesos <strong>OBJETIVOS data-driven</strong> calculados desde la entropía de Shannon sobre la matriz de scores: criterios con baja varianza entre alternativas (pesos bajos) vs criterios con alta varianza (pesos altos). Sin sesgo del decisor.</p>
+    </div>
+
+    <div class="method">
+      <h3>Bayesian BWM <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Mohammadi &amp; Rezaei 2020</div>
+        <div><span>Paper</span><a href="https://doi.org/10.1016/j.omega.2018.04.001" target="_blank">Omega 96:102075</a></div>
+        <div><span>Tool</span><code>PyMC</code> + custom MCMC, GitHub Majeed7/BayesianBWM</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Modelo Dirichlet sobre juicios de grupo (varios decisores) → <strong>credal ranking</strong> con confidence intervals en los pesos finales. No solo "Packsize 83.2"; sino "Packsize 83.2 ± 4.1 con 95% confianza dado el panel". Útil para decisiones multi-stakeholder.</p>
+    </div>
+
+    <div class="method">
+      <h3>Fuzzy AHP / Fuzzy TOPSIS <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Kahraman et al 2003+</div>
+        <div><span>Tool</span><code>scikit-fuzzy</code>, <code>fAHPy</code></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Maneja linguistic variables (excelente/bueno/aceptable/malo) → fuzzy triangular numbers. Útil cuando los scores son cualitativos no cuantitativos.</p>
+    </div>
+
+    <div class="method">
+      <h3>DEMATEL + ANP integrado <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Gabus &amp; Fontela 1973 / Saaty 1996</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">DEMATEL identifica relaciones causales entre criterios (causes-effects matrix); ANP las modela como feedback loops. Útil cuando los criterios no son independientes (ej. "Talento" → "Soporte MX" → "Riesgo").</p>
+    </div>
+
+    <div class="method">
+      <h3>XGBoost feature importance para procurement <span class="badge badge--si">Sí si datos</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Chen &amp; Guestrin 2016 (XGBoost) / Breiman 2001 (RF)</div>
+        <div><span>Tool</span><code>xgboost</code>, <code>sklearn.ensemble</code></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Sobre histórico de procurement (vendor, SLA track record, defect rate, disputas), entrenas un modelo gradient boosting para predecir <strong>vendor performance futura</strong>. Las feature importances revelan qué criterio REALMENTE predice success, no las opiniones del comité.</p>
+    </div>
+  </section>
+
+  <!-- ================== CASO 2 ================== -->
+  <section class="case-section" id="caso2">
+    <h2>Caso 2 · DES + queueing + process mining (más allá de TOC lineal)</h2>
+
+    <div class="method">
+      <h3>Discrete Event Simulation (DES) <span class="badge badge--si">Sí — implementado en widget</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Banks, Carson, Nelson, Nicol — clásico 1960s+, modern 2020s</div>
+        <div><span>Tool</span><code>SimPy</code> (Python), <code>AnyLogic</code> (Personal Edition free)</div>
+        <div><span>Caso industria</span>Intel warehouse 2024, Amazon FCs, Walmart Labs</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Captura <strong>variabilidad estocástica</strong> (llegadas Poisson, servicios Gamma) que TOC lineal asume promedio. El bottleneck en DES es <em>dinámico</em> (se mueve con la demanda) vs <em>estático</em> en TOC. <strong>Widget implementado</strong> en slide 03 con pure-Python heapq (sin SimPy dep). Referencia AnyLogic: <a href="https://www.anylogic.com/resources/case-studies/intel-s-warehousing-model-simulation-for-efficient-warehouse-operations/" target="_blank">Intel case study 2024</a>.</p>
+    </div>
+
+    <div class="method">
+      <h3>Process Mining <span class="badge badge--si">Sí en WS</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Van der Aalst 2004; mainstream 2018+</div>
+        <div><span>Tool</span><a href="https://pm4py.fit.fraunhofer.de/" target="_blank">PM4Py</a> (Fraunhofer FIT, Apache 2.0); <a href="https://www.celonis.com/" target="_blank">Celonis</a> (comercial)</div>
+        <div><span>Caso industria</span>Producción + RTLS event logs; SAP/Oracle integrations</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Extrae el bottleneck <strong>REAL desde event logs del WMS</strong> en lugar de asumirlo teóricamente. Discovery automático del proceso real (vs el documentado), conformance checking, performance analysis. Para MELI: si el WMS registra timestamps de cada movement, PM4Py revela ciclos ocultos y bottlenecks dinámicos sin necesidad de TOC lineal.</p>
+    </div>
+
+    <div class="method">
+      <h3>Queueing Networks (BCMP + Whitt's QNA) <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Baskett, Chandy, Muntz, Palacios 1975; Whitt 1983</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Multi-station con servicio general G/G/c (no exponencial puro como M/M/c). Closed-form solutions para casos product-form. Para sorter MELI con servicio determinístico, M/D/1; para picking con tiempo variable, G/G/1. Whitt's QNA aproxima sistemas complejos.</p>
+    </div>
+
+    <div class="method">
+      <h3>System Dynamics (Sterman) <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Forrester 1961; Sterman 2000</div>
+        <div><span>Tool</span><a href="https://github.com/JamesPHoughton/pysd" target="_blank">PySD</a>, Vensim, AnyLogic SD</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Modela <strong>bullwhip effect</strong> y feedback loops macro entre demanda minorista → reorden → inventario upstream. Captura amplificación de demanda (10-30% típico) en cadenas de suministro. Aplica a MELI MX si analizas la red completa (FCs → CEDIS regional → Brasil).</p>
+    </div>
+
+    <div class="method">
+      <h3>Digital Twin (AnyLogic + NVIDIA Omniverse Isaac Sim) <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Tool</span><a href="https://www.anylogic.com/" target="_blank">AnyLogic Free Edition</a>; <a href="https://developer.nvidia.com/isaac/sim" target="_blank">NVIDIA Isaac Sim</a></div>
+        <div><span>Caso industria</span>PepsiCo DCs, Ocado, Amazon Shreveport FC (Proteus, Cardinal, Sequoia)</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Réplica virtual del CEDIS con geometría exacta + physics de robots + simulación de demanda. <strong>What-if validation antes de implementación</strong>. Casos verificables 2024: PepsiCo 100k sq ft warehouse digital twin; Amazon validó Proteus en Isaac Sim pre-Shreveport. Andrés mencionó esto en su motivacional (Q1) como visión de corto plazo.</p>
+    </div>
+
+    <div class="method">
+      <h3>Markov Decision Process (MDP) <span class="badge badge--no">Overengineering</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Bellman 1957</div>
+        <div><span>Tool</span><code>PyMDPtoolbox</code>, <code>Gymnasium</code></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Para decisiones secuenciales bajo incertidumbre (routing, sequencing). State = inventory + busy_stations + demand; Action = pick/replenish/wait; Reward = throughput. Más matemático que práctico para Work Sample.</p>
+    </div>
+  </section>
+
+  <!-- ================== CASO 3 ================== -->
+  <section class="case-section" id="caso3">
+    <h2>Caso 3 · MAPF + MARL + slotting OR (más allá de T_rack determinístico)</h2>
+
+    <div class="method">
+      <h3>MAPF — PIBT (Priority Inheritance with Backtracking) <span class="badge badge--si">Sí en WS</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Okumura et al 2022 (PIBT); Sharon et al 2015 (CBS predecesor)</div>
+        <div><span>Paper</span><a href="https://doi.org/10.1016/j.artint.2022.103752" target="_blank">Artificial Intelligence 310:103752</a></div>
+        <div><span>Tool</span>OR-Tools MAPF, <a href="https://github.com/Kei18/mapf-IR" target="_blank">MAPF-IR repo</a></div>
+        <div><span>Caso industria</span>Ocado OSP (3,000+ bots); Symbotic + Amazon Shreveport</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Coordinación de <strong>&gt;100 robots</strong> sin colisiones. PIBT (Priority Inheritance with Backtracking) escala mejor que CBS (Conflict-Based Search) que es O(n³). Lifelong MAPF permite re-assignment continuo. Ocado opera 3,000+ bots con clearance 5mm a 4 m/s.</p>
+    </div>
+
+    <div class="method">
+      <h3>MARL — QMIX / MAPPO <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Rashid et al 2018 (QMIX); Yu et al 2022 (MAPPO)</div>
+        <div><span>Paper</span><a href="https://jmlr.org/papers/v21/20-081.html" target="_blank">JMLR 21:1-51 (QMIX)</a></div>
+        <div><span>Tool</span><a href="https://github.com/oxwhirl/pymarl" target="_blank">PyMARL</a>, Ray RLlib</div>
+        <div><span>Benchmark</span><a href="https://github.com/semitable/robotic-warehouse" target="_blank">RWARE</a> (Robotic Warehouse, standardized)</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Multi-agent RL. <strong>QMIX</strong> decompone Q-value global en Q-values individuales con monotonicity constraint (centralized training, decentralized execution). En RWARE benchmark: QMIX 3.25 mean return vs IPPO 0.38. Geek+ aplica Online RL similar (+20% efficiency).</p>
+    </div>
+
+    <div class="method">
+      <h3>Learning-guided MAPF (MIT-Symbotic) <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Ma, Araki, Chen, Wu MIT LIDS 2026</div>
+        <div><span>Paper</span><a href="https://news.mit.edu/2026/ai-system-keeps-warehouse-robot-traffic-running-smoothly-0326" target="_blank">MIT News 2026</a></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Híbrido <strong>Deep RL + classical planning</strong>. RL predice prioridades de robot para evitar congestión proactiva; PIBT/CBS calcula paths rápidos. <strong>+25% throughput</strong> vs routing algorithms puros. Caso: Symbotic + Amazon Shreveport.</p>
+    </div>
+
+    <div class="method">
+      <h3>CP-SAT — Constraint Programming <span class="badge badge--si">Sí en WS</span></h3>
+      <div class="method__meta">
+        <div><span>Tool</span><a href="https://developers.google.com/optimization/cp/cp_solver" target="_blank">Google OR-Tools CP-SAT</a> (Apache 2.0)</div>
+        <div><span>Reconocimiento</span>Wins MiniZinc Challenge gold medals consistentemente</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Para slotting (SKU → location) + pod-to-station assignment con muchas restricciones (pick distance ≤ threshold, class-based zones, correlation-affinity, capacity). Hybrid SAT (constraint propagation) + linear relaxation. Production-ready: usado internamente en Amazon, Geek+. Implementación slotting prototipo en 2-3 días.</p>
+    </div>
+
+    <div class="method">
+      <h3>NSGA-II — Multi-objective genetic algorithm <span class="badge badge--si">Sí en WS</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Deb, Pratap, Agarwal, Meyarivan 2002</div>
+        <div><span>Paper</span><a href="https://doi.org/10.1109/4235.996017" target="_blank">IEEE Trans Evol Comp 6(2)</a></div>
+        <div><span>Tool</span><a href="https://deap.readthedocs.io/" target="_blank">DEAP</a>, <a href="https://pymoo.org/" target="_blank">pymoo</a></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Order batching multi-objetivo (Pareto: travel time + order delay + workload balance). Fast non-dominated sorting + crowding distance. E-commerce reportes: 15-20% reducción travel distance vs greedy.</p>
+    </div>
+
+    <div class="method">
+      <h3>Simulated Annealing <span class="badge badge--si">Sí en WS</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Henn &amp; Schmid 2013 (warehouse application)</div>
+        <div><span>Tool</span><code>scipy.optimize</code>, <code>simanneal</code></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Single-objective batching + routing combinado. 16% travel distance savings; error vs óptimo &lt;1.2%. Más rápido que NSGA-II para 1 objetivo.</p>
+    </div>
+
+    <div class="method">
+      <h3>Graph Neural Networks (GNN) para SKU embeddings <span class="badge badge--no">Overengineering</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Hamilton et al GraphSAGE 2017</div>
+        <div><span>Tool</span><a href="https://pytorch-geometric.readthedocs.io/" target="_blank">PyTorch Geometric</a>, DGL</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">SKUs como nodos, co-purchase como edges → embeddings que capturan similitud + complementariedad. Feed a batching optimizer. Para MELI sin co-purchase data masiva = overengineering. Mencionar como "future".</p>
+    </div>
+  </section>
+
+  <!-- ================== CASO 4 ================== -->
+  <section class="case-section" id="caso4">
+    <h2>Caso 4 · Foundation models + causal inference (más allá de SQL + ABC/XYZ)</h2>
+
+    <div class="method">
+      <h3>Chronos (Amazon Science) — Foundation Model 2024 <span class="badge badge--si">Sí — flagship</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Ansari et al Amazon Science 2024 (Chronos); 2025 (Chronos-2)</div>
+        <div><span>Paper</span><a href="https://arxiv.org/abs/2403.07815" target="_blank">arXiv:2403.07815</a></div>
+        <div><span>Tool</span><a href="https://github.com/amazon-science/chronos-forecasting" target="_blank">amazon-science/chronos-forecasting</a></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Foundation model que <strong>tokeniza series temporales como un LLM</strong>. Zero-shot multivariate forecasting para SKUs nuevos sin training data. Pre-entrenado en datasets diversos; generaliza a nuevas categorías sin re-train. Hugging Face: <code>amazon/chronos-bolt-base</code>.</p>
+    </div>
+
+    <div class="method">
+      <h3>TimesFM (Google) — Foundation Model 2024 <span class="badge badge--si">Sí</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Das et al Google Research 2024</div>
+        <div><span>Tool</span><code>google/timesfm</code> en HuggingFace</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Trained en 100B+ timepoints (Google Trends, Wikipedia). Patching para secuencias largas (2048 steps). Decoder-only architecture.</p>
+    </div>
+
+    <div class="method">
+      <h3>TimeGPT (Nixtla) — Foundation Model API <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Nixtla 2024</div>
+        <div><span>Tool</span><a href="https://www.nixtla.io/" target="_blank">nixtla.io</a> + <code>nixtlats</code> Python</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">API zero-shot, 3 líneas de código, anomaly detection integrado. Azure integration TimeGEN-1. Para rapid prototyping sin MLOps overhead.</p>
+    </div>
+
+    <div class="method">
+      <h3>Prophet / NeuralProphet <span class="badge badge--si">Sí — robusto</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Taylor &amp; Letham Meta 2017 (Prophet); NeuralProphet 2022</div>
+        <div><span>Tool</span><a href="https://github.com/facebook/prophet" target="_blank">facebook/prophet</a>, <a href="https://neuralprophet.com/" target="_blank">neuralprophet.com</a></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Aditivo: trend + seasonality + holidays + regressors. Robusto a missing data, seasonality irregular. Interpretable (cada componente separable). Estándar industria.</p>
+    </div>
+
+    <div class="method">
+      <h3>Temporal Fusion Transformer (TFT) <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Lim et al Google 2020</div>
+        <div><span>Tool</span><a href="https://pytorch-forecasting.readthedocs.io/" target="_blank">pytorch-forecasting</a></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Attention-based multivariate forecaster con variable selection interpretable. Maneja exogenous variables (price, weather, promotions). Usado por Picnic (delivery LATAM).</p>
+    </div>
+
+    <div class="method">
+      <h3>Causal Inference — DoWhy / EconML <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Microsoft 2020+</div>
+        <div><span>Tool</span><a href="https://github.com/py-why/dowhy" target="_blank">py-why/dowhy</a>, <a href="https://github.com/py-why/EconML" target="_blank">py-why/EconML</a></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Beyond correlation: identifica <strong>causa</strong> (confounders, intervention effects, heterogeneous treatment effects). Para MELI: "¿qué CAUSA que FC-X tenga peor throughput que FC-Y? ¿Es el SKU mix, el staffing, el layout, o el método de slotting?". Modelar el DAG causal explícitamente, no inferir desde correlation espuria.</p>
+    </div>
+
+    <div class="method">
+      <h3>SPC moderno — CUSUM + EWMA + Prophet anomaly <span class="badge badge--si">Sí</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Page 1954 (CUSUM); Roberts 1959 (EWMA); Prophet 2017</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Real-time anomaly detection. CUSUM detecta shifts 1σ en ~10 subgrupos; EWMA suaviza outliers; Prophet detecta desviaciones vs intervalo predicción. Combinados en Walmart 200+ signals stack.</p>
+    </div>
+
+    <div class="method">
+      <h3>Clustering moderno (k-means + HDBSCAN + GMM) <span class="badge badge--si">Sí</span></h3>
+      <div class="method__meta">
+        <div><span>Tool</span><a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank">scikit-learn clustering</a>, <code>hdbscan</code></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">ABC/XYZ clásico es 2D (volumen + variabilidad). Clustering moderno es N-dimensional: incluye autocorrelación, seasonality strength, peak hour distribution, SKU dimensions. Resultado: políticas de forecast/replenishment diferenciadas por cluster.</p>
+    </div>
+
+    <div class="method">
+      <h3>Demand sensing real-time <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Tools comerciales</span><a href="https://www.relexsolutions.com/" target="_blank">RELEX</a>, <a href="https://www.e2open.com/" target="_blank">e2open</a>, <a href="https://www.infor.com/" target="_blank">Infor SCM</a></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Integración de 200+ signals externas en tiempo real: POS live, weather, social, search trends, competitor actions. Walmart RTLS + battery-free sensors en 90M pallets → AI stack → replenishment decisions con doble-digit accuracy gain.</p>
+    </div>
+
+    <div class="method">
+      <h3>Federated Learning multi-FC <span class="badge badge--no">Overengineering</span></h3>
+      <div class="method__meta">
+        <div><span>Tool</span><a href="https://flower.ai/" target="_blank">Flower</a>, <code>TensorFlow Federated</code></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Multi-CEDIS forecasting sin centralizar datos sensibles. Cada FC entrena local; los gradients agregados son el modelo global. Mencionar solo si la confidencialidad inter-CEDIS es restricción dura.</p>
+    </div>
+  </section>
+
+  <!-- ================== CASO 5 ================== -->
+  <section class="case-section" id="caso5">
+    <h2>Caso 5 · Real Options + Beta-PERT + Sobol (más allá de CPM + triangular)</h2>
+
+    <div class="method">
+      <h3>Beta-PERT (Vose) <span class="badge badge--si">Sí — implementado</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Malcolm 1959 (PERT); Vose 1990s (Beta-PERT refinement)</div>
+        <div><span>Tool</span><code>scipy.stats.beta</code>, <code>random.betavariate</code></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Reemplaza la triangular ±20% por distribución Beta-PERT (parámetros α, β derivados de low/mode/high con λ=4). Más suave (no kink en el modo), sobrepesa el modo realista vs colas. <strong>Implementado en el Gantt simulator</strong>. Referencia: Vose D. "Risk Analysis: A Quantitative Guide" (3rd ed., Wiley, 2008).</p>
+    </div>
+
+    <div class="method">
+      <h3>Real Options binomial tree (Cox-Ross-Rubinstein) <span class="badge badge--si">Sí — implementado</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Cox, Ross, Rubinstein 1979; Copeland &amp; Antikarov 2001 (real options application)</div>
+        <div><span>Paper</span><a href="https://doi.org/10.1016/0304-405X(79)90015-1" target="_blank">J Financial Economics 7(3):229-263</a></div>
+        <div><span>Tool</span>Pure Python (sin libraries), <code>QuantLib</code>, <code>mibian</code></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Valora el gate de Fase 7 del roadmap como <strong>CALL option</strong> americana sobre el CAPEX de fabricación. La flexibilidad de cancelar el deploy si POC falla tiene VALOR cuantificable ≠ NPV "punto" del DCF clásico. <strong>Widget interactivo</strong> en slide 06. Converge a Black-Scholes en límite N→∞.</p>
+    </div>
+
+    <div class="method">
+      <h3>Sobol indices (variance-based sensitivity) <span class="badge badge--si">Sí — implementado</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Sobol 1967; Saltelli 2002 (computational estimator)</div>
+        <div><span>Paper</span><a href="https://doi.org/10.1016/S0010-4655(02)00280-1" target="_blank">Computer Physics Communications 145(2)</a></div>
+        <div><span>Tool</span><a href="https://salib.readthedocs.io/" target="_blank">SALib</a>; pure-Python implementation también</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Descompone la <strong>varianza del NPV</strong> en contribuciones por variable (no derivadas, sin asumir linealidad, maneja interacciones). S₁ = first-order, S_T = total-order. Revela cuál variable domina (típicamente adoption rate >> CAPEX). <strong>Widget interactivo</strong> en slide 99 cierre. Saltelli (2010 update) es estado del arte.</p>
+    </div>
+
+    <div class="method">
+      <h3>Critical Chain Method (CCPM) <span class="badge badge--si">Sí</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Goldratt 1997 (Critical Chain)</div>
+        <div><span>Tool</span>ProChain, Concerto</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Project buffer agregado al final del proyecto en lugar de buffers en cada task. Elimina <strong>student syndrome</strong> + <strong>Parkinson's Law</strong>. Schedule por dependencias de recursos (no solo precedencias). Reduce duraciones ~25% vs CPM clásico según Goldratt.</p>
+    </div>
+
+    <div class="method">
+      <h3>RCPSP — Resource-Constrained Project Scheduling <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Kellerer et al 1990+</div>
+        <div><span>Tool</span>OR-Tools CP-SAT, Gurobi, Hexaly</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Schedule óptimo bajo restricciones de recursos discretos (no asignas 2 integradores a tarea simultánea si solo tienes 1). NP-hard pero solucionable con solver. Útil para deployment multi-CEDIS con equipos limitados.</p>
+    </div>
+
+    <div class="method">
+      <h3>Bayesian project updating (Kalman filter) <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Kalman 1960; aplicado a PM 2010s+</div>
+        <div><span>Tool</span><a href="https://filterpy.readthedocs.io/" target="_blank">filterpy</a>, <code>PyMC</code></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Actualiza estimates de duración en tiempo real usando measurements en curso. Por ejemplo, a 40% de progress, predice finish time con confidence intervals. Mejor que reportes binarios de % completion.</p>
+    </div>
+
+    <div class="method">
+      <h3>Monte Carlo con cópulas <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Sklar 1959 (copulas); aplicado a risk ~2000s+</div>
+        <div><span>Tool</span><a href="https://github.com/sdv-dev/Copulas" target="_blank">DataCebo/Copulas</a></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Maneja correlaciones realistas entre variables del business case (e.g., adoption rate ↔ cost-per-unit están correlados). Sin cópulas, MC asume independencia y subestima riesgo de cola.</p>
+    </div>
+
+    <div class="method">
+      <h3>Bayesian decision analysis (EVPI) <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>De Finetti 1970s; aplicado McKinsey/IBM moderno</div>
+        <div><span>Tool</span><code>PyMC</code>, Stan</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Formaliza prior beliefs + observaciones → posterior. Resuelve <strong>Expected Value of Perfect Information</strong>: "¿Vale la pena gastar $X en POC para reducir incertidumbre?". Mejor que decisiones binarias go/no-go.</p>
+    </div>
+
+    <div class="method">
+      <h3>GERT — Graphical Evaluation and Review Technique <span class="badge badge--no">Overengineering</span></h3>
+      <div class="method__meta">
+        <div><span>Autor / año</span>Pritsker 1966</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Maneja loops (rework) y probabilistic branching (50% test passes / 50% restart). Útil para R&D complejos pero overhead conceptual alto.</p>
+    </div>
+  </section>
+
+  <!-- ================== CROSS-CUTTING ================== -->
+  <section class="case-section" id="cross">
+    <h2>Cross-cutting · stack moderno general</h2>
+
+    <div class="method">
+      <h3>Google OR-Tools (CP-SAT, MIP, routing) <span class="badge badge--si">Sí — universal</span></h3>
+      <div class="method__meta">
+        <div><span>Tool</span><a href="https://developers.google.com/optimization" target="_blank">developers.google.com/optimization</a> (Apache 2.0)</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Stack OR completo: CP-SAT (constraint programming), MIP solver, vehicle routing, scheduling. Production-ready, Google validation, MiniZinc Challenge gold winner.</p>
+    </div>
+
+    <div class="method">
+      <h3>Reinforcement Learning frameworks <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Tool</span><a href="https://docs.ray.io/en/latest/rllib/index.html" target="_blank">Ray RLlib</a>, <a href="https://stable-baselines3.readthedocs.io/" target="_blank">Stable-Baselines3</a></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">RLlib scale a clusters distribuidos; SB3 simple para prototipos. Used by Geek+ Online RL, MIT Decima, Amazon.</p>
+    </div>
+
+    <div class="method">
+      <h3>Bayesian optimization <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Tool</span><a href="https://optuna.org/" target="_blank">Optuna</a>, <a href="https://botorch.org/" target="_blank">BoTorch</a></div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Para tuning de hyperparams de policies con Gaussian Process surrogate + acquisition functions (EI, UCB). Eficiente sample-wise vs grid search.</p>
+    </div>
+
+    <div class="method">
+      <h3>Bayesian Networks / PyMC <span class="badge badge--maybe">Mencionar</span></h3>
+      <div class="method__meta">
+        <div><span>Tool</span><a href="https://www.pymc.io/" target="_blank">PyMC</a>, Stan</div>
+      </div>
+      <p class="text-sm" style="margin:0.4em 0 0 0;">Modelo probabilístico con priors explícitos + MCMC para inferencia posterior. Aplicable a vendor scoring multi-stakeholder, riesgo de proyecto, demand uncertainty.</p>
+    </div>
+  </section>
+
+  <!-- ================== CASOS INDUSTRIA ================== -->
+  <section class="case-section" id="casos-industria">
+    <h2>Casos industria verificables 2024-2026</h2>
+    <table>
+      <thead>
+        <tr><th>Empresa</th><th>Sistema</th><th>Métodos públicos</th><th>Métricas reportadas</th><th>Referencia</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Amazon Robotics</strong></td>
+          <td>Proteus + Cardinal + Sequoia</td>
+          <td>MAPF + semantic 3D vision + GenAI navigation</td>
+          <td>1M+ robots deployed 2025 · 25% faster processing Shreveport FC</td>
+          <td><a href="https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions" target="_blank">aboutamazon.com</a></td>
+        </tr>
+        <tr>
+          <td><strong>Ocado</strong></td>
+          <td>OSP (Ocado Smart Platform) — grid storage</td>
+          <td>MAPF + air traffic control (10 mensajes/seg por bot)</td>
+          <td>3,000+ bots · 50 items pick &lt;5min · 1,200+ patents</td>
+          <td><a href="https://www.ocadogroup.com/" target="_blank">ocadogroup.com</a></td>
+        </tr>
+        <tr>
+          <td><strong>Geek+</strong></td>
+          <td>PopPick + MFCs (HKEX IPO 2025)</td>
+          <td>Online RL (Q-Learning MDP) + MAPF + slotting OR</td>
+          <td>650 totes/hr/máquina · +20% efficiency vs heurísticos</td>
+          <td><a href="https://www.geekplus.com/resources/robotics-blogs/algorithm/geek-application-of-operations-research-in-intelligent-logistics" target="_blank">Geek+ OR Blog</a></td>
+        </tr>
+        <tr>
+          <td><strong>Symbotic + MIT</strong></td>
+          <td>Lifelong MAPF + learning-guided planning</td>
+          <td>Hybrid RL + classical planning (Ma et al 2026)</td>
+          <td>+25% throughput vs routing puro</td>
+          <td><a href="https://news.mit.edu/2026/ai-system-keeps-warehouse-robot-traffic-running-smoothly-0326" target="_blank">MIT News 2026</a></td>
+        </tr>
+        <tr>
+          <td><strong>Amazon Science</strong></td>
+          <td>Chronos foundation model</td>
+          <td>Zero-shot demand forecasting transformer-based</td>
+          <td>Open-source modelo · pre-train 100B+ tokens</td>
+          <td><a href="https://github.com/amazon-science/chronos-forecasting" target="_blank">github.com/amazon-science/chronos-forecasting</a></td>
+        </tr>
+        <tr>
+          <td><strong>Walmart Labs</strong></td>
+          <td>Sensor-fusion AI stack en 90M pallets</td>
+          <td>RTLS + 200+ external signals + Prophet + CUSUM</td>
+          <td>Doble-digit accuracy gain replenishment</td>
+          <td>Public: AWS+Kearney demand sensing case study</td>
+        </tr>
+        <tr>
+          <td><strong>Locus Robotics</strong></td>
+          <td>LocusBots + LocusOne platform (GEODIS Cuautitlán)</td>
+          <td>Zone-based picking + Hungarian-like assignment</td>
+          <td>2-3x UPH; DHL 100M+ picks; Dental City 300% productivity</td>
+          <td><a href="https://locusrobotics.com/blog/resource_type/case-study" target="_blank">locusrobotics.com case studies</a></td>
+        </tr>
+        <tr>
+          <td><strong>MELI Cajamar</strong> (Brasil)</td>
+          <td>334+ robots STP (Cajamar)</td>
+          <td>Proveedor probable Quicktron; STP standard control</td>
+          <td>20,000 items/día; +20% reducción tiempo de orden</td>
+          <td>Coverage Tecnologística + EFE 2024</td>
+        </tr>
+        <tr>
+          <td><strong>MELI + Agility Robotics</strong></td>
+          <td>Digit humanoide en Texas FC</td>
+          <td>VLA + task decomposition + GenAI navigation</td>
+          <td>Pilot dic 2025; expansión LATAM planned</td>
+          <td><a href="https://www.agilityrobotics.com/content/mercado-libre-and-agility-robotics-announce-commercial-agreement" target="_blank">agilityrobotics.com</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <p class="text-muted mt-3"><a href="../index.html">← Volver al deck principal</a></p>
+</div>
+</body>
+</html>

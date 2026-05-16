@@ -96,18 +96,31 @@ def schedule(phases):
     return timeline
 
 
+def _beta_pert_sample(low, mode, high, lam=4.0):
+    """
+    Beta-PERT sampling (Vose D., "Risk Analysis", 3rd ed., Wiley 2008).
+    Distribución suave (no kink en moda) que sobrepesa el modo realista vs colas.
+    Más realista que triangular para project durations.
+    α = 1 + λ·(mode-low)/(high-low),  β = 1 + λ·(high-mode)/(high-low),  λ=4 standard.
+    """
+    if high <= low:
+        return low
+    a = 1.0 + lam * (mode - low) / (high - low)
+    b = 1.0 + lam * (high - mode) / (high - low)
+    return low + (high - low) * random.betavariate(a, b)
+
+
 def monte_carlo(mult_dis, mult_poc, mult_lic, fab_wk, ramp_wk, n=600):
-    """Triangular ±20% sobre cada fase ya multiplicada."""
+    """Beta-PERT ±20% sobre cada fase ya multiplicada (Vose 2008, mejor que triangular)."""
     end_distribution = []
     contract_distribution = []
     for _ in range(n):
         phases = apply_multipliers(mult_dis, mult_poc, mult_lic, fab_wk, ramp_wk)
-        # perturbate each phase ±20% (triangular)
         perturbed = []
         for p in phases:
             d = p["dur"]
             low, mode, high = d * 0.8, d, d * 1.2
-            d_perturbed = random.triangular(low, high, mode)
+            d_perturbed = _beta_pert_sample(low, mode, high)
             perturbed.append({**p, "dur": d_perturbed})
         t = schedule(perturbed)
         # weeks to contract = end of phase 10 (negociación contrato)

@@ -330,6 +330,20 @@
     </div>
   </div>
 
+  <!-- ===== Evolución del análisis · SOTA Caso 1 ===== -->
+  <div class="callout callout--yellow mt-3">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue-dark);letter-spacing:0.06em;text-transform:uppercase;">Evolución del análisis · más allá de AHP 1980</p>
+    <p class="text-sm" style="margin:0 0 0.5em 0;">El baseline AHP responde el case dentro de restricciones de tiempo y datos públicos. Con datos internos de procurement MELI escalaría el análisis a:</p>
+    <ul class="text-sm" style="margin:0 0 0.4em 0;padding-left:1.2rem;">
+      <li><strong>BWM (Best-Worst Method)</strong> — Rezaei 2015 (Omega 53:49–57). Solo 2n−3 comparaciones vs n(n−1)/2 de AHP; consistency ratio típico 0.009 vs 0.03. Tool: <code>pyDecision</code>.</li>
+      <li><strong>TOPSIS + Shannon entropy</strong> — pesos OBJETIVOS data-driven, sin subjetividad del decisor. Tool: <code>scipy.stats.entropy</code> + <code>scikit-learn</code>.</li>
+      <li><strong>XGBoost feature importance</strong> (Chen &amp; Guestrin 2016) sobre histórico de procurement → predice vendor performance futura.</li>
+      <li><strong>Bayesian BWM</strong> (Mohammadi &amp; Rezaei 2020) — credal ranking con confidence intervals para decisiones multi-stakeholder.</li>
+      <li><strong>Fuzzy AHP / Fuzzy TOPSIS</strong> (Kahraman 2003+) — maneja linguistic variables (excelente/bueno/aceptable) cuando los scores son cualitativos.</li>
+    </ul>
+    <p class="text-xs text-muted" style="margin:0;"><em>Catálogo completo de métodos avanzados (12+ técnicas por caso, papers canónicos, tools open-source, casos industria 2024–2026) en <a href="appendix/metodos-avanzados.html" target="_blank">appendix/metodos-avanzados.html</a>.</em></p>
+  </div>
+
   <div class="sources">
     <p class="sources__title">Fuentes / Proveedores investigados</p>
     <ul>
@@ -457,6 +471,58 @@
     <div id="c2-chart" class="widget__chart"><div class="widget__loading">Cargando Python...</div></div>
   </div>
 
+  <!-- ===== Evolución del análisis · SOTA Caso 2 ===== -->
+  <div class="callout callout--yellow mt-3">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue-dark);letter-spacing:0.06em;text-transform:uppercase;">Evolución del análisis · más allá de TOC lineal</p>
+    <p class="text-sm" style="margin:0 0 0.4em 0;">TOC + Little's Law (cálculo lineal) cuantifica el bottleneck pero asume llegadas/servicios <em>promedio</em>. En operación real con variabilidad estocástica el bottleneck es dinámico (se mueve con la demanda). Escalado:</p>
+    <ul class="text-sm" style="margin:0 0 0.4em 0;padding-left:1.2rem;">
+      <li><strong>DES — Discrete Event Simulation</strong> (Banks et al, AnyLogic, SimPy) — captura variabilidad real. <strong>Simulador inline abajo</strong> con stdlib Python.</li>
+      <li><strong>Process Mining (PM4Py)</strong> — Van der Aalst, Fraunhofer FIT — extrae el bottleneck REAL desde event logs del WMS sin asumirlo. Anchor: <a href="https://pm4py.fit.fraunhofer.de/" target="_blank">pm4py.fit.fraunhofer.de</a>.</li>
+      <li><strong>Queueing Networks (BCMP + Whitt's QNA)</strong> — Baskett-Chandy-Muntz-Palacios 1975, Whitt 1983 — multi-station con servicio general G/G/c.</li>
+      <li><strong>System Dynamics</strong> (Sterman 2000) — bullwhip + feedback loops upstream/downstream. Tool: <code>PySD</code>.</li>
+      <li><strong>Digital Twin</strong> (AnyLogic + NVIDIA Omniverse Isaac Sim) — what-if validation pre-implementación. Casos 2024: PepsiCo, Ocado, Amazon Shreveport.</li>
+    </ul>
+    <p class="text-xs text-muted" style="margin:0;"><em>Catálogo completo en <a href="appendix/metodos-avanzados.html" target="_blank">appendix/metodos-avanzados.html</a>.</em></p>
+  </div>
+
+  <!-- ===== WIDGET DES (Discrete Event Simulation) — SOTA Caso 2 ===== -->
+  <div class="widget" id="widget-des" style="margin-top:1rem;border-left:4px solid var(--color-info);">
+    <div class="widget__header">
+      <h3 class="widget__title">⚙ SOTA: Discrete Event Simulation · variabilidad estocástica</h3>
+      <span class="widget__hint">Pure-Python (heapq) — modela llegadas Poisson + servicios Gamma (CV ajustable). Capture lo que TOC lineal asume promedio. <strong>Tip de chart</strong>: toolbar arriba-derecha · doble-click resetea.</span>
+    </div>
+    <div class="widget__controls">
+      <div class="widget__control">
+        <label>Tasa de llegada (items/hr) <span class="value-display" id="des-rate-pa-val">200/hr</span></label>
+        <input type="range" id="des-rate-pa" min="50" max="600" value="200" step="10">
+      </div>
+      <div class="widget__control">
+        <label>CV — Coef. de Variación <span class="value-display" id="des-cv-val">0.50</span></label>
+        <input type="range" id="des-cv" min="0.10" max="1.50" value="0.50" step="0.05">
+      </div>
+      <div class="widget__control">
+        <label>Horas simuladas <span class="value-display" id="des-sim-hours-val">100h</span></label>
+        <input type="range" id="des-sim-hours" min="20" max="400" value="100" step="20">
+      </div>
+      <div class="widget__control">
+        <label>Número de runs <span class="value-display" id="des-n-runs-val">30</span></label>
+        <input type="range" id="des-n-runs" min="5" max="80" value="30" step="5">
+      </div>
+    </div>
+
+    <div class="widget__output">
+      <div class="kpi"><span class="kpi__value" id="des-out-mean" style="font-size:1.4rem;">—</span><span class="kpi__label">Throughput μ</span></div>
+      <div class="kpi"><span class="kpi__value" id="des-out-p10" style="font-size:1.2rem;color:var(--color-warning);">—</span><span class="kpi__label">p10</span></div>
+      <div class="kpi"><span class="kpi__value" id="des-out-p50" style="font-size:1.2rem;">—</span><span class="kpi__label">p50</span></div>
+      <div class="kpi"><span class="kpi__value" id="des-out-p90" style="font-size:1.2rem;color:var(--color-success);">—</span><span class="kpi__label">p90</span></div>
+      <div class="kpi"><span class="kpi__value" id="des-out-linear" style="font-size:1.2rem;color:var(--color-text-muted);">—</span><span class="kpi__label">TOC lineal</span></div>
+      <div class="kpi"><span class="kpi__value" id="des-out-delta" style="font-size:1.2rem;">—</span><span class="kpi__label">Δ vs lineal</span></div>
+      <div class="kpi"><span class="kpi__value" id="des-out-bottleneck" style="font-size:1rem;color:var(--color-danger);">—</span><span class="kpi__label">Bottleneck dinámico</span></div>
+    </div>
+
+    <div id="des-chart" class="widget__chart"><div class="widget__loading">Cargando DES (pure-Python)...</div></div>
+  </div>
+
   <div class="sources">
     <p class="sources__title">Verificación matemática</p>
     <ul>
@@ -548,6 +614,20 @@
     </div>
 
     <div id="c3-chart" class="widget__chart"><div class="widget__loading">Cargando Python...</div></div>
+  </div>
+
+  <!-- ===== Evolución del análisis · SOTA Caso 3 ===== -->
+  <div class="callout callout--yellow mt-3">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue-dark);letter-spacing:0.06em;text-transform:uppercase;">Evolución del análisis · más allá de T_rack determinístico</p>
+    <p class="text-sm" style="margin:0 0 0.4em 0;">T_rack lineal es defendible para baseline; con fleet &gt;50 robots y mix SKU heterogéneo escalaría a:</p>
+    <ul class="text-sm" style="margin:0 0 0.4em 0;padding-left:1.2rem;">
+      <li><strong>MAPF — PIBT (Priority Inheritance with Backtracking)</strong> — Okumura 2022, Artificial Intelligence — coordinación de &gt;100 robots sin colisiones, lifelong assignment. Predecesor: CBS (Sharon et al 2015).</li>
+      <li><strong>CP-SAT (Google OR-Tools)</strong> — Constraint Programming para slotting óptimo + pod-to-station assignment con N restricciones. Wins MiniZinc Challenge gold.</li>
+      <li><strong>MARL — QMIX</strong> (Rashid et al 2018) / <strong>MAPPO</strong> (Yu et al 2022) — policies cooperativas escalables. Benchmark abierto: <code>RWARE</code> (Robotic Warehouse).</li>
+      <li><strong>NSGA-II</strong> (Deb 2002) o <strong>Simulated Annealing</strong> (Henn &amp; Schmid 2013) — order batching multi-objetivo (Pareto).</li>
+      <li><strong>Learning-guided MAPF</strong> — Ma et al MIT-Symbotic 2026: híbrido RL + planning, +25% throughput vs routing puro.</li>
+    </ul>
+    <p class="text-xs text-muted" style="margin:0;"><em>Casos industria 2024–2026: Ocado OSP (3,000+ bots), Symbotic + Amazon Shreveport, Geek+ ORL (+20% efficiency vs heurísticos). Detalle en <a href="appendix/metodos-avanzados.html" target="_blank">appendix/metodos-avanzados.html</a>.</em></p>
   </div>
 
   <div class="sources">
@@ -657,6 +737,21 @@ GROUP BY 1, 2, 3;</pre>
     Recomendación: profundizar antes de expandir Y a más FCs.»<br>
     <em>Recomendación accionable</em> &gt; <em>dashboard pasivo</em>.
   </div>
+
+  <!-- ===== Evolución del análisis · SOTA Caso 4 ===== -->
+  <div class="callout callout--yellow mt-3">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue-dark);letter-spacing:0.06em;text-transform:uppercase;">Evolución del análisis · más allá de SQL + ABC/XYZ</p>
+    <p class="text-sm" style="margin:0 0 0.4em 0;">SQL + Pareto 80/20 + ABC/XYZ es punto de partida; con escala MELI escalaría a:</p>
+    <ul class="text-sm" style="margin:0 0 0.4em 0;padding-left:1.2rem;">
+      <li><strong>Foundation models 2024–2025</strong>: <strong>Chronos</strong> (Amazon Science 2024, tokenización LLM-style, zero-shot multivariate) · <strong>TimesFM</strong> (Google, 100B+ timepoints training) · <strong>TimeGPT</strong> (Nixtla, API 3 líneas + anomaly detection). Para SKUs nuevos sin historical.</li>
+      <li><strong>Causal Inference (DoWhy / EconML)</strong> — Microsoft 2020+ — investiga POR QUÉ varía X entre FCs, beyond correlation. Identifica confounders, intervention effects.</li>
+      <li><strong>SPC moderno</strong>: CUSUM (Page 1954) + EWMA (Roberts 1959) + Prophet anomaly detection — detección real-time de shifts 1σ en 10 subgrupos.</li>
+      <li><strong>Demand sensing real-time</strong> — Walmart RTLS, AWS+Kearney — 200+ signals (POS live + weather + social + search trends).</li>
+      <li><strong>Clustering moderno</strong> (k-means / HDBSCAN / GMM) — segmenta SKUs por patrón de demanda (varianza + autocorrelación + seasonality) → políticas de forecast diferenciadas.</li>
+      <li><strong>SKU embeddings</strong> (Word2Vec / GraphSAGE) — captura correlación entre SKUs desde order baskets.</li>
+    </ul>
+    <p class="text-xs text-muted" style="margin:0;"><em>Casos: Amazon Science Chronos open-source, Walmart sensor-fusion AI stack, Picnic TFT delivery forecasting. Detalle en <a href="appendix/metodos-avanzados.html" target="_blank">appendix/metodos-avanzados.html</a>.</em></p>
+  </div>
 </section>
 
 <!-- ============================ SLIDE 06 · CASO 5 GANTT ============================ -->
@@ -760,7 +855,66 @@ GROUP BY 1, 2, 3;</pre>
     <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue-dark);letter-spacing:0.06em;text-transform:uppercase;">Cómo leer p50 vs p90</p>
     <p class="text-sm" style="margin-bottom:0.3em;"><strong>p50</strong> (mediana) = expectativa interna realista para planificación. En el 50% de las simulaciones, el proyecto termina antes de esa fecha. Es lo que asumo internamente.</p>
     <p class="text-sm" style="margin-bottom:0.3em;"><strong>p90</strong> (percentil 90) = el compromiso que hago al CEO. En 9 de cada 10 escenarios el proyecto termina antes. Si digo p90 y llego antes, gano credibilidad; si digo p50 y llego después, pierdo. Diferencia típica p50→p90: 4–6 sem.</p>
-    <p class="text-sm" style="margin:0;"><strong>Por qué ±20% triangular</strong>: PERT 3-point estimation con variance ±20% es el rango estándar para proyectos de complejidad media. Para POC pioneer (tech sin precedente interno) se sube a ±30%; para tareas rutinarias bajaría a ±10%.</p>
+    <p class="text-sm" style="margin:0;"><strong>Por qué ±20% triangular</strong>: PERT 3-point estimation con variance ±20% es el rango estándar para proyectos de complejidad media. Para POC pioneer (tech sin precedente interno) se sube a ±30%; para tareas rutinarias bajaría a ±10%. <strong>Update iter5</strong>: el simulador ahora usa <strong>Beta-PERT (Vose 2008)</strong> en lugar de triangular — distribución más suave, sobrepesa el modo realista vs colas.</p>
+  </div>
+
+  <!-- ===== Evolución del análisis · SOTA Caso 5 ===== -->
+  <div class="callout callout--yellow mt-3">
+    <p style="margin:0 0 0.3em 0;font-size:0.78rem;font-weight:700;color:var(--meli-blue-dark);letter-spacing:0.06em;text-transform:uppercase;">Evolución del análisis · más allá de CPM + Monte Carlo triangular</p>
+    <p class="text-sm" style="margin:0 0 0.4em 0;">CPM + Monte Carlo es defendible, pero hay 3 mejoras concretas — implementadas abajo:</p>
+    <ul class="text-sm" style="margin:0 0 0.4em 0;padding-left:1.2rem;">
+      <li><strong>Beta-PERT (Vose 2008)</strong> en lugar de triangular — ya aplicado en el simulador Gantt arriba (distribución más realista que kink en moda).</li>
+      <li><strong>Real Options binomial tree (Cox-Ross-Rubinstein 1979)</strong> — valora el gate Fase 7 como CALL option sobre el CAPEX. La flexibilidad de cancelar tiene VALOR cuantificable. <strong>Widget interactivo abajo</strong>.</li>
+      <li><strong>Sobol indices (Sobol 1967 / Saltelli 2002)</strong> — sensitivity variance-based del NPV: revela qué variable domina la varianza (típicamente adoption rate &gt;&gt; CAPEX). Widget en slide cierre.</li>
+      <li><strong>RCPSP</strong> (Resource-Constrained PS) con OR-Tools CP-SAT — schedule óptimo bajo recursos discretos limitados.</li>
+      <li><strong>Bayesian Kalman filter</strong> (Kalman 1960) — updating de estimates de duración en tiempo real conforme avanzan los milestones.</li>
+      <li><strong>Critical Chain Method</strong> (Goldratt 1997) — project buffer en lugar de task buffers; elimina student syndrome + Parkinson's Law.</li>
+    </ul>
+    <p class="text-xs text-muted" style="margin:0;"><em>Detalle papers + tools en <a href="appendix/metodos-avanzados.html" target="_blank">appendix/metodos-avanzados.html</a>.</em></p>
+  </div>
+
+  <!-- ===== WIDGET REAL OPTIONS BINOMIAL TREE — SOTA Caso 5 ===== -->
+  <div class="widget" id="widget-real-options" style="margin-top:1rem;border-left:4px solid var(--color-success);">
+    <div class="widget__header">
+      <h3 class="widget__title">⚙ SOTA: Real Options binomial tree · valor del gate Fase 7</h3>
+      <span class="widget__hint">Cox-Ross-Rubinstein 1979. CALL option americana sobre el CAPEX de fabricación. La flexibilidad de cancelar el deploy si POC falla tiene VALOR ≠ NPV "punto" del DCF clásico. <strong>Tip de chart</strong>: hover sobre nodos para detalle · doble-click resetea.</span>
+    </div>
+
+    <div class="widget__controls">
+      <div class="widget__control">
+        <label>S — Valor presente del subyacente (USD K) <span class="value-display" id="ro-S-val">$600K</span></label>
+        <input type="range" id="ro-S" min="100" max="2000" value="600" step="50">
+      </div>
+      <div class="widget__control">
+        <label>K — Strike CAPEX (USD K) <span class="value-display" id="ro-K-val">$500K</span></label>
+        <input type="range" id="ro-K" min="100" max="2000" value="500" step="50">
+      </div>
+      <div class="widget__control">
+        <label>σ — Volatility anual <span class="value-display" id="ro-sigma-val">30%</span></label>
+        <input type="range" id="ro-sigma" min="5" max="80" value="30" step="5">
+      </div>
+      <div class="widget__control">
+        <label>T — Tiempo a expiration (años) <span class="value-display" id="ro-T-val">0.50y</span></label>
+        <input type="range" id="ro-T" min="0.10" max="2.00" value="0.50" step="0.10">
+      </div>
+      <div class="widget__control">
+        <label>r — Tasa libre de riesgo <span class="value-display" id="ro-r-val">5.0%</span></label>
+        <input type="range" id="ro-r" min="0" max="15" value="5" step="0.5">
+      </div>
+      <div class="widget__control">
+        <label>N — Pasos del árbol <span class="value-display" id="ro-N-val">6</span></label>
+        <input type="range" id="ro-N" min="3" max="10" value="6" step="1">
+      </div>
+    </div>
+
+    <div class="widget__output">
+      <div class="kpi"><span class="kpi__value" id="ro-out-value" style="font-size:1.4rem;color:var(--color-success);">—</span><span class="kpi__label">Valor opción</span></div>
+      <div class="kpi"><span class="kpi__value" id="ro-out-intrinsic" style="font-size:1.2rem;">—</span><span class="kpi__label">Valor intrínseco</span></div>
+      <div class="kpi"><span class="kpi__value" id="ro-out-timevalue" style="font-size:1.2rem;">—</span><span class="kpi__label">Time value</span></div>
+      <div class="kpi"><span class="kpi__value" id="ro-out-params" style="font-size:0.9rem;color:var(--color-text-muted);">—</span><span class="kpi__label">u · d · p</span></div>
+    </div>
+
+    <div id="ro-chart" class="widget__chart"><div class="widget__loading">Cargando árbol binomial...</div></div>
   </div>
 
   <div class="sources">
@@ -896,6 +1050,37 @@ GROUP BY 1, 2, 3;</pre>
       <h4>Supuestos transparentes</h4>
       <p class="text-sm">Todo dato no verificable, declarado. Stack MELI asumido, salario MX, CAPEX rangos, SLA estándar. Mueve un supuesto y el deck reacciona.</p>
     </a>
+    <a class="card" href="appendix/metodos-avanzados.html" target="_blank" style="text-decoration:none;color:inherit;border:2px solid var(--meli-yellow-dark);">
+      <h4>🆕 Métodos avanzados / SOTA 2024–2026</h4>
+      <p class="text-sm">Catálogo curado: BWM · DES · MAPF PIBT · CP-SAT · Chronos · TimesFM · DoWhy · Real Options binomial · Beta-PERT · Sobol · Critical Chain · Process Mining. Papers canónicos + tools open-source + casos industria Amazon/Ocado/Geek+/MIT-Symbotic.</p>
+    </a>
+  </div>
+
+  <!-- ===== WIDGET SOBOL INDICES — SOTA cross-case ===== -->
+  <div class="widget" id="widget-sobol" style="margin-top:1.4rem;border-left:4px solid var(--meli-blue);">
+    <div class="widget__header">
+      <h3 class="widget__title">⚙ SOTA bonus: Sobol indices · sensibilidad varianza-based del NPV</h3>
+      <span class="widget__hint">Sobol 1967 / Saltelli 2002. Descompone la varianza del NPV en contribuciones por variable (sin asumir linealidad, maneja interacciones). Pure-Python numpy-only. <strong>Tip de chart</strong>: toolbar arriba-derecha · doble-click resetea.</span>
+    </div>
+
+    <div class="widget__controls">
+      <div class="widget__control">
+        <label>Número de samples Saltelli <span class="value-display" id="sobol-n-samples-val">128</span></label>
+        <input type="range" id="sobol-n-samples" min="64" max="512" value="128" step="32">
+        <span class="text-xs text-muted" style="display:block;margin-top:0.2em;font-style:italic;">Más samples = más precisión, más tiempo. 128 samples ≈ 1024 model evals.</span>
+      </div>
+    </div>
+
+    <div class="widget__output">
+      <div class="kpi"><span class="kpi__value" id="sobol-dominant" style="font-size:1.2rem;color:var(--color-info);">—</span><span class="kpi__label">Variable dominante</span></div>
+      <div class="kpi"><span class="kpi__value" id="sobol-dominant-pct" style="font-size:1.2rem;">—</span><span class="kpi__label">Total-order index</span></div>
+    </div>
+
+    <div id="sobol-chart" class="widget__chart"><div class="widget__loading">Cargando Sobol Saltelli sampling...</div></div>
+
+    <div class="callout mt-2" style="border-left-color:var(--meli-blue);background:var(--color-bg-soft);">
+      <p class="text-sm" style="margin:0;"><strong>Interpretación</strong>: <code>S₁</code> es la contribución directa de cada variable a la varianza del NPV. <code>S_T</code> incluye interacciones (siempre &gt; S₁). Si <code>S_T</code> &gt;&gt; <code>S₁</code>, hay interacciones fuertes. Si una variable tiene <code>S₁ ≈ 0</code> y <code>S_T ≈ 0</code> → es ruido, no invertir en estimarla. Si <code>S₁ ≈ S_T &gt; 0.5</code> → variable domina el NPV, focus aquí.</p>
+    </div>
   </div>
 
   <div class="card card--blue mt-3">
@@ -932,10 +1117,14 @@ GROUP BY 1, 2, 3;</pre>
   "packages": []
 }
 </py-config>
-<script type="py" src="python/packaging_scorecard.py?v=20260515h"></script>
-<script type="py" src="python/shelves_bottleneck.py?v=20260515h"></script>
-<script type="py" src="python/picking_productivity.py?v=20260515h"></script>
-<script type="py" src="python/gantt_simulator.py?v=20260515h"></script>
+<script type="py" src="python/packaging_scorecard.py?v=20260515i"></script>
+<script type="py" src="python/shelves_bottleneck.py?v=20260515i"></script>
+<script type="py" src="python/picking_productivity.py?v=20260515i"></script>
+<script type="py" src="python/gantt_simulator.py?v=20260515i"></script>
+<!-- SOTA widgets (iter 5) -->
+<script type="py" src="python/real_options.py?v=20260515i"></script>
+<script type="py" src="python/des_simulator.py?v=20260515i"></script>
+<script type="py" src="python/sobol_sensitivity.py?v=20260515i"></script>
 
 </body>
 </html>
